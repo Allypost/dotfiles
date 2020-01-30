@@ -61,6 +61,9 @@ bindkey "^?" backward-delete-char
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
+# Ctrl+U deletes to start of line
+bindkey "^U" backward-kill-line
+
 [ -f "$HOME/.bash_aliases" ] && source "$HOME/.bash_aliases"
 if [ -d "$HOME/.zfunctions" ]; then
   fpath=($fpath "$HOME/.zfunctions")
@@ -88,6 +91,7 @@ if [ -f "$HOME/.zsh-scripts/antigen.zsh" ]; then
   SPACESHIP_TIME_SHOW=true
   SPACESHIP_DIR_TRUNC=0
   SPACESHIP_USER_PREFIX='| '
+  SPACESHIP_USER_SUFFIX=''
   SPACESHIP_TIME_PREFIX='| '
   SPACESHIP_DIR_PREFIX='| '
   SPACESHIP_GIT_PREFIX='| '
