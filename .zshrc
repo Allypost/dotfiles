@@ -73,19 +73,19 @@ fi
 if [ -f "$HOME/.zsh-scripts/antigen.zsh" ]; then
   source "$HOME/.zsh-scripts/antigen.zsh"
 
+  antigen use oh-my-zsh
+
   antigen bundle git
   antigen bundle git-prompt
-  antigen bundle heroku
-  antigen bundle pip
-  antigen bundle lein
   antigen bundle command-not-found
+  antigen bundle catimg
 
   antigen bundle "zsh-users/zsh-syntax-highlighting"
   antigen bundle "MichaelAquilina/zsh-you-should-use"
   antigen bundle "olivierverdier/zsh-git-prompt"
 
   # antigen theme "denysdovhan/spaceship-prompt"
-  antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
+  antigen theme https://github.com/pascaldevink/spaceship-zsh-theme spaceship
 
   SPACESHIP_PROMPT_ADD_NEWLINE=false
   SPACESHIP_TIME_SHOW=true
@@ -109,7 +109,6 @@ if [ -f "$HOME/.zsh-scripts/antigen.zsh" ]; then
     time          # Time stamps section
     dir           # Current directory section
     git           # Git section (git_branch + git_status)
-  #  git_prompt    # Git section (git_branch + git_status)
     hg            # Mercurial section (hg_branch  + hg_status)
     package       # Package version
     node          # Node.js section
@@ -156,11 +155,6 @@ if [ -f "$HOME/.zsh-scripts/antigen.zsh" ]; then
   SPACESHIP_EMBER_SHOW=false
   SPACESHIP_KUBECTL_SHOW=false
   SPACESHIP_EXIT_CODE_SHOW=true
-
-  spaceship_git_prompt() {
-    [[ $SPACESHIP_GIT_SHOW == false ]] && return
-    git_super_status
-  }
 
   antigen apply
 fi
