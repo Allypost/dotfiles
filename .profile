@@ -16,6 +16,8 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
+test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
+
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
@@ -26,12 +28,27 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# set PATH so it includes the user's platform tools (ADB) if it exists
+if [ -d "$HOME/.local/platform-tools" ]; then
+    PATH="$HOME/.local/platform-tools:$PATH"
+fi
+
 # set PATH so it includes user's private scripts if it exists
 if [ -d "$HOME/.scripts" ] ; then
     PATH="$HOME/.scripts:$PATH"
+fi
+
+if [ -d "$HOME/.config/composer/vendor/bin" ]; then
+    PATH="$PATH:$HOME/.config/composer/vendor/bin"
 fi
 
 export LANGUAGE='en_GB.UTF-8'
 export LANG='en_GB.UTF-8'
 export LC_ALL='en_GB.UTF-8'
 export LC_TIME='hr_HR.UTF-8'
+
+export ERL_AFLAGS="-kernel shell_history enabled"
+
+export WORKON_HOME="$HOME/.virtualenvs"
+
+[ -f "$HOME/.local/.profile" ] && source "$HOME/.local/.profile"
