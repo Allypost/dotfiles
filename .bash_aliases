@@ -130,15 +130,6 @@ alias clip="xclip -sel clip"
 alias cls='printf "\033[2J\033[3J\033[1;1H"'
 
 function please() {
-    _args="$@"
-    if [ $# -eq 0 ]; then
-        _args=$(history -p \!\!)
-    fi
-
-    sudo $_args
-}
-
-function please() {
     if [ $# -eq 0 ]; then
         sudo $(history -p \!\!)
     else
@@ -157,6 +148,49 @@ function lenny() {
 
 alias cdtemp='cd `mktemp -d`'
 
-alias vs='v ~/.bash_aliases && source ~/.bash_aliases'
+alias va='v ~/.bash_aliases && source ~/.bash_aliases'
 
 alias rm='rm -i'
+
+alias gitp='git pull --rebase'
+alias top='s-tui'
+alias stop='sudo s-tui'
+
+function swap-clear() {
+    # Dirty hack to request sudo
+    # for a prettier printing experience
+    sudo cat /dev/null
+    
+    printf "Clearing... "
+    sudo swapoff -a && \
+    sudo  swapon -a
+    printf "\r"
+    echo   "Cleared swap"
+}
+
+function switch-to-test-env() {
+    eval $(make -s env-test)
+}
+
+function make-test-env-reduced() {
+    switch-to-test-env
+    make up
+    docker/cli bin/console prepare:elastic
+}
+
+function make-test-env() {
+    switch-to-test-env
+    make init-reduced
+    docker/cli bin/console prepare:elastic
+}
+
+alias pt='docker/cli vendor/bin/phpunit' 
+alias ptd='docker/cli php-debug vendor/bin/phpunit'
+
+function tar-store() {
+    tar cf - "$1" -P | pv -s $(du -sb "$1" | awk '{print $1}') > "$(dirname "$1")/$(basename "$1").tar"
+}
+
+function tar-compress() {
+    tar cf - "$1" -P | pv -s $(du -sb "$1" | awk '{print $1}') | gzip > "$(dirname "$1")/$(basename "$1").tar.gz"
+}
