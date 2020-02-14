@@ -194,3 +194,5 @@ function tar-store() {
 function tar-compress() {
     tar cf - "$1" -P | pv -s $(du -sb "$1" | awk '{print $1}') | gzip > "$(dirname "$1")/$(basename "$1").tar.gz"
 }
+
+alias watch='watch --color'
