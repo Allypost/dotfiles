@@ -42,6 +42,10 @@ if [ -d "$HOME/.config/composer/vendor/bin" ]; then
     PATH="$PATH:$HOME/.config/composer/vendor/bin"
 fi
 
+if [ -d "/snap/bin" ]; then
+    PATH="/snap/bin:$PATH"
+fi
+
 export LANGUAGE='en_GB.UTF-8'
 export LANG='en_GB.UTF-8'
 export LC_ALL='en_GB.UTF-8'
