@@ -200,3 +200,5 @@ alias watch='watch --color'
 function docker-rm-all() {
     docker rm $(docker stop $(docker ps -a -q))
 }
+
+alias start-deezer-downloader='docker run -d --name=Deezldr -v "$HOME/Music/Deezldr:/downloads" -v "$HOME/.config/deezldr:/config" -e PUID=$(id -u) -e PGID=$(id -g) -p 1730:1730 bocki/deezloaderrmx'
