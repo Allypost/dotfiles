@@ -120,7 +120,7 @@ alias youtube-dl-best="youtube-dl -f bestvideo+bestaudio --embed-thumbnail --emb
 
 alias yt-dl="youtube-dl -f bestaudio --extract-audio --embed-thumbnail --audio-format mp3 --audio-quality 320k -o '%(title)s.%(ext)s'"
 alias y="yt-dl"
-alias meme-dl="youtube-dl -f 'best[width <= 720][filesize <? 50M]' --id --embed-thumbnail --recode-video mp4"
+alias meme-dl="youtube-dl -f 'best[width <=? 720][filesize <? 50M]' --id --embed-thumbnail --recode-video mp4"
 alias m="meme-dl"
 
 alias gitp="git pull --rebase"
