@@ -196,3 +196,7 @@ function tar-compress() {
 }
 
 alias watch='watch --color'
+
+function docker-rm-all() {
+    docker rm $(docker stop $(docker ps -a -q))
+}
