@@ -155,6 +155,10 @@ if [ -f "$HOME/.zsh-scripts/antigen.zsh" ]; then
   SPACESHIP_EMBER_SHOW=false
   SPACESHIP_KUBECTL_SHOW=false
   SPACESHIP_EXIT_CODE_SHOW=true
+  SPACESHIP_BATTERY_SHOW=false
+  if [ -d '/sys/class/power_supply/BAT0' ]; then
+    SPACESHIP_BATTERY_SHOW=true
+  fi
 
   antigen apply
 fi
