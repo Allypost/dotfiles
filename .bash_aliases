@@ -202,3 +202,19 @@ function docker-rm-all() {
 }
 
 alias start-deezer-downloader='docker run -d --name=Deezldr -v "$HOME/Music/Deezldr:/downloads" -v "$HOME/.config/deezldr:/config" -e PUID=$(id -u) -e PGID=$(id -g) -p 1730:1730 bocki/deezloaderrmx'
+
+alias serve-current-directory='python3 -m http.server'
+
+function compact-video() {
+    filename="${1##*/}"                             # Strip longest match of */ from start
+    base="${filename%.[^.]*}"                       # Strip shortest match of . plus at least one non-dot char from end
+    ext="${filename:${#base} + 1}"                  # Substring from len of base thru end
+    if [[ -z "$base" && -n "$ext" ]]; then          # If we have an extension and no base, it's really the base
+        base=".$ext"
+        ext=""
+    fi
+
+    ffmpeg -i "$1" -c:v libx265 -crf 30 -b:a 320k -deadline best -vf "scale=-2:480" -map_metadata -1 "$(dirname "$1")/$base.s.$ext"
+}
+alias cv='compact-video'
+
