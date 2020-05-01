@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If not running interactively, don't change anything
 [[ $- != *i* ]] && return
 
@@ -84,81 +91,10 @@ if [ -f "$HOME/.zsh-scripts/antigen.zsh" ]; then
   antigen bundle "MichaelAquilina/zsh-you-should-use"
   antigen bundle "olivierverdier/zsh-git-prompt"
 
-  # antigen theme "denysdovhan/spaceship-prompt"
-  antigen theme https://github.com/pascaldevink/spaceship-zsh-theme spaceship
+  antigen theme romkatv/powerlevel10k
 
-  SPACESHIP_PROMPT_ADD_NEWLINE=false
-  SPACESHIP_TIME_SHOW=true
-  SPACESHIP_DIR_TRUNC=0
-  SPACESHIP_USER_PREFIX='| '
-  SPACESHIP_USER_SUFFIX=''
-  SPACESHIP_TIME_PREFIX='| '
-  SPACESHIP_DIR_PREFIX='| '
-  SPACESHIP_GIT_PREFIX='| '
-  SPACESHIP_HOST_PREFIX='@'
-  SPACESHIP_DIR_TRUNC_PREFIX='×'
-  SPACESHIP_CHAR_SYMBOL='❯'
-  SPACESHIP_CHAR_SUFFIX=' '
-  SPACESHIP_EXEC_TIME_PREFIX='| took '
-
-  plugins=(git-prompt)
-
-  SPACESHIP_PROMPT_ORDER=(
-    user          # Username section
-    host          # Hostname section
-    time          # Time stamps section
-    dir           # Current directory section
-    git           # Git section (git_branch + git_status)
-    hg            # Mercurial section (hg_branch  + hg_status)
-    package       # Package version
-    node          # Node.js section
-    ruby          # Ruby section
-    elixir        # Elixir section
-    xcode         # Xcode section
-    swift         # Swift section
-    golang        # Go section
-    php           # PHP section
-    rust          # Rust section
-    haskell       # Haskell Stack section
-    julia         # Julia section
-    docker        # Docker section
-    aws           # Amazon Web Services section
-    venv          # virtualenv section
-    conda         # conda virtualenv section
-    pyenv         # Pyenv section
-    dotnet        # .NET section
-    ember         # Ember.js section
-    terraform     # Terraform workspace section
-    exec_time     # Execution time
-    line_sep      # Line break
-    battery       # Battery level and status
-    vi_mode       # Vi-mode indicator
-    jobs          # Background jobs indicator
-    exit_code     # Exit code section
-    char          # Prompt character
-  )
-
-  SPACESHIP_PACKAGE_SHOW=false
-  SPACESHIP_NODE_SHOW=false
-  SPACESHIP_RUBY_SHOW=false
-  SPACESHIP_ELM_SHOW=false
-  SPACESHIP_ELIXIR_SHOW=false
-  SPACESHIP_GOLANG_SHOW=false
-  SPACESHIP_PHP_SHOW=false
-  SPACESHIP_RUST_SHOW=false
-  SPACESHIP_HASKELL_SHOW=false
-  SPACESHIP_JULIA_SHOW=false
-  SPACESHIP_DOCKER_SHOW=false
-  SPACESHIP_DOCKER_CONTEXT_SHOW=false
-  SPACESHIP_AWS_SHOW=false
-  SPACESHIP_DOTNET_SHOW=false
-  SPACESHIP_EMBER_SHOW=false
-  SPACESHIP_KUBECTL_SHOW=false
-  SPACESHIP_EXIT_CODE_SHOW=true
-  SPACESHIP_BATTERY_SHOW=false
-  if [ -d '/sys/class/power_supply/BAT0' ]; then
-    SPACESHIP_BATTERY_SHOW=true
-  fi
+  # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+  [[ ! -f "$HOME/.p10k.zsh" ]] || source "$HOME/.p10k.zsh"
 
   antigen apply
 fi
