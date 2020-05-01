@@ -72,3 +72,8 @@ if [ -d "$PYENV_ROOT" ]; then
     fi
 fi
 
+if [ -d "/usr/local/go/bin" ]; then
+    export PATH="$PATH:/usr/local/go/bin"
+    export GOPATH="$HOME/.local/etc/go"
+    mkdir -p "$GOPATH"
+fi
