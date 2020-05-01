@@ -419,7 +419,7 @@
       printf '%s' "$s"
     }
 
-    res+=" ${meta}[$(trim "$res_status")${meta}]"
+    [ ! -z $res_status ] && res+=" ${meta}[$(trim "$res_status")${meta}]"
 
     typeset -g my_git_format=$res
   }
