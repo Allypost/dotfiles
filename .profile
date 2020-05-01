@@ -12,19 +12,19 @@
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
+        . "$HOME/.bashrc"
     fi
 fi
 
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
+if [ -d "$HOME/bin" ]; then
     PATH="$HOME/bin:$PATH"
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
+if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
@@ -34,7 +34,7 @@ if [ -d "$HOME/.local/platform-tools" ]; then
 fi
 
 # set PATH so it includes user's private scripts if it exists
-if [ -d "$HOME/.scripts" ] ; then
+if [ -d "$HOME/.scripts" ]; then
     PATH="$HOME/.scripts:$PATH"
 fi
 
@@ -58,10 +58,21 @@ export WORKON_HOME="$HOME/.virtualenvs"
 [ -f "$HOME/.local/.profile" ] && source "$HOME/.local/.profile"
 
 export NVM_DIR="$HOME/.nvm"
-
 if [ -d "$NVM_DIR" ]; then
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+    declare -a NODE_GLOBALS=($(find "$NVM_DIR/versions/node" -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq))
+
+    NODE_GLOBALS+=("node")
+    NODE_GLOBALS+=("nvm")
+
+    load_nvm() {
+        export NVM_DIR=~/.nvm
+        [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"                    # This loads nvm
+        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+    }
+
+    for cmd in "${NODE_GLOBALS[@]}"; do
+        eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
+    done
 fi
 
 export PYENV_ROOT="$HOME/.pyenv"
