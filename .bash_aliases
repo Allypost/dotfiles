@@ -218,3 +218,7 @@ function compact-video() {
 }
 alias cv='compact-video'
 
+function streamplay() {
+    streamlink --player mpv "$1" best
+}
+
