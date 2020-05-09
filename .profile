@@ -63,6 +63,7 @@ if [ -d "$NVM_DIR" ]; then
 
     NODE_GLOBALS+=("node")
     NODE_GLOBALS+=("nvm")
+    NODE_GLOBALS+=("yarn")
 
     load_nvm() {
         export NVM_DIR=~/.nvm
