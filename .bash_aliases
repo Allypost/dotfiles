@@ -222,3 +222,14 @@ function mpv-stream() {
     mpv `youtube-dl -f best -g -q "$1"`
 }
 
+function fix-opensubtitles-encoding() {
+    [ -z "$1" ] && echo "You must provide a file path" && return 1
+    TEMP_FILE="$(mktemp)"
+    iconv -f CP1252 -t UTF-8//TRANSLIT "$1" -o "$TEMP_FILE"
+    sed -rEi 's/æ/ć/gi' "$TEMP_FILE"
+    sed -rEi 's/è/č/gi' "$TEMP_FILE"
+    sed -rEi 's/ð/đ/gi' "$TEMP_FILE"
+    sed -rEi 's/\. ([šđčćž])/. \u\1/g' "$TEMP_FILE"
+    kioclient5 move "$1" trash:/ 2>/dev/null
+    mv "$TEMP_FILE" "$1"
+}
