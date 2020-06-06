@@ -235,3 +235,9 @@ function fix-opensubtitles-encoding() {
     kioclient5 move "$1" trash:/ 2>/dev/null
     mv "$TEMP_FILE" "$1"
 }
+
+alias ssh-kset="ssh -J cortana.kset.org"
+
+alias power-down="au && shutdown -h now"
+alias go-away-computer="power-down"
+
