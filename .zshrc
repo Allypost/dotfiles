@@ -33,6 +33,13 @@ export SAVEHIST=$HISTSIZE
 setopt EXTENDED_HISTORY
 HISTFILE=~/.zsh_history
 
+# Add completions
+if [ -d "$HOME/.asdf" ]; then
+  . $HOME/.asdf/asdf.sh
+
+  fpath=("$ASDF_DIR/completions" $fpath)
+fi
+
 # Use modern completion system
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
@@ -75,7 +82,6 @@ bindkey "^U" backward-kill-line
 if [ -d "$HOME/.zfunctions" ]; then
   fpath=($fpath "$HOME/.zfunctions")
 fi
-
 # Antigen (Package manager)
 if [ -f "$HOME/.zsh-scripts/antigen.zsh" ]; then
   source "$HOME/.zsh-scripts/antigen.zsh"
