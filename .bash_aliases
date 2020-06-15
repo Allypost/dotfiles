@@ -203,7 +203,7 @@ function docker-rm-all() {
 
 # alias start-deezer-downloader='docker run -d --name=Deezldr -v "$HOME/Music/Deezldr:/downloads" -v "$HOME/.config/deezldr:/config" -e PUID=$(id -u) -e PGID=$(id -g) -p 1730:1730 bocki/deezloaderrmx'
 
-alias start-deemix-downloader='docker run --rm -d --name=Deemix  -v "$HOME/Music/Deemix:/downloads"  -v "$HOME/.config/deemix:/config"  -e PUID=$(id -u) -e PGID=$(id -g) -p 9666:9666 bocki/deemix'
+alias start-deemix-downloader='docker run --rm -d --name=Deemix  -v "$HOME/Music/Deemix:/downloads"  -v "$HOME/.config/deemix:/config" -e PUID=$(id -u) -e PGID=$(id -g) -p 9666:6595 registry.gitlab.com/bockiii/deemix-docker'
 
 alias serve-current-directory='python3 -m http.server'
 
