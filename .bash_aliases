@@ -188,7 +188,15 @@ alias pt='docker/cli vendor/bin/phpunit'
 alias ptd='docker/cli php-debug vendor/bin/phpunit'
 
 function tar-store() {
-    tar cf - "$1" -P | pv -s $(du -sb "$1" | awk '{print $1}') > "$(dirname "$1")/$(basename "$1").tar"
+    if [ -z "$2" ]; then
+        $TO_FILE="$(dirname "$1")/$(basename "$1").tar";
+    else 
+        $TO_FILE="$2";
+    fi
+
+    echo "$TO_FILE"
+
+    tar cf - "$1" -P | pv -s $(du -sb "$1" | awk '{print $1}') > "$TO_FILE"
 }
 
 function tar-compress() {
@@ -203,7 +211,7 @@ function docker-rm-all() {
 
 # alias start-deezer-downloader='docker run -d --name=Deezldr -v "$HOME/Music/Deezldr:/downloads" -v "$HOME/.config/deezldr:/config" -e PUID=$(id -u) -e PGID=$(id -g) -p 1730:1730 bocki/deezloaderrmx'
 
-alias start-deemix-downloader='docker run --rm -d --name=Deemix  -v "$HOME/Music/Deemix:/downloads"  -v "$HOME/.config/deemix:/config" -e PUID=$(id -u) -e PGID=$(id -g) -p 9666:6595 registry.gitlab.com/bockiii/deemix-docker'
+alias start-deemix-downloader='docker run --rm -d --name=Deemix  -v "$HOME/Music/Deemix:/downloads"  -v "$HOME/.config/deemix:/config" -e PUID=$(id -u) -e PGID=$(id -g) -p 9666:6595 registry.gitlab.com/bockiii/deemix-docker && docker logs -f Deemix'
 
 alias serve-current-directory='python3 -m http.server'
 
@@ -216,7 +224,7 @@ function compact-video() {
         ext=""
     fi
 
-    ffmpeg -i "$1" -c:v libx265 -crf 30 -b:a 320k -deadline best -vf "scale=-2:480" -map_metadata -1 "$(dirname "$1")/$base.s.$ext"
+    ffmpeg -i "$1" -max_muxing_queue_size 1024 -c:v libx265 -crf 30 -b:a 320k -vf "scale=-2:480" -map_metadata -1 "$(dirname "$1")/$base.s.mp4"
 }
 alias cv='compact-video'
 
