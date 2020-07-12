@@ -40,6 +40,10 @@ if [ -d "$HOME/.asdf" ]; then
   fpath=("$ASDF_DIR/completions" $fpath)
 fi
 
+if [ -d "$HOME/.zsh/completions" ]; then
+  fpath=($fpath "$HOME/.zsh/completions")
+fi
+
 # Use modern completion system
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
