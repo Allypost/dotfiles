@@ -250,3 +250,7 @@ alias power-down="au && shutdown -h now"
 alias go-away-computer="power-down"
 
 alias emacs="emacs -nw"
+
+function adb-wait-for-device() {
+    adb wait-for-device && notify-send -u critical -a 'ADB' --icon 'phone' 'Phone connected' "The device '`adb shell getprop ro.product.model`' has connected to the computer"
+}
