@@ -116,9 +116,11 @@ alias o="xdg-open"
 alias kset-proxy="ssh -D 13300 -q -C -N kset"
 
 alias youtube-dl="youtube-dl --http-chunk-size 10M --console-title --prefer-ffmpeg --netrc --add-metadata --ignore-errors"
-alias youtube-dl-best="youtube-dl -f bestvideo+bestaudio --recode-video mp4 --embed-thumbnail --embed-subs --all-subs"
+# alias youtube-dl-best="youtube-dl -f bestvideo+bestaudio --recode-video mp4 --embed-thumbnail --embed-subs --all-subs"
+alias youtube-dl-best="youtube-dl -f bestvideo+bestaudio --recode-video mp4 --embed-subs --all-subs"
 
-alias yt-dl="youtube-dl -f bestaudio --extract-audio --embed-thumbnail --audio-format mp3 --audio-quality 320k -o '%(title)s.%(ext)s'"
+# alias yt-dl="youtube-dl -f bestaudio --extract-audio --embed-thumbnail --audio-format mp3 --audio-quality 320k -o '%(title)s.%(ext)s'"
+alias yt-dl="youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 320k -o '%(title)s.%(ext)s'"
 alias y="yt-dl"
 alias meme-dl="youtube-dl -f 'best[width <=? 720][filesize <? 50M]' --id --embed-thumbnail --recode-video mp4"
 alias m="meme-dl"
