@@ -76,14 +76,6 @@ if [ -d "$NVM_DIR" ]; then
     done
 fi
 
-export PYENV_ROOT="$HOME/.pyenv"
-if [ -d "$PYENV_ROOT" ]; then
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    if command -v pyenv 1>/dev/null 2>&1; then
-        eval "$(pyenv init -)"
-    fi
-fi
-
 if [ -d "/usr/local/go/bin" ]; then
     export PATH="$PATH:/usr/local/go/bin"
     export GOPATH="$HOME/.local/etc/go"
