@@ -257,3 +257,6 @@ alias emacs="emacs -nw"
 function adb-wait-for-device() {
     adb wait-for-device && notify-send -u critical -a 'ADB' --icon 'phone' 'Phone connected' "The device '`adb shell getprop ro.product.model`' has connected to the computer"
 }
+
+alias sudo='sudo '
+
