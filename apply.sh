@@ -26,6 +26,10 @@ done
 
 
 
+source "$HOME/.profile"
+
+
+
 echo "Downloading scripts..."
 if [[ -d "$SCRIPTS_DIR" || -f "$SCRIPTS_DIR" ]]; then
     echo "Scripts directort already exists... Skipping."
