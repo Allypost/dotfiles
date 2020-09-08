@@ -99,15 +99,24 @@ function weather() {
 }
 alias wttr='weather'
 
-function apt-update() {
-    sudo apt update;
-    sudo apt upgrade -y;
-    sudo apt dist-upgrade -y;
-    sudo apt autoremove -y;
-    sudo apt autoclean -y;
-}
-alias au="apt-update"
-alias apt="sudo apt -y"
+if command -v apt-get >/dev/null 2>&1; then
+    function apt-update() {
+        sudo apt update
+        sudo apt upgrade -y
+        sudo apt dist-upgrade -y
+        sudo apt autoremove -y
+        sudo apt autoclean -y
+    }
+
+    alias au="apt-update"
+    alias apt="sudo apt -y"
+
+    alias update-system="au"
+elif command -v yay >/dev/null 2>&1; then
+    alias yay='yay --pacman powerpill '
+
+    alias update-system="yay -Syu "
+fi
 
 alias snap="sudo snap"
 
@@ -252,7 +261,7 @@ function fix-opensubtitles-encoding() {
 
 alias ssh-kset="ssh -J $USER@cortana.kset.org"
 
-alias power-down="au && shutdown -h now"
+alias power-down="update-system && shutdown -h now"
 alias go-away-computer="power-down"
 
 alias emacs="emacs -nw"
