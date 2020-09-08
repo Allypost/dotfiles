@@ -264,7 +264,7 @@ alias ssh-kset="ssh -J $USER@cortana.kset.org"
 alias power-down="update-system && shutdown -h now"
 alias go-away-computer="power-down"
 
-alias emacs="emacs -nw"
+alias emacs-tui="emacs -nw"
 
 function adb-wait-for-device() {
     adb wait-for-device && notify-send -u critical -a 'ADB' --icon 'phone' 'Phone connected' "The device '`adb shell getprop ro.product.model`' has connected to the computer"
