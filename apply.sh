@@ -1,9 +1,12 @@
 #/usr/bin/env bash
 
+SCRIPTPATH="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 DOTFILES=\.*
 SCRIPTS_DIR="$HOME/.scripts"
 ANTIGEN_LOC="$HOME/.zsh-scripts/antigen.zsh"
 ASDF_LOC="$HOME/.asdf"
+EMACS_CONF_DIR="$HOME/.emacs.d"
+DOOM_EMACS_CONF_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/doom"
 
 echo "Adding symlinks to files..."
 for f in $DOTFILES; do
@@ -13,7 +16,7 @@ for f in $DOTFILES; do
 
     if [[ -L "$HOME/$f" ]]; then
         echo "Removing old symlink to '$f'"
-	rm -i "$HOME/$f"
+	    rm -i "$HOME/$f"
     fi
 
     if [[ -f "$HOME/$f" ]]; then
@@ -57,4 +60,43 @@ else
     cd "$ASDF_LOC"
     git checkout "$(git describe --abbrev=0 --tags)"
     cd -
+fi
+
+
+
+echo "Installing doom-emacs..."
+if [[ -d "$EMACS_CONF_DIR" ]]; then
+    echo ".emacs.d already exists..."
+    printf "Do you want to override the existing config? [y/N] "
+    read OVERRIDE_EMACS
+    
+    shopt -s nocasematch
+    if [[ $OVERRIDE_EMACS =~ (y|yes) ]]; then
+        EMACS__INSTALL_DOOM_EMACS=1
+    fi
+    shopt -u nocasematch
+else
+    EMACS__INSTALL_DOOM_EMACS=1
+fi
+if [ ! -z "$EMACS__INSTALL_DOOM_EMACS" ]; then
+    rm -rf "$EMACS_CONF_DIR"
+    git clone --depth 1 https://github.com/hlissner/doom-emacs "$EMACS_CONF_DIR"
+fi
+
+if [ -d "$DOOM_EMACS_CONF_DIR" ]; then
+    echo "doom-emacs config already exists..."
+    printf "Do you want to override the existing config? [y/N] "
+    read OVERRIDE_DOOM_EMACS
+
+    shopt -s nocasematch
+    if [[ $OVERRIDE_DOOM_EMACS =~ (y|yes) ]]; then
+        EMACS__INSTALL_DOOM_EMACS_CONFIG=1
+    fi
+    shopt -u nocasematch
+else
+    EMACS__INSTALL_DOOM_EMACS_CONFIG=1
+fi
+if [ ! -z "$EMACS__INSTALL_DOOM_EMACS_CONFIG" ]; then
+    rm -rf "$DOOM_EMACS_CONF_DIR"
+    ln -rs "$SCRIPTPATH/doom-emacs-config" "$DOOM_EMACS_CONF_DIR"
 fi
