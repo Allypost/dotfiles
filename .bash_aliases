@@ -247,7 +247,7 @@ function fix-opensubtitles-encoding() {
     mv "$TEMP_FILE" "$1"
 }
 
-alias ssh-kset="ssh -J cortana.kset.org"
+alias ssh-kset="ssh -J $USER@cortana.kset.org"
 
 alias power-down="au && shutdown -h now"
 alias go-away-computer="power-down"
