@@ -30,7 +30,7 @@ echo "Downloading scripts..."
 if [[ -d "$SCRIPTS_DIR" || -f "$SCRIPTS_DIR" ]]; then
     echo "Scripts directort already exists... Skipping."
 else
-    git clone git@github.com:Allypost/bash-scripts.git "$SCRIPTS_DIR"
+    git clone https://github.com/Allypost/bash-scripts.git "$SCRIPTS_DIR"
 fi
 
 
