@@ -19,6 +19,9 @@ alias lS='ll -S'
 alias la='ls -At'
 alias l='ls -Ct'
 
+# Allow aliases to trickle thru to sudo
+alias sudo='sudo '
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history | tail -n1 | sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -257,6 +260,3 @@ alias emacs="emacs -nw"
 function adb-wait-for-device() {
     adb wait-for-device && notify-send -u critical -a 'ADB' --icon 'phone' 'Phone connected' "The device '`adb shell getprop ro.product.model`' has connected to the computer"
 }
-
-alias sudo='sudo '
-
