@@ -47,7 +47,7 @@ fi
 
 echo "Installing asdf..."
 if [[ -d "$ASDF_LOC" ]]; then
-    echo "asdf already installer... Skipping."
+    echo "asdf already installed... Skipping."
 else
     git clone https://github.com/asdf-vm/asdf.git "$ASDF_LOC"
     cd "$ASDF_LOC"
