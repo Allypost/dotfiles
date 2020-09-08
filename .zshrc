@@ -91,20 +91,52 @@ if [ -f "$HOME/.zsh-scripts/antigen.zsh" ]; then
   source "$HOME/.zsh-scripts/antigen.zsh"
 
   antigen use oh-my-zsh
+	
+  ### Bundles
 
+  ## Loaded from https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins
   antigen bundle git
   antigen bundle git-prompt
   antigen bundle command-not-found
-  antigen bundle catimg
+  antigen bundle gitfast
+  antigen bundle sudo
 
-  antigen bundle "zsh-users/zsh-syntax-highlighting"
-  antigen bundle "MichaelAquilina/zsh-you-should-use"
-  antigen bundle "olivierverdier/zsh-git-prompt"
 
+  ## Loaded from other sources
+  antigen bundle zsh-users/zsh-autosuggestions
+  antigen bundle hlissner/zsh-autopair
+  # antigen bundle "zsh-users/zsh-syntax-highlighting"
+  antigen bundle zdharma/fast-syntax-highlighting
+  antigen bundle MichaelAquilina/zsh-you-should-use
+  antigen bundle olivierverdier/zsh-git-prompt
   antigen theme romkatv/powerlevel10k
 
+
+  ## Program dependant bundles
+  if command -v fd >/dev/null 2>&1; then
+    antigen bundle fd
+  fi
+  if command -v fzf >/dev/null 2>&1; then
+    antigen bundle fzf
+
+    export FZFZ_PREVIEW_COMMAND='tree -NC -L 2 -x --noreport --dirsfirst {}'
+    export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git || git ls-tree -r --name-only HEAD || rg --hidden --files || find ."
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    export FZF_CTRL_T_OPTS="--preview '(bat --style=numbers --color=always {} || cat {} || tree -NC {}) 2> /dev/null | head -200'"
+    export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview' --exact"
+    export FZF_ALT_C_OPTS="--preview 'tree -NC {} | head -200'"
+  fi
+
+
+
+  ### Load p10k configs
   # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-  [[ ! -f "$HOME/.p10k.zsh" ]] || source "$HOME/.p10k.zsh"
+  [ -f "$HOME/.p10k.zsh" ] && source "$HOME/.p10k.zsh"
+
+
+
+  # Local customizations, e.g. theme, plugins, aliases, etc.
+  [ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
 
   antigen apply
 fi
