@@ -33,6 +33,10 @@ if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+if [ -d "$HOME/.npm/bin" ]; then
+    PATH="$PATH:$HOME/.npm/bin"
+fi
+
 # set PATH so it includes the user's platform tools (ADB) if it exists
 if [ -d "$HOME/.local/platform-tools" ]; then
     PATH="$HOME/.local/platform-tools:$PATH"
@@ -85,4 +89,8 @@ if [ -d "/usr/local/go/bin" ]; then
     export PATH="$PATH:/usr/local/go/bin"
     export GOPATH="$HOME/.local/etc/go"
     mkdir -p "$GOPATH"
+fi
+
+if [ -d "$HOME/.emacs.d/bin" ]; then
+    export PATH="$PATH:$HOME/.emacs.d/bin"
 fi
