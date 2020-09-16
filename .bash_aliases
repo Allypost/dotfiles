@@ -115,7 +115,7 @@ if command -v apt-get >/dev/null 2>&1; then
 elif command -v yay >/dev/null 2>&1; then
     alias yay='yay --pacman powerpill '
 
-    alias update-system="yay -Syu "
+    alias update-system="yay -Syu --devel --timeupdate"
 fi
 
 alias snap="sudo snap"
