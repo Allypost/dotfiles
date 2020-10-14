@@ -6,7 +6,8 @@ SCRIPTS_DIR="$HOME/.scripts"
 ANTIGEN_LOC="$HOME/.zsh-scripts/antigen.zsh"
 ASDF_LOC="$HOME/.asdf"
 EMACS_CONF_DIR="$HOME/.emacs.d"
-DOOM_EMACS_CONF_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/doom"
+CONF_DIR="${XDG_CONFIG_HOME:-$HOME/.config}"
+DOOM_EMACS_CONF_DIR="$CONF_DIR/doom"
 
 echo "Adding symlinks to files..."
 for f in $DOTFILES; do
@@ -26,6 +27,22 @@ for f in $DOTFILES; do
 
     ln -rs "$f" "$HOME/$f"
 done
+
+
+
+echo "Adding configs..."
+if [[ -f "$HOME/kglobalshortcutsrc" ]]; then
+    mv "$HOME/kglobalshortcutsrc" "$HOME/kglobalshortcutsrc.bak"
+fi
+ln -rs "$SCRIPTPATH/kde/kglobalshortcutsrc" "$HOME/kglobalshortcutsrc"
+
+mkdir -p "$CONF_DIR/rofi"
+if [[ -f "$CONF_DIR/rofi/config.rasi" ]]; then
+    mv "$CONF_DIR/rofi/config.rasi" "$CONF_DIR/rofi/config.rasi.bak"
+fi
+ln -rs "$SCRIPTPATH/rofi/config.rasi" "$CONF_DIR/rofi/config.rasi"
+mkdir -p "$SCRIPTPATH/rofi/themes/"
+cp "$SCRIPTPATH/rofi/themes/slate.rasi" "$CONF_DIR/rofi/themes/slate.rasi"
 
 
 
