@@ -6,4 +6,6 @@ configuration {
 	icon-theme: "Papirus";
 	show-icons: true;
 	combi-modi: "drun,run";
+	display-drun: "";
+	display-run: "[CMD]";
 }

@@ -38,6 +38,14 @@ element {
   padding: 16px;
 }
 
+element-icon {
+  size: 2.69ch;
+}
+
+element-index {
+  display: none;
+}
+
 element selected {
   background-color: #2e343f;
 }
