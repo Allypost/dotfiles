@@ -31,10 +31,10 @@ done
 
 
 echo "Adding configs..."
-if [[ -f "$HOME/kglobalshortcutsrc" ]]; then
-    mv "$HOME/kglobalshortcutsrc" "$HOME/kglobalshortcutsrc.bak"
+if [[ -f "$CONF_DIR/kglobalshortcutsrc" ]]; then
+    mv "$CONF_DIR/kglobalshortcutsrc" "$CONF_DIR/kglobalshortcutsrc.bak"
 fi
-ln -rs "$SCRIPTPATH/kde/kglobalshortcutsrc" "$HOME/kglobalshortcutsrc"
+ln -rs "$SCRIPTPATH/kde/kglobalshortcutsrc" "$CONF_DIR/kglobalshortcutsrc"
 
 mkdir -p "$CONF_DIR/rofi"
 if [[ -f "$CONF_DIR/rofi/config.rasi" ]]; then
