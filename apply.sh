@@ -8,6 +8,7 @@ ASDF_LOC="$HOME/.asdf"
 EMACS_CONF_DIR="$HOME/.emacs.d"
 CONF_DIR="${XDG_CONFIG_HOME:-$HOME/.config}"
 DOOM_EMACS_CONF_DIR="$CONF_DIR/doom"
+ROFI_CONF_DIR="$CONF_DIR/rofi"
 
 echo "Adding symlinks to files..."
 for f in $DOTFILES; do
@@ -36,16 +37,16 @@ if [[ -f "$CONF_DIR/kglobalshortcutsrc" ]]; then
 fi
 ln -rs "$SCRIPTPATH/kde/kglobalshortcutsrc" "$CONF_DIR/kglobalshortcutsrc"
 
-mkdir -p "$CONF_DIR/rofi"
-if [[ -f "$CONF_DIR/rofi/config.rasi" ]]; then
-    mv "$CONF_DIR/rofi/config.rasi" "$CONF_DIR/rofi/config.rasi.bak"
+mkdir -p "$ROFI_CONF_DIR"
+if [[ -f "$ROFI_CONF_DIR/config.rasi" ]]; then
+    mv "$ROFI_CONF_DIR/config.rasi" "$ROFI_CONF_DIR/config.rasi.bak"
 fi
-ln -rs "$SCRIPTPATH/rofi/config.rasi" "$CONF_DIR/rofi/config.rasi"
-mkdir -p "$CONF_DIR/rofi/themes/"
-if [[ -f "$CONF_DIR/rofi/themes/slate.rasi" ]]; then
-  mv "$CONF_DIR/rofi/themes/slate.rasi" "$CONF_DIR/rofi/themes/slate.rasi.bak"
+ln -rs "$SCRIPTPATH/rofi/config.rasi" "$ROFI_CONF_DIR/config.rasi"
+mkdir -p "$ROFI_CONF_DIR/themes/"
+if [[ -f "$ROFI_CONF_DIR/themes/slate.rasi" ]]; then
+  mv "$ROFI_CONF_DIR/themes/slate.rasi" "$ROFI_CONF_DIR/themes/slate.rasi.bak"
 fi
-ln -rs "$SCRIPTPATH/rofi/themes/slate.rasi" "$CONF_DIR/rofi/themes/slate.rasi"
+ln -rs "$SCRIPTPATH/rofi/themes/slate.rasi" "$ROFI_CONF_DIR/themes/slate.rasi"
 
 
 
