@@ -24,6 +24,9 @@ HISTCONTROL=ignoreboth
 # append to the history file, don't overwrite it
 setopt APPEND_HISTORY
 
+# ignore commands that start with a space (don't save to history)
+setopt HIST_IGNORE_SPACE
+
 # autocomplete aliases
 setopt completealiases
 
