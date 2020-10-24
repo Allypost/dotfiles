@@ -41,7 +41,7 @@ if [[ -f "$CONF_DIR/rofi/config.rasi" ]]; then
     mv "$CONF_DIR/rofi/config.rasi" "$CONF_DIR/rofi/config.rasi.bak"
 fi
 ln -rs "$SCRIPTPATH/rofi/config.rasi" "$CONF_DIR/rofi/config.rasi"
-mkdir -p "$SCRIPTPATH/rofi/themes/"
+mkdir -p "$CONF_DIR/rofi/themes/"
 if [[ -f "$CONF_DIR/rofi/themes/slate.rasi" ]]; then
   mv "$CONF_DIR/rofi/themes/slate.rasi" "$CONF_DIR/rofi/themes/slate.rasi.bak"
 fi
