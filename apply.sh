@@ -9,6 +9,8 @@ EMACS_CONF_DIR="$HOME/.emacs.d"
 CONF_DIR="${XDG_CONFIG_HOME:-$HOME/.config}"
 DOOM_EMACS_CONF_DIR="$CONF_DIR/doom"
 ROFI_CONF_DIR="$CONF_DIR/rofi"
+XFCE4_CONF_DIR="$CONF_DIR/xfce4/"
+XFCE4_TERMINAL_CONF_DIR="$XFCE4_CONF_DIR/terminal"
 
 echo "Adding symlinks to files..."
 for f in $DOTFILES; do
@@ -48,6 +50,20 @@ if [[ -f "$ROFI_CONF_DIR/themes/slate.rasi" ]]; then
 fi
 ln -rs "$SCRIPTPATH/rofi/themes/slate.rasi" "$ROFI_CONF_DIR/themes/slate.rasi"
 
+
+mkdir -p "$XFCE4_CONF_DIR"
+if [[ -d "$XFCE4_TERMINAL_CONF_DIR" ]]; then
+    echo "XFCE4 terminal config already exists..."
+    printf "Do you want to override the existing config? [y/N] "
+    read OVERRIDE_XFCE4_TERMINAL
+
+    shopt -s nocasematch
+    if [[ $OVERRIDE_XFCE4_TERMINAL =~ (y|yes) ]]; then
+        mv "$XFCE4_TERMINAL_CONF_DIR" "$XFCE4_TERMINAL_CONF_DIR.bak"
+    fi
+    shopt -u nocasematch
+fi
+ln -rs "$SCRIPTPATH/xfce4/terminal" "$XFCE4_CONF_DIR"
 
 
 source "$HOME/.profile"
