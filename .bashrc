@@ -102,6 +102,9 @@ export EDITOR="$VISUAL"
 
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
+if [[ -s "$HOME/.asdf/completions/asdf.bash" ]]; then
+    . $HOME/.asdf/completions/asdf.bash
+fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
