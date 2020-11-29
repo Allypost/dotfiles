@@ -1,6 +1,6 @@
 configuration {
 	modi: "window,drun,ssh,combi";
-	theme: ".config/rofi/themes/slate.rasi";
+	theme: "~/.config/rofi/themes/slate.rasi";
 	font: "Noto Sans 16";
 	lines: 10;
 	icon-theme: "Papirus";
