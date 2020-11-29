@@ -34,7 +34,11 @@ if [ -d "$HOME/.local/bin" ]; then
 fi
 
 if [ -d "$HOME/.npm/bin" ]; then
-    PATH="$PATH:$HOME/.npm/bin"
+    PATH="$HOME/.npm/bin:$PATH"
+fi
+
+if [ -d "$HOME/.local/npm/bin" ]; then
+    PATH="$HOME/.local/npm/bin:$PATH"
 fi
 
 # set PATH so it includes the user's platform tools (ADB) if it exists
@@ -59,6 +63,9 @@ export LANGUAGE='en_GB.UTF-8'
 export LANG='en_GB.UTF-8'
 export LC_ALL='en_GB.UTF-8'
 export LC_TIME='hr_HR.UTF-8'
+
+export VISUAL=vim
+export EDITOR="$VISUAL"
 
 export ERL_AFLAGS="-kernel shell_history enabled"
 
@@ -94,3 +101,6 @@ fi
 if [ -d "$HOME/.emacs.d/bin" ]; then
     export PATH="$PATH:$HOME/.emacs.d/bin"
 fi
+
+export GOPATH="$HOME/.local/go"
+export PATH="$PATH:$HOME/.local/go/bin"
