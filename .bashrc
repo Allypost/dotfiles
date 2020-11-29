@@ -102,6 +102,9 @@ export EDITOR="$VISUAL"
 
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
+if [[ -s "$HOME/.asdf/asdf.sh" ]]; then
+    . "$HOME/.asdf/asdf.sh"
+fi 
 if [[ -s "$HOME/.asdf/completions/asdf.bash" ]]; then
     . $HOME/.asdf/completions/asdf.bash
 fi
