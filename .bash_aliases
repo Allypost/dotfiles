@@ -259,7 +259,11 @@ function fix-opensubtitles-encoding() {
     mv "$TEMP_FILE" "$1"
 }
 
-alias ssh-kset="ssh -J $USER@cortana.kset.org"
+#alias ssh-kset="ssh -J $USER@cortana.kset.org"
+function ssh-kset() {
+    ssh -J "$USER@cortana.kset.org" "$USER@$1"
+}
+
 
 alias power-down="update-system && shutdown -h now"
 alias go-away-computer="power-down"
@@ -269,3 +273,5 @@ alias emacs-tui="emacs -nw"
 function adb-wait-for-device() {
     adb wait-for-device && notify-send -u critical -a 'ADB' --icon 'phone' 'Phone connected' "The device '`adb shell getprop ro.product.model`' has connected to the computer"
 }
+
+alias a2cdl="aria2c -x 16 "
