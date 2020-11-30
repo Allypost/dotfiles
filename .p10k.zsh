@@ -38,6 +38,7 @@
     command_execution_time  # duration of the last command
     # =========================[ Line #2 ]=========================
     newline                 # \n
+    context                 # user@hostname
     prompt_char             # prompt symbol
   )
 
@@ -81,7 +82,6 @@
     azure                   # azure account name (https://docs.microsoft.com/en-us/cli/azure)
     gcloud                  # google cloud cli account and project (https://cloud.google.com/)
     google_app_cred         # google application credentials (https://cloud.google.com/docs/authentication/production)
-    context                 # user@hostname
     nordvpn                 # nordvpn connection status, linux only (https://nordvpn.com/)
     ranger                  # ranger shell (https://github.com/ranger/ranger)
     nnn                     # nnn shell (https://github.com/jarun/nnn)
@@ -822,7 +822,9 @@
   # Custom icon.
   # typeset -g POWERLEVEL9K_CONTEXT_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # Custom prefix.
-  typeset -g POWERLEVEL9K_CONTEXT_PREFIX='%fwith '
+  # typeset -g POWERLEVEL9K_CONTEXT_PREFIX='%fwith '
+  typeset -g POWERLEVEL9K_CONTEXT_PREFIX='%f'
+  typeset -g POWERLEVEL9K_CONTEXT_{LEFT,RIGHT}_SUBSEGMENT_SEPARATOR=' '
 
   ###[ virtualenv: python virtual environment (https://docs.python.org/3/library/venv.html) ]###
   # Python virtual environment color.
