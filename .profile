@@ -33,12 +33,21 @@ if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+
+# Set NPM bin path
+NPM_BIN_PATH=''
 if [ -d "$HOME/.npm/bin" ]; then
-    PATH="$HOME/.npm/bin:$PATH"
+    NPM_BIN_PATH="$HOME/.npm/bin"
+    PATH="$PATH:$NPM_BIN_PATH"
 fi
 
 if [ -d "$HOME/.local/npm/bin" ]; then
-    PATH="$HOME/.local/npm/bin:$PATH"
+    NPM_BIN_PATH="$HOME/.local/npm/bin"
+    PATH="$PATH:$NPM_BIN_PATH"
+fi
+
+if [ ! -z "$NPM_BIN_PATH" ]; then
+    command -v npm &> /dev/null && npm config set prefix "$(dirname $NPM_BIN_PATH)"
 fi
 
 # set PATH so it includes the user's platform tools (ADB) if it exists
