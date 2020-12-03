@@ -337,7 +337,7 @@ Uuid={b2bb68ac-ead4-4c25-add7-136f77bc51a3}
 
 [Data_1_6]
 Comment=Comment
-DataCount=5
+DataCount=6
 Enabled=true
 Name=dmenu
 SystemGroup=0
@@ -401,15 +401,15 @@ Uuid={dc0ffd8f-069c-47be-8f1f-a44fd0c6e419}
 
 [Data_1_6_3]
 Comment=Comment
-Enabled=false
-Name=dmenu_run
+Enabled=true
+Name=meme-dl
 Type=SIMPLE_ACTION_DATA
 
 [Data_1_6_3Actions]
 ActionsCount=1
 
 [Data_1_6_3Actions0]
-CommandURL=dmenu_run -i -p 'Run: ' -l 7 -fn 'Fira Code Retina' -nb '#292D3E' -nf '#A6ACCD' -sb '#434A6C' -sf '#e5e9f0'
+CommandURL=$HOME/.scripts/meme-download
 Type=COMMAND_URL
 
 [Data_1_6_3Conditions]
@@ -421,79 +421,41 @@ Comment=Simple_action
 TriggersCount=1
 
 [Data_1_6_3Triggers0]
-Key=Meta+R
+Key=Meta+Alt+D
 Type=SHORTCUT
-Uuid={ffa62753-df35-4b24-b7d1-4fc6e36f3792}
+Uuid={867143a3-19f7-480a-9190-32e0e8d5ac1d}
 
 [Data_1_6_4]
 Comment=Comment
-DataCount=2
-Enabled=true
-Name=lpass
-SystemGroup=0
-Type=ACTION_DATA_GROUP
+Enabled=false
+Name=dmenu_run
+Type=SIMPLE_ACTION_DATA
+
+[Data_1_6_4Actions]
+ActionsCount=1
+
+[Data_1_6_4Actions0]
+CommandURL=dmenu_run -i -p 'Run: ' -l 7 -fn 'Fira Code Retina' -nb '#292D3E' -nf '#A6ACCD' -sb '#434A6C' -sf '#e5e9f0'
+Type=COMMAND_URL
 
 [Data_1_6_4Conditions]
 Comment=
 ConditionsCount=0
 
-[Data_1_6_4_1]
-Comment=Comment
-Enabled=true
-Name=copy password
-Type=SIMPLE_ACTION_DATA
-
-[Data_1_6_4_1Actions]
-ActionsCount=1
-
-[Data_1_6_4_1Actions0]
-CommandURL=echo copy | xargs $HOME/.scripts/lastpass-dmenu
-Type=COMMAND_URL
-
-[Data_1_6_4_1Conditions]
-Comment=
-ConditionsCount=0
-
-[Data_1_6_4_1Triggers]
+[Data_1_6_4Triggers]
 Comment=Simple_action
 TriggersCount=1
 
-[Data_1_6_4_1Triggers0]
-Key=Meta+Ctrl+Alt+P
+[Data_1_6_4Triggers0]
+Key=Meta+R
 Type=SHORTCUT
-Uuid={81d6480a-6302-453c-8cef-2fc5cef04dd7}
-
-[Data_1_6_4_2]
-Comment=Comment
-Enabled=true
-Name=type password
-Type=SIMPLE_ACTION_DATA
-
-[Data_1_6_4_2Actions]
-ActionsCount=1
-
-[Data_1_6_4_2Actions0]
-CommandURL=echo type | xargs $HOME/.scripts/lastpass-dmenu
-Type=COMMAND_URL
-
-[Data_1_6_4_2Conditions]
-Comment=
-ConditionsCount=0
-
-[Data_1_6_4_2Triggers]
-Comment=Simple_action
-TriggersCount=1
-
-[Data_1_6_4_2Triggers0]
-Key=Meta+Alt+P
-Type=SHORTCUT
-Uuid={fff50bc6-8d0d-442e-a2af-76adc6a353c8}
+Uuid={ffa62753-df35-4b24-b7d1-4fc6e36f3792}
 
 [Data_1_6_5]
 Comment=Comment
 DataCount=2
 Enabled=true
-Name=fullwidth
+Name=lpass
 SystemGroup=0
 Type=ACTION_DATA_GROUP
 
@@ -504,14 +466,14 @@ ConditionsCount=0
 [Data_1_6_5_1]
 Comment=Comment
 Enabled=true
-Name=type
+Name=copy password
 Type=SIMPLE_ACTION_DATA
 
 [Data_1_6_5_1Actions]
 ActionsCount=1
 
 [Data_1_6_5_1Actions0]
-CommandURL=$HOME/.scripts/fullwidth-text-type
+CommandURL=echo copy | xargs $HOME/.scripts/lastpass-dmenu
 Type=COMMAND_URL
 
 [Data_1_6_5_1Conditions]
@@ -523,21 +485,21 @@ Comment=Simple_action
 TriggersCount=1
 
 [Data_1_6_5_1Triggers0]
-Key=Meta+Alt+F
+Key=Meta+Ctrl+Alt+P
 Type=SHORTCUT
-Uuid={dbba6519-27bd-4880-bb2a-15ef31ab8404}
+Uuid={81d6480a-6302-453c-8cef-2fc5cef04dd7}
 
 [Data_1_6_5_2]
 Comment=Comment
 Enabled=true
-Name=copy
+Name=type password
 Type=SIMPLE_ACTION_DATA
 
 [Data_1_6_5_2Actions]
 ActionsCount=1
 
 [Data_1_6_5_2Actions0]
-CommandURL=$HOME/.scripts/fullwidth-text-to-clipboard
+CommandURL=echo type | xargs $HOME/.scripts/lastpass-dmenu
 Type=COMMAND_URL
 
 [Data_1_6_5_2Conditions]
@@ -549,6 +511,70 @@ Comment=Simple_action
 TriggersCount=1
 
 [Data_1_6_5_2Triggers0]
+Key=Meta+Alt+P
+Type=SHORTCUT
+Uuid={fff50bc6-8d0d-442e-a2af-76adc6a353c8}
+
+[Data_1_6_6]
+Comment=Comment
+DataCount=2
+Enabled=true
+Name=fullwidth
+SystemGroup=0
+Type=ACTION_DATA_GROUP
+
+[Data_1_6_6Conditions]
+Comment=
+ConditionsCount=0
+
+[Data_1_6_6_1]
+Comment=Comment
+Enabled=true
+Name=type
+Type=SIMPLE_ACTION_DATA
+
+[Data_1_6_6_1Actions]
+ActionsCount=1
+
+[Data_1_6_6_1Actions0]
+CommandURL=$HOME/.scripts/fullwidth-text-type
+Type=COMMAND_URL
+
+[Data_1_6_6_1Conditions]
+Comment=
+ConditionsCount=0
+
+[Data_1_6_6_1Triggers]
+Comment=Simple_action
+TriggersCount=1
+
+[Data_1_6_6_1Triggers0]
+Key=Meta+Alt+F
+Type=SHORTCUT
+Uuid={dbba6519-27bd-4880-bb2a-15ef31ab8404}
+
+[Data_1_6_6_2]
+Comment=Comment
+Enabled=true
+Name=copy
+Type=SIMPLE_ACTION_DATA
+
+[Data_1_6_6_2Actions]
+ActionsCount=1
+
+[Data_1_6_6_2Actions0]
+CommandURL=$HOME/.scripts/fullwidth-text-to-clipboard
+Type=COMMAND_URL
+
+[Data_1_6_6_2Conditions]
+Comment=
+ConditionsCount=0
+
+[Data_1_6_6_2Triggers]
+Comment=Simple_action
+TriggersCount=1
+
+[Data_1_6_6_2Triggers0]
 Key=Meta+Ctrl+Alt+F
 Type=SHORTCUT
 Uuid={22b50f2b-38ab-4d0c-b3d8-ff49676c02bf}
