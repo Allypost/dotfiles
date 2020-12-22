@@ -113,3 +113,9 @@ fi
 
 export GOPATH="$HOME/.local/go"
 export PATH="$PATH:$HOME/.local/go/bin"
+
+if [ -d "$HOME/.dotnet" ]; then
+    export DOTNET_ROOT="$HOME/.dotnet"
+    export PATH="$PATH:$DOTNET_ROOT"
+fi
+
