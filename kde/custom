@@ -35,7 +35,7 @@ Type=MENUENTRY_SHORTCUT_ACTION_DATA
 ActionsCount=1
 
 [Data_1_1_1Actions0]
-CommandURL=xfce4-terminal.desktop
+CommandURL=Alacritty.desktop
 Type=MENUENTRY
 
 [Data_1_1_1Conditions]
@@ -92,7 +92,7 @@ ConditionsCount=0
 [Data_1_2_1]
 Comment=Comment
 Enabled=true
-Name=Launch Dolphin | MEMES
+Name=MEMES
 Type=SIMPLE_ACTION_DATA
 
 [Data_1_2_1Actions]
@@ -118,7 +118,7 @@ Uuid={43027f26-98cb-421f-9d94-ef8d74ba5ca7}
 [Data_1_2_2]
 Comment=Comment
 Enabled=true
-Name=Launch Dolphin | Music
+Name=Music
 Type=SIMPLE_ACTION_DATA
 
 [Data_1_2_2Actions]
@@ -137,14 +137,14 @@ Comment=Simple_action
 TriggersCount=1
 
 [Data_1_2_2Triggers0]
-Key=Meta+Alt+M
+Key=Meta+Ctrl+M
 Type=SHORTCUT
 Uuid={136114d1-a407-44a7-b057-ae78d7e2daeb}
 
 [Data_1_2_3]
 Comment=Comment
 Enabled=true
-Name=Launch Dolphin
+Name=Home
 Type=SIMPLE_ACTION_DATA
 
 [Data_1_2_3Actions]

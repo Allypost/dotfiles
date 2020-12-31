@@ -15,7 +15,7 @@ stop=,none,Stop
 [KDE Keyboard Layout Switcher]
 Switch keyboard layout to Croatian=none,none,Switch keyboard layout to Croatian
 Switch keyboard layout to English (US)=none,none,Switch keyboard layout to English (US)
-Switch to Next Keyboard Layout=Ctrl+Alt+K,none,Switch to Next Keyboard Layout
+Switch to Next Keyboard Layout=none,none,Switch to Next Keyboard Layout
 _k_friendly_name=Keyboard Layout Switcher
 
 [kaccess]
@@ -34,15 +34,16 @@ _k_friendly_name=KDE Daemon
 display=Display\tMeta+P,Display\tMeta+P,Switch Display
 
 [khotkeys]
-_k_friendly_name=KDE Daemon
-{136114d1-a407-44a7-b057-ae78d7e2daeb}=Meta+Alt+M,none,Launch Dolphin | Music
+_k_friendly_name=Custom Shortcuts Service
+{136114d1-a407-44a7-b057-ae78d7e2daeb}=Meta+Ctrl+M,none,Music
 {1c9b52f3-6bd0-4ff0-80d5-3407ca61ea18}=Ctrl+Alt+T,none,Launch Terminal
 {22b50f2b-38ab-4d0c-b3d8-ff49676c02bf}=Meta+Ctrl+Alt+F,none,copy
-{41e5ba5a-9d66-459c-a10e-82777ccd4c63}=Meta+E,none,Launch Dolphin
-{43027f26-98cb-421f-9d94-ef8d74ba5ca7}=Meta+Ctrl+E,none,Launch Dolphin | MEMES
+{41e5ba5a-9d66-459c-a10e-82777ccd4c63}=Meta+E,none,Home
+{43027f26-98cb-421f-9d94-ef8d74ba5ca7}=Meta+Ctrl+E,none,MEMES
 {5a8f0465-18ba-40dc-9f84-15209f894717}=Print,none,Select
 {75b824b9-0cc6-4f1f-9338-f385fe44eea1}=Ctrl+Alt+.,none,Sleep Screen
 {81d6480a-6302-453c-8cef-2fc5cef04dd7}=Meta+Ctrl+Alt+P,none,copy password
+{867143a3-19f7-480a-9190-32e0e8d5ac1d}=Meta+Alt+D,none,meme-dl
 {8e1b2fdc-3189-4a05-97c6-23c2699e8711}=Meta+Alt+C,none,Launch Terminal 2
 {9068ad7d-7ca8-45d1-9bf6-275cdad23932}=Meta+Alt+E,none,Emoji picker
 {b2bb68ac-ead4-4c25-add7-136f77bc51a3}=Meta+Alt+G,none,Gif
@@ -69,11 +70,11 @@ _k_friendly_name=KRunner
 _launch=Alt+Space\tAlt+F2\tSearch,Alt+Space\tAlt+F2\tSearch,KRunner
 
 [ksmserver]
-Halt Without Confirmation=Ctrl+Alt+Shift+PgDown,none,Halt Without Confirmation
+Halt Without Confirmation=Ctrl+Alt+Shift+PgDown,Ctrl+Alt+Shift+PgDown,Halt Without Confirmation
 Lock Session=Meta+L\tCtrl+Alt+L\tScreensaver,Meta+L\tCtrl+Alt+L\tScreensaver,Lock Session
-Log Out=Ctrl+Alt+Del,none,Log Out
-Log Out Without Confirmation=Ctrl+Alt+Shift+Del,none,Log Out Without Confirmation
-Reboot Without Confirmation=Ctrl+Alt+Shift+PgUp,none,Reboot Without Confirmation
+Log Out=Ctrl+Alt+Del,Ctrl+Alt+Del,Log Out
+Log Out Without Confirmation=Ctrl+Alt+Shift+Del,Ctrl+Alt+Shift+Del,Log Out Without Confirmation
+Reboot Without Confirmation=Ctrl+Alt+Shift+PgUp,Ctrl+Alt+Shift+PgUp,Reboot Without Confirmation
 _k_friendly_name=Session Management
 
 [kwin]
@@ -139,7 +140,7 @@ Switch to Screen 5=none,none,Switch to Screen 5
 Switch to Screen 6=none,none,Switch to Screen 6
 Switch to Screen 7=none,none,Switch to Screen 7
 Toggle=none,none,Toggle Show Paint
-Toggle Night Color=none,none,Toggle Night Color
+Toggle Night Color=none,none,Toggle Night Colour
 Toggle Night Colour=none,none,Toggle Night Colour
 Toggle Window Raise/Lower=none,none,Toggle Window Raise/Lower
 ToggleMouseClick=Meta+*,Meta+*,Toggle Mouse Click Effect
@@ -295,7 +296,7 @@ clipboard_action=Ctrl+Alt+X,Ctrl+Alt+X,Enable Clipboard Actions
 cycleNextAction=none,none,Next History Item
 cyclePrevAction=none,none,Previous History Item
 edit_clipboard=none,none,Edit Contents...
-manage activities=Meta+Q,Meta+Q,Activities...
+manage activities=Meta+Q,Meta+Q,Show Activity Switcher
 next activity=Meta+Tab,Meta+Tab,Walk through activities
 previous activity=Meta+Shift+Tab,Meta+Shift+Tab,Walk through activities (Reverse)
 repeat_action=Ctrl+Alt+R,Ctrl+Alt+R,Manually Invoke Action on Current Clipboard
@@ -317,7 +318,7 @@ Map to screen 1=Meta+Ctrl+1,Meta+Ctrl+1,Map to screen 1
 Map to screen 2=Meta+Ctrl+2,Meta+Ctrl+2,Map to screen 2
 Next Profile=Meta+Ctrl+N,Meta+Ctrl+N,Next profile
 Previous Profile=Meta+Ctrl+P,Meta+Ctrl+P,Previous Profile
-Toggle screen map selection=Meta+Ctrl+M,Meta+Ctrl+M,Toggle between all screens
+Toggle screen map selection=,Meta+Ctrl+M,Toggle between all screens
 Toggle stylus mode=Meta+Ctrl+S,Meta+Ctrl+S,Toggle the Stylus Tool Relative/Absolute
 Toggle touch tool=Meta+Ctrl+T,Meta+Ctrl+T,Enable/Disable the Touch Tool
 _k_friendly_name=Wacom Tablet
