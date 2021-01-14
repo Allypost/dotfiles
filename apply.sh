@@ -11,6 +11,7 @@ DOOM_EMACS_CONF_DIR="$CONF_DIR/doom"
 ROFI_CONF_DIR="$CONF_DIR/rofi"
 XFCE4_CONF_DIR="$CONF_DIR/xfce4/"
 XFCE4_TERMINAL_CONF_DIR="$XFCE4_CONF_DIR/terminal"
+ARIA2_CONF_DIR="$CONF_DIR/aria2"
 
 echo "Adding symlinks to files..."
 for f in $DOTFILES; do
@@ -64,6 +65,21 @@ if [[ -d "$XFCE4_TERMINAL_CONF_DIR" ]]; then
     shopt -u nocasematch
 fi
 ln -rs "$SCRIPTPATH/xfce4/terminal" "$XFCE4_CONF_DIR"
+
+
+mkdir -p "$ARIA2_CONF_DIR"
+if [[ -f "$ARIA2_CONF_DIR/aria2.conf" ]]; then
+    echo "Aria2 config already exists..."
+    printf "Do you want to override the existing config? [y/N]"
+    read OVERRIDE_ARIA2_CONFIG
+
+    shopt -s nocasematch
+    if [[ "$OVERRIDE_ARIA2_CONFIG" =~ (y|yes) ]]; then
+      mv "$ARIA2_CONF_DIR/aria2.conf" "$ARIA2_CONF_DIR/aria2.conf.bak"
+    fi
+    shopt -u nocasematch
+fi
+ln -rs "$SCRIPTPATH/aria2/aria2.conf" "$ARIA2_CONF_DIR"
 
 
 source "$HOME/.profile"
