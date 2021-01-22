@@ -442,3 +442,5 @@ function adb-wait-for-device() {
 }
 
 alias a2cdl="aria2c -x 16 "
+
+alias png-compress="pngquant --skip-if-larger --ext .png --force --speed 1 --strip "
