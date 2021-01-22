@@ -281,6 +281,8 @@ elif command -v yay >/dev/null 2>&1; then
     alias yay='yay --pacman powerpill '
 
     alias update-system="yay -Syu --devel "
+elif command -v pacman >/dev/null 2>&1; then
+    alias update-system="pacman -Syu --devel "
 fi
 
 alias snap="sudo snap"
