@@ -169,3 +169,13 @@ if [ ! -z "$EMACS__INSTALL_DOOM_EMACS_CONFIG" ]; then
     rm -rf "$DOOM_EMACS_CONF_DIR"
     ln -rs "$SCRIPTPATH/doom-emacs-config" "$DOOM_EMACS_CONF_DIR"
 fi
+
+
+
+# Remove completions for some programs
+
+# runit
+if ! command -v sv &> /dev/null; then
+  sudo mv /usr/share/zsh/functions/Completion/Unix/{,.bak-}_runit
+fi
+
