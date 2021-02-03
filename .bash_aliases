@@ -19,6 +19,14 @@ alias lS='ll -S'
 alias la='ls -At'
 alias l='ls -Ct'
 
+if [ -f '/usr/bin/exa' ]; then
+    alias ls="exa "
+
+    alias ll='ls -laF --sort=newest'
+    alias la='ls -at --sort=newest'
+    alias l='ls -t --sort=newest'
+fi
+
 # Allow aliases to trickle thru to sudo
 alias sudo='sudo '
 
