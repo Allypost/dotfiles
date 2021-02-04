@@ -102,11 +102,6 @@ function clear-scrollback-buffer {
 zle -N clear-scrollback-buffer
 bindkey '^L' clear-scrollback-buffer
 
-
-[ -f "$HOME/.bash_aliases" ] && source "$HOME/.bash_aliases"
-if [ -d "$HOME/.zfunctions" ]; then
-  fpath=($fpath "$HOME/.zfunctions")
-fi
 # Antigen (Package manager)
 if [ -f "$HOME/.zsh-scripts/antigen.zsh" ]; then
   source "$HOME/.zsh-scripts/antigen.zsh"
@@ -161,3 +156,10 @@ if [ -f "$HOME/.zsh-scripts/antigen.zsh" ]; then
 
   antigen apply
 fi
+
+
+[ -f "$HOME/.bash_aliases" ] && source "$HOME/.bash_aliases"
+if [ -d "$HOME/.zfunctions" ]; then
+  fpath=($fpath "$HOME/.zfunctions")
+fi
+
