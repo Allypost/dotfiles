@@ -36,10 +36,6 @@ done
 
 
 echo "Adding configs..."
-if [[ -f "$CONF_DIR/kglobalshortcutsrc" ]]; then
-    mv "$CONF_DIR/kglobalshortcutsrc" "$CONF_DIR/kglobalshortcutsrc.bak"
-fi
-ln -rs "$SCRIPTPATH/kde/kglobalshortcutsrc" "$CONF_DIR/kglobalshortcutsrc"
 
 mkdir -p "$ROFI_CONF_DIR"
 if [[ -f "$ROFI_CONF_DIR/config.rasi" ]]; then
