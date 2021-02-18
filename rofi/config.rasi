@@ -3,6 +3,7 @@ configuration {
 	theme: "~/.config/rofi/themes/slate.rasi";
 	font: "Noto Sans 16";
 	lines: 10;
+	width: 512;
 	icon-theme: "Papirus";
 	show-icons: true;
 	combi-modi: "drun,run";

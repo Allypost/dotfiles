@@ -1,7 +1,7 @@
 * {
   background-color: #282C33;
   border-color: #2e343f;
-  text-color: #8ca0aa;
+  text-color: #fafafa;
   spacing: 0;
 }
 
@@ -11,7 +11,7 @@ inputbar {
 }
 
 prompt {
-  padding: 16px;
+  padding: 4px;
   border: 0 1px 0 0;
 }
 
@@ -23,7 +23,7 @@ textbox {
 }
 
 entry {
-  padding: 16px;
+  padding: 4px;
 }
 
 listview {
@@ -34,7 +34,7 @@ listview {
 
 element {
   border: 0 0 1px 0;
-  padding: 16px;
+  padding: 4px;
 }
 
 element-icon {
