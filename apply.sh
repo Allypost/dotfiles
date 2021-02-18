@@ -13,6 +13,7 @@ XFCE4_CONF_DIR="$CONF_DIR/xfce4/"
 XFCE4_TERMINAL_CONF_DIR="$XFCE4_CONF_DIR/terminal"
 ARIA2_CONF_DIR="$CONF_DIR/aria2"
 MPV_CONF_DIR="$CONF_DIR/mpv"
+AWESOME_CONF_DIR="$CONF_DIR/awesome"
 
 echo "Adding symlinks to files..."
 for f in $DOTFILES; do
@@ -79,6 +80,20 @@ if [[ -f "$ARIA2_CONF_DIR/aria2.conf" ]]; then
     shopt -u nocasematch
 fi
 ln -rs "$SCRIPTPATH/aria2/aria2.conf" "$ARIA2_CONF_DIR"
+
+
+if [ -d "$AWESOME_CONF_DIR" ]; then
+    echo "awesome config already exists..."
+    printf "Do you want to override the existing config? [y/N]"
+    read OVERRIDE_AWESOME_CONFIG
+
+    shopt -s nocasematch
+    if [[ "$OVERRIDE_AWESOME_CONFIG" =~ (y|yes) ]]; then
+      mv "$AWESOME_CONF_DIR" "$AWESOME_CONF_DIR.bak"
+      ln -rs "$SCRIPTPATH/awesome" "$AWESOME_CONF_DIR"
+    fi
+    shopt -u nocasematch
+fi
 
 
 if [[ -d "$MPV_CONF_DIR" ]]; then
