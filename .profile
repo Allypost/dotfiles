@@ -119,3 +119,5 @@ if [ -d "$HOME/.dotnet" ]; then
     export PATH="$PATH:$DOTNET_ROOT"
 fi
 
+export QT_STYLE_OVERRIDE=kvantum
+
