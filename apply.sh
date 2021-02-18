@@ -1,6 +1,9 @@
 #/usr/bin/env bash
 
-SCRIPTPATH="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+SCRIPTPATH="$(
+    cd "$(dirname "$0")" >/dev/null 2>&1
+    pwd -P
+)"
 DOTFILES=\.*
 SCRIPTS_DIR="$HOME/.scripts"
 ANTIGEN_LOC="$HOME/.zsh-scripts/antigen.zsh"
@@ -23,7 +26,7 @@ for f in $DOTFILES; do
 
     if [[ -L "$HOME/$f" ]]; then
         echo "Removing old symlink to '$f'"
-	    rm -i "$HOME/$f"
+        rm -i "$HOME/$f"
     fi
 
     if [[ -f "$HOME/$f" ]]; then
@@ -34,11 +37,8 @@ for f in $DOTFILES; do
     ln -rs "$f" "$HOME/$f"
 done
 
-
-
 echo "Adding configs..."
 
-OVERRIDE_ROFI_CONFIG='y'
 if [[ -d "$ROFI_CONF_DIR" ]]; then
     echo "Rofi config already exists..."
     printf "Do you want to override the existing config? [y/N] "
@@ -66,7 +66,6 @@ if [[ -d "$XFCE4_TERMINAL_CONF_DIR" ]]; then
 fi
 ln -rs "$SCRIPTPATH/xfce4/terminal" "$XFCE4_CONF_DIR"
 
-
 mkdir -p "$ARIA2_CONF_DIR"
 if [[ -f "$ARIA2_CONF_DIR/aria2.conf" ]]; then
     echo "Aria2 config already exists..."
@@ -75,12 +74,11 @@ if [[ -f "$ARIA2_CONF_DIR/aria2.conf" ]]; then
 
     shopt -s nocasematch
     if [[ "$OVERRIDE_ARIA2_CONFIG" =~ (y|yes) ]]; then
-      mv "$ARIA2_CONF_DIR/aria2.conf" "$ARIA2_CONF_DIR/aria2.conf.bak"
+        mv "$ARIA2_CONF_DIR/aria2.conf" "$ARIA2_CONF_DIR/aria2.conf.bak"
     fi
     shopt -u nocasematch
 fi
 ln -rs "$SCRIPTPATH/aria2/aria2.conf" "$ARIA2_CONF_DIR"
-
 
 if [ -d "$AWESOME_CONF_DIR" ]; then
     echo "awesome config already exists..."
@@ -89,12 +87,11 @@ if [ -d "$AWESOME_CONF_DIR" ]; then
 
     shopt -s nocasematch
     if [[ "$OVERRIDE_AWESOME_CONFIG" =~ (y|yes) ]]; then
-      mv "$AWESOME_CONF_DIR" "$AWESOME_CONF_DIR.bak"
-      ln -rs "$SCRIPTPATH/awesome" "$AWESOME_CONF_DIR"
+        mv "$AWESOME_CONF_DIR" "$AWESOME_CONF_DIR.bak"
+        ln -rs "$SCRIPTPATH/awesome" "$AWESOME_CONF_DIR"
     fi
     shopt -u nocasematch
 fi
-
 
 if [[ -d "$MPV_CONF_DIR" ]]; then
     echo "mpv config already exists..."
@@ -103,17 +100,13 @@ if [[ -d "$MPV_CONF_DIR" ]]; then
 
     shopt -s nocasematch
     if [[ "$OVERRIDE_MPV_CONFIG" =~ (y|yes) ]]; then
-      mv "$MPV_CONF_DIR" "$MPV_CONF_DIR.bak"
+        mv "$MPV_CONF_DIR" "$MPV_CONF_DIR.bak"
     fi
     shopt -u nocasematch
 fi
 ln -rs "$SCRIPTPATH/mpv" "$MPV_CONF_DIR"
 
-
-
 source "$HOME/.profile"
-
-
 
 echo "Downloading scripts..."
 if [[ -d "$SCRIPTS_DIR" || -f "$SCRIPTS_DIR" ]]; then
@@ -122,17 +115,13 @@ else
     git clone https://github.com/Allypost/bash-scripts.git "$SCRIPTS_DIR"
 fi
 
-
-
 echo "Installing antigen..."
-if [[ -f "$ANTIGEN_LOC"  ]]; then
+if [[ -f "$ANTIGEN_LOC" ]]; then
     echo "Antigen already installed... Skipping."
 else
     mkdir -p "$(dirname "$ANTIGEN_LOC")"
-    curl -L git.io/antigen > "$ANTIGEN_LOC"
+    curl -L git.io/antigen >"$ANTIGEN_LOC"
 fi
-
-
 
 echo "Installing asdf..."
 if [[ -d "$ASDF_LOC" ]]; then
@@ -144,14 +133,12 @@ else
     cd -
 fi
 
-
-
 echo "Installing doom-emacs..."
 if [[ -d "$EMACS_CONF_DIR" ]]; then
     echo ".emacs.d already exists..."
     printf "Do you want to override the existing config? [y/N] "
     read OVERRIDE_EMACS
-    
+
     shopt -s nocasematch
     if [[ $OVERRIDE_EMACS =~ (y|yes) ]]; then
         EMACS__INSTALL_DOOM_EMACS=1
@@ -183,12 +170,9 @@ if [ ! -z "$EMACS__INSTALL_DOOM_EMACS_CONFIG" ]; then
     ln -rs "$SCRIPTPATH/doom-emacs-config" "$DOOM_EMACS_CONF_DIR"
 fi
 
-
-
 # Remove completions for some programs
 
 # runit
-if ! command -v sv &> /dev/null; then
-  sudo mv /usr/share/zsh/functions/Completion/Unix/{,.bak-}_runit
+if ! command -v sv &>/dev/null; then
+    sudo mv /usr/share/zsh/functions/Completion/Unix/{,.bak-}_runit
 fi
-
