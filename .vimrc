@@ -7,6 +7,8 @@ set expandtab
 set autoindent
 set smartindent
 set cindent
+set shell=/bin/zsh
+set nocompatible              " be iMproved, required
 
 augroup numbertoggle
   autocmd!
