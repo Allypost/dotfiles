@@ -37,17 +37,19 @@ done
 
 echo "Adding configs..."
 
-mkdir -p "$ROFI_CONF_DIR"
-if [[ -f "$ROFI_CONF_DIR/config.rasi" ]]; then
-    mv "$ROFI_CONF_DIR/config.rasi" "$ROFI_CONF_DIR/config.rasi.bak"
-fi
-ln -rs "$SCRIPTPATH/rofi/config.rasi" "$ROFI_CONF_DIR/config.rasi"
-mkdir -p "$ROFI_CONF_DIR/themes/"
-if [[ -f "$ROFI_CONF_DIR/themes/slate.rasi" ]]; then
-  mv "$ROFI_CONF_DIR/themes/slate.rasi" "$ROFI_CONF_DIR/themes/slate.rasi.bak"
-fi
-ln -rs "$SCRIPTPATH/rofi/themes/slate.rasi" "$ROFI_CONF_DIR/themes/slate.rasi"
+OVERRIDE_ROFI_CONFIG='y'
+if [[ -d "$ROFI_CONF_DIR" ]]; then
+    echo "Rofi config already exists..."
+    printf "Do you want to override the existing config? [y/N] "
+    read OVERRIDE_ROFI_CONFIG
 
+    shopt -s nocasematch
+    if [[ $OVERRIDE_ROFI_CONFIG =~ (y|yes) ]]; then
+        mv "$ROFI_CONF_DIR" "$ROFI_CONF_DIR.bak"
+        ln -rs "$SCRIPTPATH/rofi/" "$ROFI_CONF_DIR"
+    fi
+    shopt -u nocasematch
+fi
 
 mkdir -p "$XFCE4_CONF_DIR"
 if [[ -d "$XFCE4_TERMINAL_CONF_DIR" ]]; then
