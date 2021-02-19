@@ -650,7 +650,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 beautiful.useless_gap = 2
 
 autorun_apps = {
-    "~/.screenlayout/defalt.sh",
+    "[ -f '~/.screenlayout/defalt.sh'  ] && ~/.screenlayout/defalt.sh",
     "/usr/lib/polkit-kde-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)",
     "nitrogen --restore || until [ $? -eq 0 ]; do nitrogen --restore; done",
     "xinput --set-prop 10 300 0.4 && xinput --set-prop 10 303 0 1",
