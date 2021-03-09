@@ -13,7 +13,7 @@ function _tide_item_battery
 
     if string match -q '*Discharging*' $acpi
         set batt_status 'discharging'
-    else if string match -q '*Charging*' $acpi
+    else
         set batt_status 'charging'
     end
 
