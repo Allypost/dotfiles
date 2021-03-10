@@ -652,22 +652,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Gaps
 beautiful.useless_gap = 2
 
-autorun_apps = {
-    "[ -f '~/.screenlayout/defalt.sh'  ] && ~/.screenlayout/defalt.sh",
-    "/usr/lib/polkit-kde-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)",
-    "nitrogen --restore || until [ $? -eq 0 ]; do nitrogen --restore; done",
-    "~/.config/awesome/autorun.sh",
-}
-
-local function run_once(cmd)
-    local findme = cmd
-    local firstspace = cmd:find(' ')
-    if firstspace then
-        findme = cmd:sub(0, firstspace - 1)
-    end
-    awful.spawn.with_shell(string.format('pgrep -u $USER -x %s > /dev/null || (%s)', findme, cmd))
-end
-
-for app = 1, #autorun_apps do
-    run_once(autorun_apps[app])
-end
+awful.spawn.with_shell("~/.config/awesome/autorun.sh")
