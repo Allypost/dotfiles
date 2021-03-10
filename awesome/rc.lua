@@ -303,6 +303,8 @@ globalkeys = gears.table.join(
               {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey, "Control" }, "Tab", function () awful.screen.focus_relative( 1) end,  
               {description = "focus the next screen", group = "screen"}),
+    awful.key({ modkey,    altkey }, "l", function () awful.spawn.with_shell("i3lock --tiling --image ~/Downloads/wallpapers/lock.png") end,  
+              {description = "lock the screen", group = "screen"}),
     awful.key({ modkey, "Control" }, "a", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
     awful.key({ altkey,           }, "Tab",
