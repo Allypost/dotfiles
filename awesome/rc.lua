@@ -80,6 +80,7 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 terminal = "xfce4-terminal"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
+file_browser = "dolphin"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -342,11 +343,11 @@ globalkeys = gears.table.join(
               {description = "start fullwidth text typer", group = "scripts"}),
 
     -- Folders
-    awful.key({ modkey,           }, "e", function () awful.spawn.with_shell("dolphin ~") end,
+    awful.key({ modkey,           }, "e", function () awful.spawn.with_shell(file_browser .. " ~ ") end,
               {description = "open ~", group = "folders"}),
-    awful.key({ modkey, "Control" }, "e", function () awful.spawn.with_shell("dolphin ~/MEMES") end,
+    awful.key({ modkey, "Control" }, "e", function () awful.spawn.with_shell(file_browser .. " ~/MEMES ") end,
               {description = "open ~/MEMES", group = "folders"}),
-    awful.key({ modkey, "Control" }, "m", function () awful.spawn.with_shell("dolphin ~/Music") end,
+    awful.key({ modkey, "Control" }, "m", function () awful.spawn.with_shell(file_browser .. " ~/Music ") end,
               {description = "open ~/Music", group = "folders"}),
 
     -- Awesome
