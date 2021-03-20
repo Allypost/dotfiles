@@ -414,7 +414,7 @@ function compact-video() {
         ext=""
     fi
 
-    ffmpeg -i "$1" -max_muxing_queue_size 1024 -c:v libx265 -crf 30 -b:a 320k -vf "scale=-2:480" -map_metadata -1 "$(dirname "$1")/$base.s.mp4"
+    ffmpeg -i "$1" -max_muxing_queue_size 1024 -c:v libx264 -crf 28 -b:a 320k -vf "scale=-2:480" -movflags faststart -preset slow -map_metadata -1 "$(dirname "$1")/$base.s.mp4"
 }
 alias cv='compact-video'
 
