@@ -84,21 +84,26 @@ export WORKON_HOME="$HOME/.virtualenvs"
 
 export NVM_DIR="$HOME/.nvm"
 if [ -d "$NVM_DIR" ]; then
-    declare -a NODE_GLOBALS=($(find "$NVM_DIR/versions/node" -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq))
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-    NODE_GLOBALS+=("node")
-    NODE_GLOBALS+=("nvm")
-    NODE_GLOBALS+=("yarn")
+    NVM_NODE_DIR="$NVM_DIR/versions/node"
+    if [ -d "$NVM_NODE_DIR" ]; then
+      declare -a NODE_GLOBALS=($(find "$NVM_NODE_DIR" -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq))
 
-    load_nvm() {
-        export NVM_DIR=~/.nvm
-        [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"                    # This loads nvm
-        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-    }
+      NODE_GLOBALS+=("node")
+      NODE_GLOBALS+=("nvm")
+      NODE_GLOBALS+=("yarn")
 
-    for cmd in "${NODE_GLOBALS[@]}"; do
-        eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
-    done
+      load_nvm() {
+          export NVM_DIR=~/.nvm
+          [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"                    # This loads nvm
+          [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+      }
+
+      for cmd in "${NODE_GLOBALS[@]}"; do
+          eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
+      done
+    fi
 fi
 
 if [ -d "/usr/local/go/bin" ]; then
