@@ -18,6 +18,10 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+-- Application switcher
+-- github.com/troglobit/awesome-switcher
+local switcher = require("awesome-switcher")
+
 local function setTitlebar(client, s)
     if s then
         if client.titlebar == nil then
@@ -246,7 +250,8 @@ awful.screen.connect_for_each_screen(function(s)
             mykeyboardlayout,
             wibox.widget.systray(),
             mytextclock,
-            -- s.mylayoutbox,
+            require("widgets/battery-widget") {},
+	        -- s.mylayoutbox,
         },
     }
 end)
@@ -307,14 +312,10 @@ globalkeys = gears.table.join(
               {description = "lock the screen", group = "screen"}),
     awful.key({ modkey, "Control" }, "a", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
-    awful.key({ altkey,           }, "Tab",
-        function ()
-            awful.client.focus.history.previous()
-            if client.focus then
-                client.focus:raise()
-            end
-        end,
-        {description = "go back", group = "client"}),
+    awful.key({ altkey,           }, "Tab", function () switcher.switch( 1, "Mod1", "Alt_L", "Shift", "Tab") end,
+              {description = "go back", group = "client"}),
+    awful.key({ altkey, "Shift"   }, "Tab", function () switcher.switch(-1, "Mod1", "Alt_L", "Shift", "Tab") end,
+              {description = "go forward", group = "client"}),
 
     -- Standard program
     awful.key({ altkey, "Control" }, "t", function () awful.spawn(terminal) end,

@@ -1,0 +1,6 @@
+[submodule "awesome/awesome-switcher"]
+	path = awesome/awesome-switcher
+	url = https://github.com/berlam/awesome-switcher.git
+[submodule "awesome/widgets/battery-widget"]
+	path = awesome/widgets/battery-widget
+	url = https://github.com/deficient/battery-widget.git
