@@ -48,3 +48,7 @@ end
 if [ -d "/snap/bin" ]
     set --export PATH "/snap/bin:$PATH"
 end
+
+if [ -f "$HOME/.asdf/asdf.fish" ]
+    source ~/.asdf/asdf.fish
+end

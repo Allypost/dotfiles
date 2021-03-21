@@ -1,0 +1,1 @@
+/home/allypost/.asdf/completions/asdf.fish
