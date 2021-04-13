@@ -4,6 +4,9 @@ set --global tide_left_prompt_pad_items false
 
 
 function _tide_item_battery
+    # Check whether battery is present
+    command upower -e | grep 'BAT' || return
+
     set -l acpi (command acpi --battery 2>/dev/null | head -n1)
     set -l batt (string match -r '\d+%' $acpi | string trim -c '%')
     set -l batt_state_color
