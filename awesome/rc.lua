@@ -326,7 +326,9 @@ globalkeys = gears.table.join(
     -- Screenshots
     awful.key({                   }, "Print", function() awful.spawn.with_shell("/usr/bin/flameshot gui") end,
               {description = "launch interactive screenshot tool", group = "screenshot"}),
-    awful.key({ "Shift"           }, "Print", function() awful.spawn.with_shell("~/.scripts/screenshot-window") end,
+    awful.key({ "Shift"           }, "Print", function() awful.spawn.with_shell("~/.scripts/screenshot-window -c") end,
+            {description = "screenshot current window", group = "screenshot"}),
+    awful.key({ "Shift", altkey   }, "Print", function() awful.spawn.with_shell("~/.scripts/screenshot-window") end,
             {description = "screenshot current window", group = "screenshot"}),
     awful.key({ modkey, altkey    }, "g", function() awful.spawn("/usr/bin/gifine") end,
             {description = "start gif recorder", group = "screenshot"}),
