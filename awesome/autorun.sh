@@ -6,6 +6,10 @@ function run() {
   fi
 }
 
+function set_minimum_backlight_brigtness() {
+  command -v light >/dev/null && sudo light -N 0.01
+}
+
 function apply_xrandr_screen_settings() {
   [ -f '~/.screenlayout/defalt.sh' ] && ~/.screenlayout/defalt.sh
 }
@@ -45,6 +49,7 @@ apply_xrandr_screen_settings &
 run_auth_agents &
 set_desktop_wallpaper &
 set_hid_libinput_settings &
+set_minimum_backlight_brigtness &
 
 ######### RUN ONCE
 
