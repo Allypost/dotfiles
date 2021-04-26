@@ -10,6 +10,10 @@ function set_minimum_backlight_brigtness() {
   command -v light >/dev/null && sudo light -N 0.01
 }
 
+function set_auto_lock_handler() {
+  xss-lock -l -- multilockscreen --lock blur
+}
+
 function apply_xrandr_screen_settings() {
   [ -f "$HOME/.screenlayout/defalt.sh" ] && "$HOME/.screenlayout/defalt.sh"
 }
@@ -50,6 +54,7 @@ run_auth_agents &
 set_desktop_wallpaper &
 set_hid_libinput_settings &
 set_minimum_backlight_brigtness &
+set_auto_lock_handler &
 
 ######### RUN ONCE
 
