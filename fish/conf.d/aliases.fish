@@ -284,3 +284,6 @@ function optimize-pdf
         -sOutputFile="$output_file" \
         "$input_file"
 end
+
+bind \cl 'clear; commandline -f repaint'
+
