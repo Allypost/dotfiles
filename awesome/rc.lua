@@ -393,7 +393,14 @@ globalkeys = gears.table.join(
 
     -- Prompt
     awful.key({ modkey },            "r",     function () awful.spawn('rofi -show combi') end,
-              {description = "run prompt", group = "launcher"})
+              {description = "run prompt", group = "launcher"}),
+
+    -- Backlight
+    awful.key({ }, "XF86MonBrightnessDown", function () awful.util.spawn("sudo light -U 10") end,
+              {description = "decrease brigtness", group = "backlight"}),
+    awful.key({ }, "XF86MonBrightnessUp", function () awful.util.spawn("sudo light -A 10") end,
+    {description = "increase brigtness", group = "backlight"})
+    
 )
 
 clientkeys = gears.table.join(
