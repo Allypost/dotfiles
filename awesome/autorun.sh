@@ -11,7 +11,7 @@ function set_minimum_backlight_brigtness() {
 }
 
 function apply_xrandr_screen_settings() {
-  [ -f '~/.screenlayout/defalt.sh' ] && ~/.screenlayout/defalt.sh
+  [ -f "$HOME/.screenlayout/defalt.sh" ] && "$HOME/.screenlayout/defalt.sh"
 }
 
 function run_auth_agents() {
