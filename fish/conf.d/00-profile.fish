@@ -52,3 +52,7 @@ end
 if [ -f "$HOME/.asdf/asdf.fish" ]
     source ~/.asdf/asdf.fish
 end
+
+if [ -d '/usr/local/MATLAB/R2021a' ]
+    set --export PATH $PATH "/usr/local/MATLAB/R2021a/bin/"
+end
