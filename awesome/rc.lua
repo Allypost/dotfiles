@@ -234,6 +234,8 @@ awful.screen.connect_for_each_screen(function(s)
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
 
+    volume_widget = require('awesome-wm-widgets.volume-widget.volume')
+
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
@@ -248,7 +250,7 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mythemedir,
             mykeyboardlayout,
-            require('awesome-wm-widgets.volume-widget.volume'){
+            volume_widget{
                 widget_type = 'icon_and_text'
             },
             wibox.widget.systray(),
@@ -404,8 +406,15 @@ globalkeys = gears.table.join(
     awful.key({ }, "XF86MonBrightnessDown", function () awful.util.spawn("sudo light -U 10") end,
               {description = "decrease brigtness", group = "backlight"}),
     awful.key({ }, "XF86MonBrightnessUp", function () awful.util.spawn("sudo light -A 10") end,
-    {description = "increase brigtness", group = "backlight"})
+              {description = "increase brigtness", group = "backlight"}),
     
+    -- Volume
+    awful.key({}, "XF86AudioRaiseVolume", function () volume_widget:inc() end,
+              {description = "increase audio volume", group = "volume"}),
+    awful.key({}, "XF86AudioLowerVolume", function () volume_widget:dec() end,
+              {description = "decrease audio volume", group = "volume"}),
+    awful.key({}, "XF86AudioMute", function () volume_widget:toggle() end,
+              {description = "toggle mute audio", group = "volume"})
 )
 
 clientkeys = gears.table.join(
