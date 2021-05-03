@@ -248,10 +248,10 @@ awful.screen.connect_for_each_screen(function(s)
                 widget_type = 'icon_and_text'
             },
             wibox.widget.systray(),
+            mytextclock,
             require("awesome-wm-widgets.battery-widget.battery"){
                 show_current_level = true
             },
-            mytextclock,
 	        s.mylayoutbox,
         },
     }
