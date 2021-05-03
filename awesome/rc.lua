@@ -115,7 +115,7 @@ altkey = "Mod1"
 --     -- awful.layout.suit.corner.se,
 -- }
 awful.layout.layouts = {
-    awful.layout.suit.tile,
+    awful.layout.suit.spiral.dwindle,
     -- awful.layout.suit.floating,
 }
 -- }}}
