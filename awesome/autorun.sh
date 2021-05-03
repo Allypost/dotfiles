@@ -59,7 +59,7 @@ set_auto_lock_handler &
 ######### RUN ONCE
 
 run slack --startup
-run mattermost-desktop
+# run mattermost-desktop
 run setxkbmap -layout 'us,hr'
 run blueman-applet
 run nm-applet
