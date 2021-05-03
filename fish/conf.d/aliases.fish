@@ -4,7 +4,7 @@ alias lS='ll -S'
 alias la='ls -At'
 alias l='ls -Ct'
 
-if [ -f '/usr/bin/exa' ]
+if [ -f /usr/bin/exa ]
     alias ls="exa "
 
     alias ll='ls -laF --sort=newest'
@@ -210,7 +210,7 @@ alias clip="xclip -sel clip"
 
 alias cls='printf "\033[2J\033[3J\033[1;1H"'
 
-alias cdtemp='cd `mktemp -d`'
+alias cdtemp='cd (mktemp -d)'
 
 alias rm='rm -i'
 
@@ -224,8 +224,7 @@ function swap-clear
     sudo cat /dev/null
 
     printf "Clearing... "
-    sudo swapoff -a && \
-        sudo swapon -a
+    sudo swapoff -a && sudo swapon -a
     printf "\r"
     echo "Cleared swap"
 end
@@ -262,7 +261,8 @@ alias power-down="update-system && shutdown -h now"
 alias go-away-computer="power-down"
 
 function adb-wait-for-device
-    adb wait-for-device && notify-send -u critical -a 'ADB' --icon 'phone' 'Phone connected' "The device '`adb shell getprop ro.product.model`' has connected to the computer"
+    set MODEL (adb shell getprop ro.product.model)
+    adb wait-for-device && notify-send -u critical -a ADB --icon phone 'Phone connected' "The device '$MODEL' has connected to the computer"
 end
 
 alias a2cdl="aria2c -x 16 "
