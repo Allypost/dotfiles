@@ -84,7 +84,7 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 terminal = "xfce4-terminal"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
-file_browser = "dolphin"
+file_browser = "dolphin --platformtheme qt5ct "
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
