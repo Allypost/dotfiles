@@ -116,7 +116,7 @@ altkey = "Mod1"
 -- }
 awful.layout.layouts = {
     awful.layout.suit.spiral.dwindle,
-    -- awful.layout.suit.floating,
+    awful.layout.suit.floating,
 }
 -- }}}
 
@@ -252,7 +252,7 @@ awful.screen.connect_for_each_screen(function(s)
                 show_current_level = true
             },
             mytextclock,
-	        -- s.mylayoutbox,
+	        s.mylayoutbox,
         },
     }
 end)
