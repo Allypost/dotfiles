@@ -248,9 +248,14 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mythemedir,
             mykeyboardlayout,
+            require('awesome-wm-widgets.volume-widget.volume'){
+                widget_type = 'icon_and_text'
+            },
             wibox.widget.systray(),
+            require("awesome-wm-widgets.battery-widget.battery"){
+                show_current_level = true
+            },
             mytextclock,
-            require("widgets/battery-widget") {},
 	        -- s.mylayoutbox,
         },
     }
