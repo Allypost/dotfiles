@@ -231,27 +231,6 @@ end
 
 alias watch='watch --color'
 
-function compact-video
-    set target $argv[1]
-
-    set file_full_name (basename "$target")
-    set file_path (dirname "$target")
-    set file_name (echo "$file_full_name" | sed 's/\.[^.]*$//')
-    if [ -z "$file_name" ]
-        set file_name "$file_full_name"
-    end
-
-    ffmpeg \
-        -i "$target" \
-        -max_muxing_queue_size 1024 \
-        -c:v libx265 \
-        -crf 30 \
-        -b:a 320k \
-        -vf "scale=-2:480" \
-        -map_metadata -1 \
-        "$file_path/$file_name.s.mp4"
-end
-
 function ssh-kset
     set server $argv[1]
     ssh -J "$USER@cortana.kset.org" "$USER@$server"

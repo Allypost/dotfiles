@@ -405,19 +405,6 @@ alias start-deemix-downloader='docker run --rm -d --name=Deemix  -v "$HOME/Music
 
 alias serve-current-directory='python3 -m http.server'
 
-function compact-video() {
-    filename="${1##*/}"                             # Strip longest match of */ from start
-    base="${filename%.[^.]*}"                       # Strip shortest match of . plus at least one non-dot char from end
-    ext="${filename:${#base} + 1}"                  # Substring from len of base thru end
-    if [[ -z "$base" && -n "$ext" ]]; then          # If we have an extension and no base, it's really the base
-        base=".$ext"
-        ext=""
-    fi
-
-    ffmpeg -i "$1" -max_muxing_queue_size 1024 -c:v libx264 -crf 28 -b:a 320k -vf "scale=-2:480" -movflags faststart -preset slow -map_metadata -1 "$(dirname "$1")/$base.s.mp4"
-}
-alias cv='compact-video'
-
 function mpv-stream() {
     mpv `youtube-dl -f best -g -q "$1"`
 }
