@@ -359,7 +359,7 @@ globalkeys = gears.table.join(
     -- Awesome
     awful.key({ modkey, "Shift" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
-    awful.key({ modkey, "Shift", "Control", altkeyQQ  }, "q", awesome.quit,
+    awful.key({ modkey, "Shift", "Control", altkey }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
 
     -- Layout
