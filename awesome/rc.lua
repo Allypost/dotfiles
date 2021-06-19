@@ -341,6 +341,8 @@ globalkeys = gears.table.join(
               {description = "start password manager", group = "scripts"}),
     awful.key({ modkey, altkey    }, "d", function () awful.spawn.with_shell("~/.scripts/meme-download") end,
               {description = "start meme downloader", group = "scripts"}),
+    awful.key({ modkey, altkey    }, "m", function () awful.spawn.with_shell("~/.scripts/mpv-play") end,
+            {description = "play link with MPV", group = "scripts"}),
     awful.key({ modkey, altkey    }, "z", function () awful.spawn.with_shell("~/.scripts/clip-chooser") end,
               {description = "start clipart chooser", group = "scripts"}),
     awful.key({ modkey, altkey    }, "e", function () awful.spawn.with_shell("rofimoji --action clipboard --skin-tone ask") end,
