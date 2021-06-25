@@ -2,7 +2,7 @@
 
 function run() {
   if ! pgrep -f $1; then
-    $@ &
+    $@ > "/tmp/awesomewm.autorun.$@" &
   fi
 }
 
@@ -40,7 +40,7 @@ function set_hid_libinput_settings() {
     xinput set-prop "$id" 'libinput Accel Profile Enabled' 0 1 &>/dev/null
   done
   xinput set-prop 'Elan Touchpad' 'libinput Natural Scrolling Enabled' 1
-  
+
   TOUCHPAD_ID="$(xinput list | grep -i touchpad | head | sed -E 's/.*\sid=([0-9]+)\s.*/\1/')"
   if [ ! -z "$TOUCHPAD_ID" ]; then
     xinput set-prop "$TOUCHPAD_ID" 'libinput Natural Scrolling Enabled' 1
@@ -63,3 +63,9 @@ run slack --startup
 run setxkbmap -layout 'us,hr'
 run blueman-applet
 run nm-applet
+
+LOCAL_OVERRIDES="$(dirname $0)/autorun.local.sh"
+
+if [ -f "$LOCAL_OVERRIDES" ]; then
+  source "$LOCAL_OVERRIDES"
+fi
