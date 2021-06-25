@@ -179,7 +179,7 @@ if command -v apt-get >/dev/null 2>&1
 
     alias update-system="au"
 else if command -v yay >/dev/null 2>&1
-    alias yay='yay --pacman powerpill '
+    alias yay='yay '
 
     alias update-system="yay -Syu --devel "
 else if command -v pacman >/dev/null 2>&1
