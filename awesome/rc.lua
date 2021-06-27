@@ -337,6 +337,8 @@ globalkeys = gears.table.join(
     -- Scripts and stuff
     awful.key({ modkey, altkey    }, "v", function () awful.spawn.with_shell("~/.scripts/swap-audio-output-device") end,
               {description = "swap audio device", group = "scripts"}),
+    awful.key({ modkey, altkey, "Control" }, "v", function () awful.spawn.with_shell("~/.scripts/choose-sound-profile-output") end,
+              {description = "select audio output profile", group = "scripts"}),
     awful.key({ modkey, altkey    }, "p", function () awful.spawn.with_shell("echo type | xargs ~/.scripts/bitwarden-rofi") end,
               {description = "start password manager", group = "scripts"}),
     awful.key({ modkey, altkey    }, "d", function () awful.spawn.with_shell("~/.scripts/meme-download") end,
