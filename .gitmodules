@@ -1,6 +1,6 @@
-[submodule "awesome/awesome-switcher"]
-	path = awesome/awesome-switcher
+[submodule "awesome-wm/.config/awesome/awesome-switcher"]
+	path = awesome-wm/.config/awesome/awesome-switcher
 	url = https://github.com/berlam/awesome-switcher.git
-[submodule "awesome/awesome-wm-widgets"]
-	path = awesome/awesome-wm-widgets
+[submodule "awesome-wm/.config/awesome/awesome-wm-widgets"]
+	path = awesome-wm/.config/awesome/awesome-wm-widgets
 	url = https://github.com/streetturtle/awesome-wm-widgets.git

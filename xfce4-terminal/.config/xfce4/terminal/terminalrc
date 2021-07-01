@@ -36,4 +36,6 @@ ShortcutsNoHelpkey=TRUE
 ShortcutsNoMenukey=TRUE
 ShortcutsNoMnemonics=TRUE
 ScrollingOnOutput=FALSE
+RunCustomCommand=TRUE
+CustomCommand=/bin/fish
 
