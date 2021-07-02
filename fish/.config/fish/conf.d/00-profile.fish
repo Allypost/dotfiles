@@ -56,3 +56,11 @@ end
 if [ -d '/usr/local/MATLAB/R2021a' ]
     set --export PATH $PATH "/usr/local/MATLAB/R2021a/bin/"
 end
+
+if [ -d '/var/lib/flatpak/exports/share' ];
+    set --export PATH $PATH '/var/lib/flatpak/exports/share'
+end
+
+if [ -d "$HOME/.local/share/flatpak/exports/share" ];
+    set --export PATH $PATH "$HOME/.local/share/flatpak/exports/share"
+end
