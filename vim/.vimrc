@@ -19,3 +19,8 @@ augroup END
 
 
 nnoremap <silent> <c-_> :set hlsearch!<cr>
+
+" Clear highlighting on escape in normal mode
+nnoremap <esc> :noh<return><esc>
+nnoremap <esc>^[ <esc>^[
+
