@@ -55,12 +55,12 @@ set_desktop_wallpaper &
 set_hid_libinput_settings &
 set_minimum_backlight_brigtness &
 set_auto_lock_handler &
+setxkbmap -layout 'us,hr' -option caps:escape
 
 ######### RUN ONCE
 
 run slack --startup
 # run mattermost-desktop
-run setxkbmap -layout 'us,hr'
 run blueman-applet
 run nm-applet
 
