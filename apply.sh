@@ -43,5 +43,5 @@ fi
 
 # runit
 if ! command -v sv &>/dev/null; then
-    sudo mv /usr/share/zsh/functions/Completion/Unix/{,.bak-}_runit
+    [ -f '/usr/share/zsh/functions/Completion/Unix/_runit' ] && sudo mv /usr/share/zsh/functions/Completion/Unix/{,.bak-}_runit || echo 'Runit alias removed'
 fi
