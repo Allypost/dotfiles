@@ -127,3 +127,6 @@ fi
 export QT_STYLE_OVERRIDE=kvantum-dark
 export QT_QPA_PLATFORMTHEME=qt5ct
 
+if [ -f "$HOME/.cargo/env" ]; then
+    . "$HOME/.cargo/env"
+fi

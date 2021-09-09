@@ -64,3 +64,7 @@ end
 if [ -d "$HOME/.local/share/flatpak/exports/share" ];
     set --export PATH $PATH "$HOME/.local/share/flatpak/exports/share"
 end
+
+if [ -f "$HOME/.cargo/env" ];
+    set --export PATH "$HOME/.cargo/bin" $PATH
+end
