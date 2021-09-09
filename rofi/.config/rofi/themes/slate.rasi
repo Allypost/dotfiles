@@ -5,6 +5,10 @@
   spacing: 0;
 }
 
+window {
+  font: "Noto Sans 16";
+}
+
 inputbar {
   border: 0 0 1px 0;
   children: [prompt,entry];
@@ -39,6 +43,12 @@ element {
 
 element-icon {
   size: 2.69ch;
+  background-color: inherit;
+}
+
+element-text {
+  background-color: inherit;
+  text-color:       inherit;
 }
 
 element-index {
