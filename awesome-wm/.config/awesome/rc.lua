@@ -397,7 +397,7 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () awful.spawn('rofi -show combi') end,
+    awful.key({ modkey },            "r",     function () awful.spawn('rofi -show combi -theme-str "inputbar { children: [entry]; }"') end,
               {description = "run prompt", group = "launcher"}),
 
     -- Backlight
