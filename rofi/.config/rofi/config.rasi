@@ -7,13 +7,3 @@ configuration {
 	display-drun: "";
 	display-run: "[CMD]";
 }
-
-theme {
-	window {
-		width: 512px;
-	}
-
-	listview {
-		lines: 10;
-	}
-}
