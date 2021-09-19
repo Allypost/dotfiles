@@ -66,7 +66,7 @@ set --global tide_left_prompt_items \
     "cmd_duration" \
     "newline" \
     "context" \
-    "prompt_char"
+    "character"
 
 set --global tide_right_prompt_items \
     "status" \
