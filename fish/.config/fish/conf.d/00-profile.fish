@@ -68,3 +68,6 @@ end
 if [ -f "$HOME/.cargo/env" ];
     set --export PATH "$HOME/.cargo/bin" $PATH
 end
+
+set --global DOCKER_BUILDKIT 1
+set --global COMPOSE_DOCKER_CLI_BUILD 1
