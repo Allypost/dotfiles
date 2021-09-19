@@ -193,7 +193,7 @@ alias sv="sudo vim"
 
 alias o="xdg-open"
 
-alias youtube-dl="youtube-dl --http-chunk-size 10M --console-title --prefer-ffmpeg --netrc --add-metadata --ignore-errors"
+alias youtube-dl="youtube-dl --cookies-from-browser chrome --concurrent-fragments 8 --console-title --prefer-ffmpeg --netrc --add-metadata --ignore-errors"
 # alias youtube-dl-best="youtube-dl -f bestvideo+bestaudio --recode-video mp4 --embed-thumbnail --embed-subs --all-subs"
 alias youtube-dl-best="youtube-dl -f bestvideo+bestaudio --recode-video mp4 --embed-subs --all-subs"
 
