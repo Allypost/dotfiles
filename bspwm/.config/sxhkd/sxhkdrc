@@ -107,6 +107,20 @@ XF86MonBrightnessUp
 	sudo light -A 10
 
 
+#############
+# Backlight #
+#############
+# Increase volume
+XF86AudioRaiseVolume
+	amixer set Master 5%+
+# Lower volume
+XF86AudioLowerVolume
+	amixer set Master 5%-
+# Mute
+XF86AudioMute
+	amixer set Master toggle
+
+
 ###########
 # Folders #
 ###########
