@@ -27,7 +27,17 @@ bspc config gapless_monocle true
 # bspc rule -a mplayer2 state=floating
 # bspc rule -a Kupfer.py focus=on
 # bspc rule -a Screenkey manage=off
+
+# Media players
 bspc rule -a mpv state=floating
+
+# Image viewers
+bspc rule -a nomacs state=floating
+bspc rule -a 'Image Lounge' state=floating
+bspc rule -a qimgv state=floating
+bspc rule -a feh state=floating
+bspc rule -a mirage state=floating
+bspc rule -a ristretto state=floating
 
 # Autostart stuff
 "$(dirname $0)"/autorun.sh
