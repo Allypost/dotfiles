@@ -1,0 +1,167 @@
+# focus the next/previous window in the current desktop
+alt + {_,shift + }Tab
+	bspc node --focus {next,prev}.local.!hidden.window
+
+# terminal emulator
+super + alt + c
+  kitty
+
+# program launcher
+super + r
+	rofi -show combi -theme-str 'inputbar \{ children: [entry]; \}'
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+#
+# bspwm hotkeys
+#
+
+# quit bspwm
+super + alt + shift + ctrl + q
+	bspc quit
+
+# restart bspwm
+super + shift + r
+	bspc wm -r
+
+# close and kill
+super + shift + q
+	bspc node -c
+
+# alternate between the tiled and monocle layout
+super + w
+	bspc desktop -l next
+
+super + f
+  bspc node -t '~fullscreen'
+
+super + ctrl + @space
+  bspc node -t '~floating'
+
+super + ctrl + a
+	bspc node --focus any.urgent
+
+# set the window state
+#super + {t,shift + t,s,f}
+#	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+#
+# focus/swap
+#
+
+# focus the node in the given direction
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+# focus the node for the given path jump
+super + {p,b,comma,period}
+	bspc node --focus @{parent,brother,first,second}
+
+# focus the next/previous desktop in the current monitor
+super + {_,shift + }Tab
+	bspc desktop --focus {next,prev}.local
+
+# focus the given desktop
+super + {1-9}
+	bspc desktop --focus $(bspc query --desktops --desktop --names | cut -d'/' -f1)/{1-9}
+
+# send to the given desktop
+super + shift + {1-9}
+	bspc node --to-desktop $(bspc query --desktops --desktop --names | cut -d'/' -f1)/{1-9}
+
+# focus next monitor
+super + ctrl + Tab
+	bspc monitor --focus next
+
+# preselect the direction
+super + ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+#
+# move/resize
+#
+
+# expand a window by moving one of its side outward
+super + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+super + alt + shift + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move a floating window
+super + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+
+#############
+# Backlight #
+#############
+# decrease brigtness
+XF86MonBrightnessDown
+	sudo light -U 10
+# increase brigtness
+XF86MonBrightnessUp
+	sudo light -A 10
+
+
+###########
+# Folders #
+###########
+# open ~
+super + e
+	dolphin --platformtheme qt5ct ~
+# open ~/MEMES
+super + ctrl + e
+	dolphin --platformtheme qt5ct ~/MEMES
+# open ~/Music
+super + ctrl + m
+	dolphin --platformtheme qt5ct ~/Music
+
+
+###############
+# Screenshots #
+###############
+# launch interactive screenshot tool
+Print
+	/usr/bin/flameshot gui
+# screenshot current window
+shift + Print
+	~/.scripts/screenshot-window -c
+# select window to screenshot
+shift + alt + Print
+	~/.scripts/screenshot-window
+# start gif recorder
+super + alt + g
+	/usr/bin/gifine
+
+
+#####################
+# Scripts and stuff #
+#####################
+# swap audio device
+super + alt + v
+	~/.scripts/swap-audio-output-device
+# select audio output profile
+super + alt + ctrl + v
+	~/.scripts/choose-sound-profile-output
+# start password manager
+super + alt + p
+	echo type | xargs ~/.scripts/bitwarden-rofi
+# start password manager
+super + alt + d
+	~/.scripts/meme-download
+# play link with MPV
+super + alt + m
+	~/.scripts/mpv-play
+# start clipart chooser
+super + alt + z
+	~/.scripts/clip-chooser
+# start emoji picker
+super + alt + e
+	rofimoji --action clipboard --skin-tone ask
+# start fullwidth text typer
+super + alt + f
+	~/.scripts/fullwidth-text-type
