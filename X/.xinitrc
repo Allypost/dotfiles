@@ -10,7 +10,8 @@ sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
 # DEFAULT_SESSION=startplasma-x11
-DEFAULT_SESSION=awesome
+# DEFAULT_SESSION=awesome
+DEFAULT_SESSION=bspwm
 
 # merge in defaults and keymaps
 
