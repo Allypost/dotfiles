@@ -55,7 +55,7 @@ set_desktop_wallpaper &
 set_hid_libinput_settings &
 set_minimum_backlight_brigtness &
 set_auto_lock_handler &
-setxkbmap -layout 'us,hr' -option caps:escape
+setxkbmap -layout 'us,hr' -option 'caps:escape' -option 'grp:win_space_toggle'
 
 ######### RUN ONCE
 
