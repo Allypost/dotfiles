@@ -30,6 +30,7 @@ bspc config gapless_monocle true
 
 # Media players
 bspc rule -a mpv state=floating
+bspc rule -a vlc state=floating
 
 # Image viewers
 bspc rule -a nomacs state=floating
