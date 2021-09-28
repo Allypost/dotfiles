@@ -65,4 +65,7 @@ get_session(){
     echo "dbus-launch ${dbus_args[*]}"
 }
 
+export AWT_TOOLKIT=MToolkit
+#wmname compiz &
+export _JAVA_AWT_WM_NONREPARENTING=1
 exec $(get_session "${1:-$DEFAULT_SESSION}")
