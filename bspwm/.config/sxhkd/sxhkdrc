@@ -141,6 +141,8 @@ super + ctrl + m
 # launch interactive screenshot tool
 Print
 	/usr/bin/flameshot gui
+super + shift + s
+	/usr/bin/flameshot gui
 # screenshot current window
 shift + Print
 	~/.scripts/screenshot-window -c
