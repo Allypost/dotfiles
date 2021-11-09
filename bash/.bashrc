@@ -119,3 +119,8 @@ export NVM_DIR="$HOME/.nvm"
 if [ -f "$HOME/.cargo/env" ]; then
     . "$HOME/.cargo/env"
 fi
+
+if [ -f "$HOME/.local/bash/z/z.sh" ]; then
+    _Z_DATA="$HOME/.local/bash/z.db"
+    . "$HOME/.local/bash/z/z.sh"
+fi

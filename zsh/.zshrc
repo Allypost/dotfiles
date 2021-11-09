@@ -157,9 +157,12 @@ if [ -f "$HOME/.zsh-scripts/antigen.zsh" ]; then
   antigen apply
 fi
 
+if [ -f "$HOME/.local/bash/z/z.sh" ]; then
+  _Z_DATA="$HOME/.local/bash/z.db"
+  . "$HOME/.local/bash/z/z.sh"
+fi
 
 [ -f "$HOME/.bash_aliases" ] && source "$HOME/.bash_aliases"
 if [ -d "$HOME/.zfunctions" ]; then
   fpath=($fpath "$HOME/.zfunctions")
 fi
-

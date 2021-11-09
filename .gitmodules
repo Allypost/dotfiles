@@ -7,3 +7,6 @@
 [submodule "kitty/.config/kitty/kitty-themes"]
 	path = kitty/.config/kitty/kitty-themes
 	url = https://github.com/dexpota/kitty-themes.git
+[submodule "bash/.local/bash/z"]
+	path = bash/.local/bash/z
+	url = https://github.com/rupa/z.git
