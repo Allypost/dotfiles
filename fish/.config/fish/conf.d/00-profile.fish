@@ -71,5 +71,5 @@ end
 
 set --global Z_DATA "$HOME/.local/bash/z.db"
 
-set --global DOCKER_BUILDKIT 1
-set --global COMPOSE_DOCKER_CLI_BUILD 1
+#set --global DOCKER_BUILDKIT 1
+#set --global COMPOSE_DOCKER_CLI_BUILD 1
