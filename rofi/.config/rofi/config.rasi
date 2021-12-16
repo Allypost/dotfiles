@@ -1,9 +1,11 @@
 configuration {
 	modi: "window,drun,ssh,combi";
-	theme: "~/.config/rofi/themes/slate.rasi";
 	icon-theme: "Papirus";
 	show-icons: true;
 	combi-modi: "drun,run";
 	display-drun: "";
 	display-run: "[CMD]";
 }
+
+@theme "~/.config/rofi/themes/slate.rasi"
+
