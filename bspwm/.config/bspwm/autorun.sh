@@ -28,6 +28,10 @@ function run_auth_agents() {
 }
 
 function set_desktop_wallpaper() {
+  if ! command -v nitrogen >/dev/null; then
+    return 1
+  fi
+
   nitrogen --restore
   until [ $? -eq 0 ]; do
     nitrogen --restore
