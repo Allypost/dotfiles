@@ -122,7 +122,7 @@ if [ -f "$HOME/.zsh-scripts/antigen.zsh" ]; then
   antigen bundle zsh-users/zsh-autosuggestions
   antigen bundle hlissner/zsh-autopair
   # antigen bundle "zsh-users/zsh-syntax-highlighting"
-  antigen bundle zdharma/fast-syntax-highlighting
+  antigen bundle zdharma-continuum/fast-syntax-highlighting
   antigen bundle MichaelAquilina/zsh-you-should-use
   antigen bundle olivierverdier/zsh-git-prompt
   antigen theme romkatv/powerlevel10k
