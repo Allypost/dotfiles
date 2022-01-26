@@ -10,6 +10,3 @@
 [submodule "bash/.local/bash/z"]
 	path = bash/.local/bash/z
 	url = https://github.com/rupa/z.git
-[submodule "polybar/.config/polybar/scripts/polywins"]
-	path = polybar/.config/polybar/scripts/polywins
-	url = https://github.com/tam-carre/polywins.git
