@@ -419,7 +419,7 @@ menu-2-1-exec = menu-open-0
 
 [module/polywins]
 type = custom/script
-exec = ~/.config/polybar/scripts/polywins/polywins.sh 2>/dev/null
+exec = ~/.config/polybar/scripts/polywins.sh 2>/dev/null
 format = <label>
 label = %output%
 label-padding = 1
