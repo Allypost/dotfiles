@@ -10,6 +10,10 @@ super + alt + c
 super + r
 	rofi -show combi -theme-str 'inputbar \{ children: [entry]; \}'
 
+# lock screen
+super + alt + l
+  i3lock --fill --ignore-empty-password --show-failed-attempts --clock --keylayout 2
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
