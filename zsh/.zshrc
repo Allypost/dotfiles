@@ -42,10 +42,18 @@ if [ -d "$HOME/.asdf" ]; then
 
   fpath=("$ASDF_DIR/completions" $fpath)
 fi
+if [ -d '/opt/homebrew/opt/asdf' ]; then
+  . /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+  fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
+fi
 
 if [ -d "$HOME/.zsh/completions" ]; then
   fpath=($fpath "$HOME/.zsh/completions")
 fi
+
+# iTerm2 integration
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # Use modern completion system
 zstyle ':completion:*' menu select

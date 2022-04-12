@@ -33,6 +33,10 @@ if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# Add homebrew to path if it exists
+if [ -d '/opt/homebrew/bin' ]; then
+  export PATH="$PATH:/opt/homebrew/bin";
+fi
 
 # Set NPM bin path
 NPM_BIN_PATH=''
