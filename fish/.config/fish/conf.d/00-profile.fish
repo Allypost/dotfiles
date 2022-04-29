@@ -75,3 +75,8 @@ set --global TERM xterm-256color
 
 #set --global DOCKER_BUILDKIT 1
 #set --global COMPOSE_DOCKER_CLI_BUILD 1
+
+# Screen locker config
+set --global XSECURELOCK_SHOW_DATETIME 1
+# set --global XSECURELOCK_SAVER saver_xscreensaver
+

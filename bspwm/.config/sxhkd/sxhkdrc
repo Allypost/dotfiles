@@ -12,8 +12,7 @@ super + r
 
 # lock screen
 super + alt + l
-  i3lock --fill --ignore-empty-password --show-failed-attempts --clock --keylayout 2
-
+  sh -c 'XSECURELOCK_SHOW_DATETIME=1 xsecurelock'
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd

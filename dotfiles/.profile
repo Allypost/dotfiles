@@ -137,3 +137,8 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 if [ -f "$HOME/.cargo/env" ]; then
     . "$HOME/.cargo/env"
 fi
+
+# Screen locker config
+export XSECURELOCK_SHOW_DATETIME=1
+# export XSECURELOCK_SAVER=saver_xscreensaver
+
