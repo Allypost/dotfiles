@@ -38,6 +38,13 @@ if [ -d '/opt/homebrew/bin' ]; then
   export PATH="$PATH:/opt/homebrew/bin";
 fi
 
+# Add texlive studio thingy if it exists
+if [ -d "/opt/texlive/2022/bin/x86_64-linux" ]; then
+    PATH="/opt/texlive/2022/bin/x86_64-linux:$PATH"
+    MANPATH="/opt/texlive/2022/texmf-dist/doc/man:$MANPATH"
+    INFOPATH="/opt/texlive/2022/texmf-dist/doc/info:$INFOPATH"
+fi
+
 # Set NPM bin path
 NPM_BIN_PATH=''
 if [ -d "$HOME/.npm/bin" ]; then
