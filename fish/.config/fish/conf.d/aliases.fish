@@ -188,8 +188,8 @@ end
 
 alias snap="sudo snap"
 
-alias v="vim"
-alias sv="sudo vim"
+alias v="nvim "
+alias sv="sudo nvim "
 
 alias o="xdg-open"
 
