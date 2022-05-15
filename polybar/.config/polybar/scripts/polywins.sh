@@ -187,7 +187,11 @@ generate_window_list() {
 
 		# Truncate displayed name to user-selected limit
 		if [ "${#w_name}" -gt "$char_limit" ]; then
-			w_name="$(echo "$w_name" | cut -c1-$((char_limit-1)))…"
+			if which colrm >/dev/null; then
+				w_name="$(echo "$w_name" | colrm $char_limit)…"
+			else
+				w_name="$(echo "$w_name" | cut -c1-$((char_limit-1)))…"
+			fi
 		fi
 
 		# Apply add-spaces setting
