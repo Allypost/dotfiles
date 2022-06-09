@@ -124,3 +124,5 @@ if [ -f "$HOME/.local/bash/z/z.sh" ]; then
     _Z_DATA="$HOME/.local/bash/z.db"
     . "$HOME/.local/bash/z/z.sh"
 fi
+
+export SPACEMACSDIR="$XDG_CONFIG_HOME/spacemacs"

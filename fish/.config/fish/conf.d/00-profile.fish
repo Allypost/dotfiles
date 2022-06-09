@@ -79,4 +79,4 @@ set --global TERM xterm-256color
 # Screen locker config
 set --global XSECURELOCK_SHOW_DATETIME 1
 # set --global XSECURELOCK_SAVER saver_xscreensaver
-
+set --global SPACEMACSDIR "$XDG_CONFIG_HOME/spacemacs"

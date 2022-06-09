@@ -149,3 +149,4 @@ fi
 export XSECURELOCK_SHOW_DATETIME=1
 # export XSECURELOCK_SAVER=saver_xscreensaver
 
+export SPACEMACSDIR="$XDG_CONFIG_HOME/spacemacs"

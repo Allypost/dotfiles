@@ -174,3 +174,5 @@ fi
 if [ -d "$HOME/.zfunctions" ]; then
   fpath=($fpath "$HOME/.zfunctions")
 fi
+
+export SPACEMACSDIR="$XDG_CONFIG_HOME/spacemacs"
