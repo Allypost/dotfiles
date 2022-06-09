@@ -41,5 +41,8 @@ bspc rule -a mirage state=floating
 bspc rule -a Mirage state=floating
 bspc rule -a ristretto state=floating
 
+# Fixes
+bspc rule -a Emacs state=tiled
+
 # Autostart stuff
 "$(dirname $0)"/autorun.sh
