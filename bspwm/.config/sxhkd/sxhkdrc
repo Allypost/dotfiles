@@ -110,9 +110,9 @@ XF86MonBrightnessUp
 	sudo light -A 10
 
 
-#############
-# Backlight #
-#############
+##########
+# Volume #
+##########
 # Increase volume
 XF86AudioRaiseVolume
 	pactl set-sink-volume @DEFAULT_SINK@ +5%
