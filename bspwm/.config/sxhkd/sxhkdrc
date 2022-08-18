@@ -33,6 +33,10 @@ super + shift + r
 super + shift + q
 	bspc node -c
 
+# force kill
+super + shift + ctrl + q
+  bspc node -k
+
 # alternate between the tiled and monocle layout
 super + w
 	bspc desktop -l next
