@@ -1,0 +1,6 @@
+--xattrs
+
+--embed-thumbnail
+--embed-metadata
+
+--output '%(title)s.%(ext)s'
