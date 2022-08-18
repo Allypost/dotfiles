@@ -19,7 +19,14 @@ alias ..='cd ..'
 # Allow aliases to trickle thru to sudo
 alias sudo='sudo '
 
-alias rand-string="cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1"
+function rand-string -d "Generate random string";
+    set --function DEFAULT_LENGTH 32
+    set --function LENGTH $DEFAULT_LENGTH
+    set -q argv[1]; and set --function LENGTH $argv[1]
+
+    LC_ALL=C tr -dc 'A-Za-z0-9' </dev/urandom | head -c "$LENGTH"
+end
+
 function weather
     curl "https://wttr.in/(1-~Maksimir?FAQ)"
 end
