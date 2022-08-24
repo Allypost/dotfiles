@@ -100,11 +100,11 @@ local function clipboard_set_windows(text)
 end
 
 local function clipboard_set_osx(text)
-    return os.execute(string.format("echo $'%s' | pbcopy", text))
+    return os.execute(string.format("printf '%%s' $'%s' | pbcopy", text))
 end
 
 local function clipboard_set_linux(text)
-    return os.execute(string.format("echo $'%s' | xclip -sel clip", text))
+    return os.execute(string.format("printf '%%s' $'%s' | xclip -sel clip", text))
 end
 
 local function clipboard_set(text)
