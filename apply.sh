@@ -9,6 +9,10 @@ ANTIGEN_LOC="$HOME/.zsh-scripts/antigen.zsh"
 ASDF_LOC="$HOME/.asdf"
 EMACS_CONF_DIR="$HOME/.emacs.d"
 
+# Install vim-plug
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
 # Run GNU stow to symlink everything
 stow */
 
