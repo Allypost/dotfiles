@@ -124,6 +124,7 @@ if [ -f "$HOME/.zsh-scripts/antigen.zsh" ]; then
   antigen bundle command-not-found
   antigen bundle gitfast
   antigen bundle sudo
+  antigen bundle agkozak/zsh-z
 
 
   ## Loaded from other sources
