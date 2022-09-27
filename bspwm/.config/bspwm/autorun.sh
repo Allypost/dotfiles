@@ -15,7 +15,23 @@ function set_auto_lock_handler() {
 }
 
 function apply_xrandr_screen_settings() {
-  [ -f "$HOME/.screenlayout/defalt.sh" ] && "$HOME/.screenlayout/defalt.sh"
+  SCRIPT_DIR="$HOME/.screenlayout"
+  SCRIPT="ltr.sh"
+
+  N_MONITORS="$(xrandr | grep ' connected' | grep '^DP-' | wc -l)"
+
+  if [ "$N_MOINTORS" -gt 2 ]; then
+    SCRIPT="ltr-no-laptop.sh"
+  fi
+
+  if [ -f "$SCRIPT_DIR/mon-$N_MONITORS.sh" ]; then
+    SCRIPT="mon-$N_MONITORS.sh"
+  fi
+
+  SCRIPT="$SCRIPT_DIR/$SCRIPT"
+  if [ -f "$SCRIPT" ]; then
+    . "$SCRIPT"
+  fi
 }
 
 function run_auth_agents() {
