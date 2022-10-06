@@ -438,6 +438,6 @@ function adb-wait-for-device() {
     adb wait-for-device && notify-send -u critical -a 'ADB' --icon 'phone' 'Phone connected' "The device '`adb shell getprop ro.product.model`' has connected to the computer"
 }
 
-alias a2cdl="aria2c -x 16 "
+alias a2cdl="aria2c -x 16 --seed-time 0 "
 
 alias png-compress="pngquant --skip-if-larger --ext .png --force --speed 1 --strip "
