@@ -79,9 +79,9 @@ if [ -d "/snap/bin" ]; then
     PATH="/snap/bin:$PATH"
 fi
 
-export LANGUAGE='en_GB.UTF-8'
-export LANG='en_GB.UTF-8'
-export LC_ALL='en_GB.UTF-8'
+export LANGUAGE='en_US.UTF-8'
+export LANG='en_US.UTF-8'
+export LC_ALL='en_US.UTF-8'
 export LC_TIME='hr_HR.UTF-8'
 
 export VISUAL=vim
