@@ -28,6 +28,10 @@ function apply_xrandr_screen_settings() {
     SCRIPT="mon-$N_MONITORS.sh"
   fi
 
+  if [ -f "$SCRIPT_DIR/defalt.sh" ]; then
+    SCRIPT="defalt.sh"
+  fi
+
   SCRIPT="$SCRIPT_DIR/$SCRIPT"
   if [ -f "$SCRIPT" ]; then
     . "$SCRIPT"
