@@ -69,6 +69,10 @@ if [ -f "$HOME/.cargo/env" ];
     set --export PATH "$HOME/.cargo/bin" $PATH
 end
 
+if [ -d "$HOME/.local/share/JetBrains/Toolbox/scripts" ];
+    set --export PATH "$HOME/.local/share/JetBrains/Toolbox/scripts" $PATH
+end
+
 set --global Z_DATA "$HOME/.local/bash/z.db"
 
 set --global TERM xterm-256color

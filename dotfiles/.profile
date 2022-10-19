@@ -145,6 +145,10 @@ if [ -f "$HOME/.cargo/env" ]; then
     . "$HOME/.cargo/env"
 fi
 
+if [ -f "$HOME/.local/share/JetBrains/Toolbox/scripts" ]; then
+    export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
+fi
+
 # Screen locker config
 export XSECURELOCK_SHOW_DATETIME=1
 # export XSECURELOCK_SAVER=saver_xscreensaver
