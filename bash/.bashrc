@@ -74,7 +74,7 @@ xterm*|rxvt*)
 esac
 
 
-[ -f ~/.profile ] && source .profile
+#[ -f ~/.profile ] && source .profile
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -107,7 +107,7 @@ export EDITOR="$VISUAL"
 
 if [[ -s "$HOME/.asdf/asdf.sh" ]]; then
     . "$HOME/.asdf/asdf.sh"
-fi 
+fi
 if [[ -s "$HOME/.asdf/completions/asdf.bash" ]]; then
     . $HOME/.asdf/completions/asdf.bash
 fi
