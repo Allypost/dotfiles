@@ -1,7 +1,7 @@
 set --global tide_left_prompt_item_separator_same_color " | "
 set --global tide_left_prompt_item_separator_same_color_color brwhite
 set --global tide_left_prompt_pad_items false
-
+set --global tide_left_prompt_suffix ""
 
 function _tide_item_battery
     # Check whether battery is present
