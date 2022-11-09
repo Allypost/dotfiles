@@ -5,7 +5,7 @@ set --global tide_left_prompt_pad_items false
 
 function _tide_item_battery
     # Check whether battery is present
-    if [ -z (upower -e 2>&1 | grep 'BAT') ]
+    if command -v upower || [ -z (upower -e 2>&1 | grep 'BAT') ]
         return
     end
 
