@@ -73,6 +73,10 @@ if [ -d "$HOME/.local/share/JetBrains/Toolbox/scripts" ];
     set --export PATH "$HOME/.local/share/JetBrains/Toolbox/scripts" $PATH
 end
 
+if [ -d "$HOME/.local/go/bin" ];
+    set --export PATH "$HOME/.local/go/bin" $PATH
+end
+
 set --global Z_DATA "$HOME/.local/bash/z.db"
 
 set --global TERM xterm-256color
