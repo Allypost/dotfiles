@@ -77,6 +77,10 @@ if [ -d "$HOME/.local/go/bin" ];
     set --export PATH "$HOME/.local/go/bin" $PATH
 end
 
+if [ -d '/opt/homebrew/bin' ];
+    set --export PATH $PATH '/opt/homebrew/bin/'
+end
+
 set --global Z_DATA "$HOME/.local/bash/z.db"
 
 set --global TERM xterm-256color
