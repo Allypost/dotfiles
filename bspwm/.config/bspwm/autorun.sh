@@ -81,6 +81,7 @@ set_hid_libinput_settings &
 set_minimum_backlight_brigtness &
 set_auto_lock_handler &
 setxkbmap -layout 'us,hr' -option 'caps:escape' -option 'grp:win_space_toggle'
+xset r rate 200 50
 
 ######### RUN ONCE
 
