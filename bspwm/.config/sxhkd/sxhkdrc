@@ -47,7 +47,7 @@ super + w
 super + f
   bspc node -t '~fullscreen'
 
-super + ctrl + @space
+super + ctrl + space
   bspc node -t '~floating'
 
 super + ctrl + a
