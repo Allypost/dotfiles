@@ -42,6 +42,7 @@ bspc rule -a feh state=floating
 bspc rule -a mirage state=floating
 bspc rule -a Mirage state=floating
 bspc rule -a ristretto state=floating
+bspc rule -a copyq state=floating
 
 # Fixes
 bspc rule -a Emacs state=tiled
