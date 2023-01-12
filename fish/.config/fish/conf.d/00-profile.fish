@@ -81,6 +81,10 @@ if [ -d '/opt/homebrew/bin' ];
     set --export PATH $PATH '/opt/homebrew/bin/'
 end
 
+if [ -d "$HOME/.local/share/JetBrains/Toolbox/scripts" ];
+    set --export PATH $PATH "$HOME/.local/share/JetBrains/Toolbox/scripts"
+end
+
 set --global Z_DATA "$HOME/.local/bash/z.db"
 
 set --global TERM xterm-256color
