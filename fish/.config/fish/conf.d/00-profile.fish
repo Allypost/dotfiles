@@ -69,6 +69,10 @@ if [ -f "$HOME/.cargo/env" ];
     set --export PATH "$HOME/.cargo/bin" $PATH
 end
 
+if [ -d "$HOME/.cargo/bin" ];
+    set --export PATH "$HOME/.cargo/bin" $PATH
+end
+
 if [ -d "$HOME/.local/share/JetBrains/Toolbox/scripts" ];
     set --export PATH "$HOME/.local/share/JetBrains/Toolbox/scripts" $PATH
 end
@@ -85,6 +89,7 @@ if [ -d "$HOME/.local/share/JetBrains/Toolbox/scripts" ];
     set --export PATH $PATH "$HOME/.local/share/JetBrains/Toolbox/scripts"
 end
 
+
 set --global Z_DATA "$HOME/.local/bash/z.db"
 
 set --global TERM xterm-256color
@@ -96,3 +101,10 @@ set --global TERM xterm-256color
 set --global XSECURELOCK_SHOW_DATETIME 1
 # set --global XSECURELOCK_SAVER saver_xscreensaver
 set --global SPACEMACSDIR "$XDG_CONFIG_HOME/spacemacs"
+
+
+# Rust stuff
+if command -v sccache &>/dev/null;
+    set --global RUSTC_WRAPPER 'sccache'
+end
+

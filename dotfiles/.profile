@@ -150,8 +150,18 @@ if [ -f "$HOME/.local/share/JetBrains/Toolbox/scripts" ]; then
     export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
 fi
 
+if [ -f "$HOME/.cargo/bin" ]; then
+    export PATH="$PATH:$HOME/.cargo/bin"
+fi
+
 # Screen locker config
 export XSECURELOCK_SHOW_DATETIME=1
 # export XSECURELOCK_SAVER=saver_xscreensaver
 
 export SPACEMACSDIR="$XDG_CONFIG_HOME/spacemacs"
+
+# Rust stuff
+if command -v sccache &>/dev/null; then
+    export RUSTC_WRAPPER='sccache'
+fi
+
