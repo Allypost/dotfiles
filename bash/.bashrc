@@ -105,11 +105,21 @@ export EDITOR="$VISUAL"
 
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
-if [[ -s "$HOME/.asdf/asdf.sh" ]]; then
-    . "$HOME/.asdf/asdf.sh"
-fi
-if [[ -s "$HOME/.asdf/completions/asdf.bash" ]]; then
-    . $HOME/.asdf/completions/asdf.bash
+if command -v rtx &>/dev/null; then
+    eval "$(rtx activate bash)"
+else
+    include_file="$HOME/.asdf/asdf.sh"
+    homebrew_include_file="/opt/homebrew/opt/asdf/libexec/asdf.sh"
+    if [ -f "$homebrew_include_file" ]; then
+      . "$homebrew_include_file"
+    elif [ -f "$include_file" ]; then
+      . "$include_file"
+    fi
+
+    completions_file="$HOME/.asdf/completions/asdf.bash"
+    if [ -f "$completions_file" ]; then
+        . "$completions_file"
+    fi
 fi
 
 export NVM_DIR="$HOME/.nvm"

@@ -49,7 +49,14 @@ if [ -d "/snap/bin" ]
     set --export PATH "/snap/bin:$PATH"
 end
 
-if [ -f "$HOME/.asdf/asdf.fish" ]
+if command -v rtx &>/dev/null;
+    rtx activate fish | source
+    set completions_file "$__fish_config_dir/completions/rtx.fish"
+    if ! [ -f "$completions_file" ];
+        rtx complete -s fish > "$completions_file"
+        fish_update_completions
+    end
+else if [ -f "$HOME/.asdf/asdf.fish" ]
     source ~/.asdf/asdf.fish
 end
 

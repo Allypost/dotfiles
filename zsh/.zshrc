@@ -37,15 +37,28 @@ setopt EXTENDED_HISTORY
 HISTFILE=~/.zsh_history
 
 # Add completions
-if [ -d "$HOME/.asdf" ]; then
-  . $HOME/.asdf/asdf.sh
+if command -v rtx &>/dev/null; then
+    eval "$(rtx activate zsh)"
 
-  fpath=("$ASDF_DIR/completions" $fpath)
-fi
-if [ -d '/opt/homebrew/opt/asdf' ]; then
-  . /opt/homebrew/opt/asdf/libexec/asdf.sh
+    completions_dir="$HOME/.config/rtx/completions/zsh"
+    completions_file="$completions_dir/_rtx"
+    if ! [ -f "$completions_file" ]; then
+        mkdir -p "$completions_dir"
+        rtx complete -s zsh > "$completions_file"
+    fi
+    fpath=("$completions_dir" $fpath)
+else
+    include_file="$HOME/.asdf/asdf.sh"
+    homebrew_include_file="/opt/homebrew/opt/asdf/libexec/asdf.sh"
+    if [ -f "$homebrew_include_file" ]; then
+      . "$homebrew_include_file"
 
-  fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
+      fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
+    elif [ -f "$include_file" ]; then
+      . "$include_file"
+
+      fpath=("$ASDF_DIR/completions" $fpath)
+    fi
 fi
 
 if [ -d "$HOME/.zsh/completions" ]; then
