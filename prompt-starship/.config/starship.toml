@@ -22,7 +22,7 @@ $jobs\
 $battery\
 $time\
 $status\
-($username(@$hostname) )\
+[($username(@$hostname) )](180)\
 $character\
 """
 right_format = """
@@ -39,12 +39,12 @@ style = '39'
 
 [username]
 format = '[$user]($style)'
-style_user = 'bold red'
+style_user = 'bold 180'
 style_root = 'bold bright-yellow'
 
 [hostname]
-format = '[$ssh_symbol$hostname]($style)'
-style = 'dimmed brown'
+format = '[$hostname]($style)'
+style = '180'
 
 [cmd_duration]
 format = '[$duration]($style)'
