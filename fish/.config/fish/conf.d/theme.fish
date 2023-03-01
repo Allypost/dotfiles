@@ -1,3 +1,6 @@
+if command -v starship &>/dev/null;
+    starship init fish | source
+else
 set --global tide_left_prompt_item_separator_same_color " | "
 set --global tide_left_prompt_item_separator_same_color_color brwhite
 set --global tide_left_prompt_pad_items false
@@ -74,3 +77,4 @@ set --global tide_right_prompt_items \
     "status" \
     "battery" \
     "jobs"
+end

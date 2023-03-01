@@ -128,7 +128,7 @@ if [ -f "$HOME/.zsh-scripts/antigen.zsh" ]; then
   source "$HOME/.zsh-scripts/antigen.zsh"
 
   antigen use oh-my-zsh
-	
+
   ### Bundles
 
   ## Loaded from https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins
@@ -147,7 +147,6 @@ if [ -f "$HOME/.zsh-scripts/antigen.zsh" ]; then
   antigen bundle zdharma-continuum/fast-syntax-highlighting
   antigen bundle MichaelAquilina/zsh-you-should-use
   antigen bundle olivierverdier/zsh-git-prompt
-  antigen theme romkatv/powerlevel10k
 
 
   ## Program dependant bundles
@@ -165,17 +164,25 @@ if [ -f "$HOME/.zsh-scripts/antigen.zsh" ]; then
     export FZF_ALT_C_OPTS="--preview 'tree -NC {} | head -200'"
   fi
 
-
-
-  ### Load p10k configs
-  # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-  [ -f "$HOME/.p10k.zsh" ] && source "$HOME/.p10k.zsh"
-
-
-
   # Local customizations, e.g. theme, plugins, aliases, etc.
   [ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
 
+  antigen apply
+fi
+
+if command -v starship &>/dev/null; then
+  eval "$(starship init zsh)"
+  completions_dir="$HOME/.config/starship/completions/zsh"
+  if ! [ -d "$completions_dir" ]; then
+    mkdir -p "$completions_dir"
+    starship completions zsh > "$completions_dir/_starship"
+  fi
+  fpath=("$completions_dir" $fpath)
+elif command -v antigen &>/dev/null; then
+  antigen theme romkatv/powerlevel10k
+  ### Load p10k configs
+  # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+  [ -f "$HOME/.p10k.zsh" ] && source "$HOME/.p10k.zsh"
   antigen apply
 fi
 

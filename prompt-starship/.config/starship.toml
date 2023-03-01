@@ -1,0 +1,99 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$custom\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$memory_usage\
+$cmd_duration\
+$command_timeout\
+$fill\
+$status\
+$battery\
+$jobs\
+$line_break\
+
+$jobs\
+$battery\
+$time\
+$status\
+($username(@$hostname) )\
+$character\
+"""
+right_format = """
+"""
+add_newline = false
+
+[fill]
+symbol = ' '
+
+[directory]
+truncate_to_repo = false
+use_os_path_sep = false
+style = '39'
+
+[username]
+format = '[$user]($style)'
+style_user = 'bold red'
+style_root = 'bold bright-yellow'
+
+[hostname]
+format = '[$ssh_symbol$hostname]($style)'
+style = 'dimmed brown'
+
+[cmd_duration]
+format = '[$duration]($style)'
+style = 'bright-black'
+min_time = 1_000
+show_notifications = false
+min_time_to_notify = 60_000
+
+[git_branch]
+format = '[$branch(:$remote_branch)]($style) '
+style = 'bright-green'
+
+[git_status]
+format = """
+(\
+($ahead_behind[|](bright-black) )\
+$conflicted\
+$stashed\
+$staged\
+$deleted\
+$renamed\
+$modified\
+$untracked\
+ )\
+"""
+conflicted = '[~$count](bright-red) '
+ahead = '[⇡$count](bright-green) '
+behind = '[⇣$count](bright-green) '
+diverged = '[⇡${ahead_count}⇣${behind_count}](bright-green) '
+untracked = '[?$count](bright-blue) '
+stashed = '[*$count](bright-green) '
+modified = '[!$count](bright-yellow) '
+staged = '[+$count](bold bright-yellow) '
+deleted = '[-$count](bright-yellow) '
+renamed = '[»$count](bright-yellow) '
+
+[custom.time_linux]
+command = "+%H:%m:%S"
+shell = ['date']
+style = '66'
+use_stdin = false
+os = "linux"
+when = true
+
+[custom.time_windows]
+command = "+'%H:%m:%S'"
+shell = ['date']
+style = '66'
+use_stdin = false
+os = "windows"
+when = true
+

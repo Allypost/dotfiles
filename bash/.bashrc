@@ -135,4 +135,8 @@ if [ -f "$HOME/.local/bash/z/z.sh" ]; then
     . "$HOME/.local/bash/z/z.sh"
 fi
 
+if command -v starship &>/dev/null; then
+    eval "$(starship init bash)"
+fi
+
 export SPACEMACSDIR="$XDG_CONFIG_HOME/spacemacs"
