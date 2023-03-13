@@ -35,6 +35,9 @@ symbol = ' '
 [directory]
 truncate_to_repo = false
 use_os_path_sep = false
+truncation_length = 5
+truncation_symbol = '…/'
+fish_style_pwd_dir_length = 1
 style = '39'
 
 [username]
