@@ -43,6 +43,17 @@ else
     cd -
 fi
 
+TMUX_PLUGINS_DIR="${XDG_CONFIG_HOME:-"$HOME/.config"}/tmux/plugins"
+TMUX_TPM_DIR="$TMUX_PLUGINS_DIR/tpm"
+echo "Installing tmux plugin manager..."
+if [[ -d "$TMUX_TPM_DIR" ]]; then
+	echo "Tmux TPM already installed... Skipping."
+else
+	echo "Installing Tmux TPM..."
+	git clone https://github.com/tmux-plugins/tpm "$TMUX_TPM_DIR"
+	. "$TMUX_TPM_DIR/bin/install_plugins"
+fi
+
 # Remove completions for some programs
 
 # runit
