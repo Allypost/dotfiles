@@ -1,3 +1,4 @@
+if functions -q __ysu__set_default;
 set --global FISH_YOU_SHOULD_USE_VERSION "1.2.0"
 
 __ysu__set_default NONE (set_color normal)
@@ -12,3 +13,4 @@ set --global YSU__HARDCORE_MODE false
 functions -q __ysu__check_aliases
 functions -q __ysu__check_git_aliases
 functions -q __ysu__flush_buffer
+end
