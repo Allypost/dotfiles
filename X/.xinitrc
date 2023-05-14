@@ -4,6 +4,8 @@
 #
 # Executed by startx (run your window manager from here)
 
+xsetroot -cursor_name left_ptr
+
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
@@ -67,5 +69,6 @@ get_session(){
 
 export AWT_TOOLKIT=MToolkit
 #wmname compiz &
+export QT_QPA_PLATFORMTHEME=qt5ct
 export _JAVA_AWT_WM_NONREPARENTING=1
 exec $(get_session "${1:-$DEFAULT_SESSION}")
