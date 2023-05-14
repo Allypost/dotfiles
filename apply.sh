@@ -48,6 +48,24 @@ else
 	. "$TMUX_TPM_DIR/bin/install_plugins"
 fi
 
+echo "Installing AstroNvim..."
+if [ -d "${CONFIG_DIR}/nvim/lua/astronvim" ]; then
+	echo "AstroNvim already installed... Skipping."
+else
+	# Backup old nvim config
+	mv ~/.config/nvim ~/.config/nvim.bak || echo -n ""
+	mv ~/.local/share/nvim ~/.local/share/nvim.bak || echo -n ""
+	mv ~/.local/state/nvim ~/.local/state/nvim.bak || echo -n ""
+	mv ~/.cache/nvim ~/.cache/nvim.bak || echo -n ""
+
+	# Clone AstroNvim repository
+	git clone --depth 1 https://github.com/AstroNvim/AstroNvim "$CONFIG_DIR/nvim"
+
+	# Restow nvim config
+	stow --verbose --restow vim
+	nvim --headless -c 'quitall'
+fi
+
 # Remove completions for some programs
 
 # runit
