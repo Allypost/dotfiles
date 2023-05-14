@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 SCRIPTPATH="$(
-    cd "$(dirname "$0")" >/dev/null 2>&1
-    pwd -P
+	cd "$(dirname "$0")" >/dev/null 2>&1
+	pwd -P
 )"
 SCRIPTS_DIR="$HOME/.scripts"
 ANTIGEN_LOC="$HOME/.zsh-scripts/antigen.zsh"
@@ -20,27 +20,27 @@ source "$HOME/.profile"
 
 echo "Downloading scripts..."
 if [[ -d "$SCRIPTS_DIR" || -f "$SCRIPTS_DIR" ]]; then
-    echo "Scripts directort already exists... Skipping."
+	echo "Scripts directort already exists... Skipping."
 else
-    git clone https://github.com/Allypost/bash-scripts.git "$SCRIPTS_DIR"
+	git clone https://github.com/Allypost/bash-scripts.git "$SCRIPTS_DIR"
 fi
 
 echo "Installing antigen..."
 if [[ -f "$ANTIGEN_LOC" ]]; then
-    echo "Antigen already installed... Skipping."
+	echo "Antigen already installed... Skipping."
 else
-    mkdir -p "$(dirname "$ANTIGEN_LOC")"
-    curl -L git.io/antigen >"$ANTIGEN_LOC"
+	mkdir -p "$(dirname "$ANTIGEN_LOC")"
+	curl -L git.io/antigen >"$ANTIGEN_LOC"
 fi
 
 echo "Installing asdf..."
 if [[ -d "$ASDF_LOC" ]]; then
-    echo "asdf already installed... Skipping."
+	echo "asdf already installed... Skipping."
 else
-    git clone https://github.com/asdf-vm/asdf.git "$ASDF_LOC"
-    cd "$ASDF_LOC"
-    git checkout "$(git describe --abbrev=0 --tags)"
-    cd -
+	git clone https://github.com/asdf-vm/asdf.git "$ASDF_LOC"
+	cd "$ASDF_LOC"
+	git checkout "$(git describe --abbrev=0 --tags)"
+	cd -
 fi
 
 TMUX_PLUGINS_DIR="${XDG_CONFIG_HOME:-"$HOME/.config"}/tmux/plugins"
@@ -58,5 +58,5 @@ fi
 
 # runit
 if ! command -v sv &>/dev/null; then
-    [ -f '/usr/share/zsh/functions/Completion/Unix/_runit' ] && sudo mv /usr/share/zsh/functions/Completion/Unix/{,.bak-}_runit || echo 'Runit alias removed'
+	[ -f '/usr/share/zsh/functions/Completion/Unix/_runit' ] && sudo mv /usr/share/zsh/functions/Completion/Unix/{,.bak-}_runit || echo 'Runit alias removed'
 fi
