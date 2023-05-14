@@ -5,9 +5,10 @@ set -eo pipefail
 SCRIPTS_DIR="$HOME/.scripts"
 ANTIGEN_LOC="$HOME/.zsh-scripts/antigen.zsh"
 ASDF_LOC="$HOME/.asdf"
+CONFIG_DIR="${XDG_CONFIG_HOME:-"$HOME/.config"}"
 
 # Run GNU stow to symlink everything
-stow */
+stow --verbose --restow */
 
 source "$HOME/.profile"
 
@@ -36,7 +37,7 @@ else
 	cd -
 fi
 
-TMUX_PLUGINS_DIR="${XDG_CONFIG_HOME:-"$HOME/.config"}/tmux/plugins"
+TMUX_PLUGINS_DIR="$CONFIG_DIR/tmux/plugins"
 TMUX_TPM_DIR="$TMUX_PLUGINS_DIR/tpm"
 echo "Installing tmux plugin manager..."
 if [[ -d "$TMUX_TPM_DIR" ]]; then
