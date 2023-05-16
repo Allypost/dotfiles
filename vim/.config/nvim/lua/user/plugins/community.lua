@@ -10,6 +10,7 @@ return {
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.bash" },
+  { import = "astrocommunity.pack.python" },
 
   -- example of imporing a plugin, comment out to use it or add your own
   -- available plugins can be found at https://github.com/AstroNvim/astrocommunity
