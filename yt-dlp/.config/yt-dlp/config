@@ -2,5 +2,13 @@
 
 --embed-thumbnail
 --embed-metadata
+--ignore-errors
+
+--concurrent-fragments 8
+--console-title
+--prefer-ffmpeg
+--netrc
+
+--cookies-from-browser chrome
 
 --output '%(title)s.%(ext)s'

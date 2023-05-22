@@ -243,33 +243,33 @@ function rand-string {
     LC_ALL=C tr -dc 'A-Za-z0-9' </dev/urandom | head -c "$LENGTH"
 }
 
-function php-run() {
-    PROG_ARGS=()
-    ARGS=()
-    name="php-$(rand-string)"
-    
-    while test $# -gt 0; do
-        case "$1" in
-            -p|--port)
-                shift
-                ARGS+=("-p")
-                ARGS+=("$1:$1")
-                shift
-                ;;
-            *)
-                PROG_ARGS+=("$1")
-                shift
-                continue
-                ;;
-        esac
-    done
-    
-    docker run -it --rm --name "$name" -v "$PWD":/usr/src/myapp -w /usr/src/myapp "${ARGS[@]}" php:cli php "${PROG_ARGS[@]}"
-}
-
-function composer-run() {
-    docker run --rm --interactive --tty --volume $PWD:/app --volume ${COMPOSER_HOME:-$HOME/.composer}:/tmp composer "$@"
-}
+# function php-run() {
+#     PROG_ARGS=()
+#     ARGS=()
+#     name="php-$(rand-string)"
+#
+#     while test $# -gt 0; do
+#         case "$1" in
+#             -p|--port)
+#                 shift
+#                 ARGS+=("-p")
+#                 ARGS+=("$1:$1")
+#                 shift
+#                 ;;
+#             *)
+#                 PROG_ARGS+=("$1")
+#                 shift
+#                 continue
+#                 ;;
+#         esac
+#     done
+#
+#     docker run -it --rm --name "$name" -v "$PWD":/usr/src/myapp -w /usr/src/myapp "${ARGS[@]}" php:cli php "${PROG_ARGS[@]}"
+# }
+#
+# function composer-run() {
+#     docker run --rm --interactive --tty --volume $PWD:/app --volume ${COMPOSER_HOME:-$HOME/.composer}:/tmp composer "$@"
+# }
 
 function weather() {
     curl "https://wttr.in/${1-~Maksimir?FAQ}"
@@ -302,20 +302,20 @@ alias sv="sudo nvim "
 
 alias o="xdg-open"
 
-alias kset-proxy="ssh -D 13300 -q -C -N kset"
+# alias kset-proxy="ssh -D 13300 -q -C -N kset"
+#
+# alias youtube-dl="youtube-dl --cookies-from-browser chrome --concurrent-fragments 8 --console-title --prefer-ffmpeg --netrc --add-metadata --ignore-errors"
+# # alias youtube-dl-best="youtube-dl -f bestvideo+bestaudio --recode-video mp4 --embed-thumbnail --embed-subs --all-subs"
+# alias youtube-dl-best="youtube-dl -f bestvideo+bestaudio --recode-video mp4 --embed-subs --all-subs"
+#
+# # alias yt-dl="youtube-dl -f bestaudio --extract-audio --embed-thumbnail --audio-format mp3 --audio-quality 320k -o '%(title)s.%(ext)s'"
+# alias yt-dl="youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 320k -o '%(title)s.%(ext)s'"
+# alias y="yt-dl"
+# # alias meme-dl="youtube-dl -f 'best[width <=? 720][filesize <? 50M]' --id --embed-thumbnail --recode-video mp4"
+# alias meme-dl="youtube-dl -f 'best[width <=? 720][filesize <? 50M]' --id --recode-video mp4"
+# alias m="meme-dl"
 
-alias youtube-dl="youtube-dl --cookies-from-browser chrome --concurrent-fragments 8 --console-title --prefer-ffmpeg --netrc --add-metadata --ignore-errors"
-# alias youtube-dl-best="youtube-dl -f bestvideo+bestaudio --recode-video mp4 --embed-thumbnail --embed-subs --all-subs"
-alias youtube-dl-best="youtube-dl -f bestvideo+bestaudio --recode-video mp4 --embed-subs --all-subs"
-
-# alias yt-dl="youtube-dl -f bestaudio --extract-audio --embed-thumbnail --audio-format mp3 --audio-quality 320k -o '%(title)s.%(ext)s'"
-alias yt-dl="youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 320k -o '%(title)s.%(ext)s'"
-alias y="yt-dl"
-# alias meme-dl="youtube-dl -f 'best[width <=? 720][filesize <? 50M]' --id --embed-thumbnail --recode-video mp4"
-alias meme-dl="youtube-dl -f 'best[width <=? 720][filesize <? 50M]' --id --recode-video mp4"
-alias m="meme-dl"
-
-alias gitp="git pull --rebase"
+# alias gitp="git pull --rebase"
 
 alias clip="xclip -sel clip"
 
@@ -340,13 +340,13 @@ function lenny() {
 
 alias cdtemp='cd `mktemp -d`'
 
-alias va='v ~/.bash_aliases && source ~/.bash_aliases'
+# alias va='v ~/.bash_aliases && source ~/.bash_aliases'
 
-alias rm='rm -i'
+# alias rm='rm -i'
 
-alias gitp='git pull --rebase'
-alias top='s-tui'
-alias stop='sudo s-tui'
+# alias gitp='git pull --rebase'
+# alias top='s-tui'
+# alias stop='sudo s-tui'
 
 function swap-clear() {
     # Dirty hack to request sudo
@@ -360,24 +360,24 @@ function swap-clear() {
     echo   "Cleared swap"
 }
 
-function switch-to-test-env() {
-    eval $(make -s env-test)
-}
+# function switch-to-test-env() {
+#     eval $(make -s env-test)
+# }
+#
+# function make-test-env-reduced() {
+#     switch-to-test-env
+#     make up
+#     docker/cli bin/console prepare:elastic
+# }
+#
+# function make-test-env() {
+#     switch-to-test-env
+#     make init-reduced
+#     docker/cli bin/console prepare:elastic
+# }
 
-function make-test-env-reduced() {
-    switch-to-test-env
-    make up
-    docker/cli bin/console prepare:elastic
-}
-
-function make-test-env() {
-    switch-to-test-env
-    make init-reduced
-    docker/cli bin/console prepare:elastic
-}
-
-alias pt='docker/cli vendor/bin/phpunit' 
-alias ptd='docker/cli php-debug vendor/bin/phpunit'
+# alias pt='docker/cli vendor/bin/phpunit'
+# alias ptd='docker/cli php-debug vendor/bin/phpunit'
 
 function tar-store() {
     if [ -z "$2" ]; then
@@ -397,19 +397,19 @@ function tar-compress() {
 
 alias watch='watch --color'
 
-function docker-rm-all() {
-    docker rm $(docker stop $(docker ps -a -q))
-}
+# function docker-rm-all() {
+#     docker rm $(docker stop $(docker ps -a -q))
+# }
 
 # alias start-deezer-downloader='docker run -d --name=Deezldr -v "$HOME/Music/Deezldr:/downloads" -v "$HOME/.config/deezldr:/config" -e PUID=$(id -u) -e PGID=$(id -g) -p 1730:1730 bocki/deezloaderrmx'
 
-alias start-deemix-downloader='docker run --rm -d --name=Deemix  -v "$HOME/Music/Deemix:/downloads"  -v "$HOME/.config/deemix:/config" -e PUID=$(id -u) -e PGID=$(id -g) -p 9666:6595 registry.gitlab.com/bockiii/deemix-docker && docker logs -f Deemix'
+# alias start-deemix-downloader='docker run --rm -d --name=Deemix  -v "$HOME/Music/Deemix:/downloads"  -v "$HOME/.config/deemix:/config" -e PUID=$(id -u) -e PGID=$(id -g) -p 9666:6595 registry.gitlab.com/bockiii/deemix-docker && docker logs -f Deemix'
 
-alias serve-current-directory='python3 -m http.server'
+# alias serve-current-directory='python3 -m http.server'
 
-function mpv-stream() {
-    mpv `youtube-dl -f best -g -q "$1"`
-}
+# function mpv-stream() {
+#     mpv `youtube-dl -f best -g -q "$1"`
+# }
 
 function fix-opensubtitles-encoding() {
     [ -z "$1" ] && echo "You must provide a file path" && return 1
@@ -423,11 +423,10 @@ function fix-opensubtitles-encoding() {
     mv "$TEMP_FILE" "$1"
 }
 
-#alias ssh-kset="ssh -J $USER@cortana.kset.org"
-function ssh-kset() {
-    ssh -J "$USER@cortana.kset.org" "$USER@$1"
-}
-
+# #alias ssh-kset="ssh -J $USER@cortana.kset.org"
+# function ssh-kset() {
+#     ssh -J "$USER@cortana.kset.org" "$USER@$1"
+# }
 
 alias power-down="update-system && shutdown -h now"
 alias go-away-computer="power-down"

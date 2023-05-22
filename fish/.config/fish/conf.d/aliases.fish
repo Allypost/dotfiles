@@ -200,18 +200,18 @@ alias sv="sudo nvim "
 
 alias o="xdg-open"
 
-alias youtube-dl="youtube-dl --cookies-from-browser chrome --concurrent-fragments 8 --console-title --prefer-ffmpeg --netrc --add-metadata --ignore-errors"
-# alias youtube-dl-best="youtube-dl -f bestvideo+bestaudio --recode-video mp4 --embed-thumbnail --embed-subs --all-subs"
-alias youtube-dl-best="youtube-dl -f bestvideo+bestaudio --recode-video mp4 --embed-subs --all-subs"
+# alias youtube-dl="youtube-dl --cookies-from-browser chrome --concurrent-fragments 8 --console-title --prefer-ffmpeg --netrc --add-metadata --ignore-errors"
+# # alias youtube-dl-best="youtube-dl -f bestvideo+bestaudio --recode-video mp4 --embed-thumbnail --embed-subs --all-subs"
+# alias youtube-dl-best="youtube-dl -f bestvideo+bestaudio --recode-video mp4 --embed-subs --all-subs"
+#
+# # alias yt-dl="youtube-dl -f bestaudio --extract-audio --embed-thumbnail --audio-format mp3 --audio-quality 320k -o '%(title)s.%(ext)s'"
+# alias yt-dl="youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 320k -o '%(title)s.%(ext)s'"
+# alias y="yt-dl"
+# # alias meme-dl="youtube-dl -f 'best[width <=? 720][filesize <? 50M]' --id --embed-thumbnail --recode-video mp4"
+# alias meme-dl="youtube-dl -f 'best[width <=? 720][filesize <? 50M]' --id --recode-video mp4"
+# alias m="meme-dl"
 
-# alias yt-dl="youtube-dl -f bestaudio --extract-audio --embed-thumbnail --audio-format mp3 --audio-quality 320k -o '%(title)s.%(ext)s'"
-alias yt-dl="youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 320k -o '%(title)s.%(ext)s'"
-alias y="yt-dl"
-# alias meme-dl="youtube-dl -f 'best[width <=? 720][filesize <? 50M]' --id --embed-thumbnail --recode-video mp4"
-alias meme-dl="youtube-dl -f 'best[width <=? 720][filesize <? 50M]' --id --recode-video mp4"
-alias m="meme-dl"
-
-alias gitp="git pull --rebase"
+# alias gitp="git pull --rebase"
 
 alias clip="xclip -sel clip"
 
@@ -219,11 +219,11 @@ alias cls='printf "\033[2J\033[3J\033[1;1H"'
 
 alias cdtemp='cd (mktemp -d)'
 
-alias rm='rm -i'
+# alias rm='rm -i'
 
-alias gitp='git pull --rebase'
-alias top='s-tui'
-alias stop='sudo s-tui'
+# alias gitp='git pull --rebase'
+# alias top='s-tui'
+# alias stop='sudo s-tui'
 
 function swap-clear
     # Dirty hack to request sudo
@@ -237,11 +237,6 @@ function swap-clear
 end
 
 alias watch='watch --color'
-
-function ssh-kset
-    set server $argv[1]
-    ssh -J "$USER@cortana.kset.org" "$USER@$server"
-end
 
 alias power-down="update-system && shutdown -h now"
 alias go-away-computer="power-down"
