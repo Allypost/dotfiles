@@ -138,13 +138,13 @@ XF86AudioMute
 ###########
 # open ~
 super + e
-	dolphin --platformtheme qt5ct ~
+	dolphin --new-window ~
 # open ~/MEMES
 super + ctrl + e
-	dolphin --platformtheme qt5ct ~/MEMES
+	dolphin --new-window ~/MEMES
 # open ~/Music
 super + ctrl + m
-	dolphin --platformtheme qt5ct ~/Music
+	dolphin --new-window ~/Music
 
 
 ###############
