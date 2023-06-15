@@ -186,7 +186,9 @@ elif command -v antigen &>/dev/null; then
   antigen apply
 fi
 
-if [ -f "$HOME/.local/bash/z/z.sh" ]; then
+if command -v zoxide &>/dev/null; then
+  eval "$(zoxide init zsh)"
+elif [ -f "$HOME/.local/bash/z/z.sh" ]; then
   _Z_DATA="$HOME/.local/bash/z.db"
   . "$HOME/.local/bash/z/z.sh"
 fi

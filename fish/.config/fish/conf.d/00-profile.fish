@@ -115,3 +115,7 @@ if command -v sccache &>/dev/null;
     set --global RUSTC_WRAPPER 'sccache'
 end
 
+if command -v zoxide &>/dev/null;
+    zoxide init fish | source
+end
+
