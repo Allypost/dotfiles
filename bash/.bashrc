@@ -142,3 +142,8 @@ if command -v zoxide &>/dev/null; then
 fi
 
 export SPACEMACSDIR="$XDG_CONFIG_HOME/spacemacs"
+
+if command -v atuin &>/dev/null; then
+	[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+	eval "$(atuin init bash)"
+fi

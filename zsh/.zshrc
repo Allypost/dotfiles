@@ -199,3 +199,7 @@ if [ -d "$HOME/.zfunctions" ]; then
 fi
 
 export SPACEMACSDIR="$XDG_CONFIG_HOME/spacemacs"
+
+if command -v atuin &>/dev/null; then
+  eval "$(atuin init zsh)"
+fi
