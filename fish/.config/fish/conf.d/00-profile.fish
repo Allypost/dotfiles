@@ -120,5 +120,5 @@ if command -v zoxide &>/dev/null;
 end
 
 if command -v atuin &>/dev/null;
-    atuin init fish | source
+    atuin init fish --disable-up-arrow | source
 end
