@@ -85,7 +85,7 @@ deleted = '[-$count](bright-yellow) '
 renamed = '[»$count](bright-yellow) '
 
 [custom.time_linux]
-command = "+%H:%m:%S"
+command = "+%H:%M:%S"
 shell = ['date']
 style = '66'
 use_stdin = false
@@ -99,4 +99,3 @@ style = '66'
 use_stdin = false
 os = "windows"
 when = true
-
