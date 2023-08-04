@@ -70,10 +70,27 @@ function set_hid_libinput_settings() {
   if [ ! -z "$TOUCHPAD_ID" ]; then
     xinput set-prop "$TOUCHPAD_ID" 'libinput Natural Scrolling Enabled' 1
   fi
+
+function run_user_autostart() {
+	if ! command -v xrdb &>/dev/null; then
+		return 1
+	fi
+
+	if ! command -v dex &>/dev/null; then
+		return 1
+	fi
+
+	if (xrdb -query | grep -q '^bspwm\.autostart\.done:\s*true$'); then
+		return 0
+	fi
+
+	xrdb -merge <<<"bspwm.autostart.done:true"
+	dex --environment bspwm --autostart
 }
 
 ######### RUN EVERY TIME
 
+run_user_autostart &
 apply_xrandr_screen_settings &
 run_auth_agents &
 set_desktop_wallpaper &
