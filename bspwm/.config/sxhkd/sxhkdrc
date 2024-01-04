@@ -4,7 +4,7 @@ alt + {_,shift + }Tab
 
 # terminal emulator
 super + alt + c
-  kitty
+	kitty
 
 # program launcher
 super + r
@@ -12,13 +12,13 @@ super + r
 
 # lock screen
 super + alt + l
-  sh -c 'XSECURELOCK_SHOW_DATETIME=1 xsecurelock'
+	sh -c 'XSECURELOCK_SHOW_DATETIME=1 xsecurelock'
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
 # turn off screen
 super + alt + @period
-  xset dpms force off
+	xset dpms force off
 
 #
 # bspwm hotkeys
@@ -38,17 +38,17 @@ super + shift + q
 
 # force kill
 super + shift + ctrl + q
-  bspc node -k
+	bspc node -k
 
 # alternate between the tiled and monocle layout
 super + w
 	bspc desktop -l next
 
 super + f
-  bspc node -t '~fullscreen'
+	bspc node -t '~fullscreen'
 
 super + ctrl + space
-  bspc node -t '~floating'
+	bspc node -t '~floating'
 
 super + ctrl + a
 	bspc node --focus any.urgent

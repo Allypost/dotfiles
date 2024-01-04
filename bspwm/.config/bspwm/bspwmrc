@@ -8,11 +8,11 @@ pkill -USR1 -x sxhkd
 # bspc monitor -d I II III IV V VI VII VIII IX X
 i=1
 for monitor in $(bspc query -M); do
-    bspc monitor $monitor \
-        --reset-desktops $i/{1..9}
-    #--rename "$monitor" \
-    # --reset-desktops "$monitor"/{1..9}
-    let i++
+	bspc monitor $monitor \
+		--reset-desktops $i/{1..9}
+	#--rename "$monitor" \
+	# --reset-desktops "$monitor"/{1..9}
+	let i++
 done
 
 bspc config border_width 2
@@ -23,6 +23,11 @@ bspc config focused_border_color '#8E24AA'
 bspc config split_ratio 0.52
 bspc config borderless_monocle true
 bspc config gapless_monocle true
+
+#
+# Run `xprop | grep WM_CLASS`
+# and click window name to get window id
+#
 
 # bspc rule -a Gimp desktop='^8' state=floating follow=on
 # bspc rule -a Chromium desktop='^2'
