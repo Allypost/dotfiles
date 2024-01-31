@@ -63,13 +63,11 @@ function set_hid_libinput_settings() {
 		xinput set-prop "$id" 'libinput Accel Speed' 0.4 &>/dev/null
 		xinput set-prop "$id" 'libinput Accel Profile Enabled' 0 1 &>/dev/null
 	done
-	xinput set-prop 'Elan Touchpad' 'libinput Natural Scrolling Enabled' 1
-	xinput set-prop 'ETPS/2 Elantech Touchpad' 'libinput Tapping Enabled' 1
 
-	TOUCHPAD_ID="$(xinput list | grep -i touchpad | head | sed -E 's/.*\sid=([0-9]+)\s.*/\1/')"
-	if [ ! -z "$TOUCHPAD_ID" ]; then
-		xinput set-prop "$TOUCHPAD_ID" 'libinput Natural Scrolling Enabled' 1
-	fi
+	for touchpad_id in $(xinput list --short | grep -E '^⎜\s+↳' | grep -i ' touchpad' | perl -n -e'/id=(\d+)/ && print "$1\n"'); do
+		xinput set-prop "$touchpad_id" 'libinput Tapping Enabled' 1 &>/dev/null
+		xinput set-prop "$touchpad_id" 'libinput Natural Scrolling Enabled' 1
+	done
 }
 
 function run_user_autostart() {
