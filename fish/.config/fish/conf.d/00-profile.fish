@@ -45,54 +45,54 @@ if [ -d "$HOME/.config/composer/vendor/bin" ]
     set --export PATH $PATH "$HOME/.config/composer/vendor/bin"
 end
 
-if [ -d "/snap/bin" ]
+if [ -d /snap/bin ]
     set --export PATH "/snap/bin:$PATH"
 end
 
-if command -v rtx &>/dev/null;
+if command -v rtx &>/dev/null
     rtx activate fish | source
     set completions_file "$__fish_config_dir/completions/rtx.fish"
-    if ! [ -f "$completions_file" ];
-        rtx complete -s fish > "$completions_file"
+    if ! [ -f "$completions_file" ]
+        rtx complete -s fish >"$completions_file"
         fish_update_completions
     end
 else if [ -f "$HOME/.asdf/asdf.fish" ]
     source ~/.asdf/asdf.fish
 end
 
-if [ -d '/usr/local/MATLAB/R2021a' ]
-    set --export PATH $PATH "/usr/local/MATLAB/R2021a/bin/"
+if [ -d /usr/local/MATLAB/R2021a ]
+    set --export PATH $PATH /usr/local/MATLAB/R2021a/bin/
 end
 
-if [ -d '/var/lib/flatpak/exports/share' ];
-    set --export PATH $PATH '/var/lib/flatpak/exports/share'
+if [ -d /var/lib/flatpak/exports/share ]
+    set --export PATH $PATH /var/lib/flatpak/exports/share
 end
 
-if [ -d "$HOME/.local/share/flatpak/exports/share" ];
+if [ -d "$HOME/.local/share/flatpak/exports/share" ]
     set --export PATH $PATH "$HOME/.local/share/flatpak/exports/share"
 end
 
-if [ -f "$HOME/.cargo/env" ];
+if [ -f "$HOME/.cargo/env" ]
     set --export PATH "$HOME/.cargo/bin" $PATH
 end
 
-if [ -d "$HOME/.cargo/bin" ];
+if [ -d "$HOME/.cargo/bin" ]
     set --export PATH "$HOME/.cargo/bin" $PATH
 end
 
-if [ -d "$HOME/.local/share/JetBrains/Toolbox/scripts" ];
+if [ -d "$HOME/.local/share/JetBrains/Toolbox/scripts" ]
     set --export PATH "$HOME/.local/share/JetBrains/Toolbox/scripts" $PATH
 end
 
-if [ -d "$HOME/.local/go/bin" ];
+if [ -d "$HOME/.local/go/bin" ]
     set --export PATH "$HOME/.local/go/bin" $PATH
 end
 
-if [ -d '/opt/homebrew/bin' ];
-    set --export PATH $PATH '/opt/homebrew/bin/'
+if [ -d /opt/homebrew/bin ]
+    set --export PATH $PATH /opt/homebrew/bin/
 end
 
-if [ -d "$HOME/.local/share/JetBrains/Toolbox/scripts" ];
+if [ -d "$HOME/.local/share/JetBrains/Toolbox/scripts" ]
     set --export PATH $PATH "$HOME/.local/share/JetBrains/Toolbox/scripts"
 end
 
@@ -117,14 +117,14 @@ end
 # pnpm end
 
 # Rust stuff
-if command -v sccache &>/dev/null;
-    set --global RUSTC_WRAPPER 'sccache'
+if command -v sccache &>/dev/null
+    set --global RUSTC_WRAPPER sccache
 end
 
-if command -v zoxide &>/dev/null;
+if command -v zoxide &>/dev/null
     zoxide init fish | source
 end
 
-if command -v atuin &>/dev/null;
+if command -v atuin &>/dev/null
     atuin init fish --disable-up-arrow | source
 end
