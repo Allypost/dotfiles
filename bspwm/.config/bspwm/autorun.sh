@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function run() {
-	if ! pgrep -f $1; then
+	if ! pgrep -f "$1"; then
 		$@ >"/tmp/bspwm.autorun.$(echo $@ | tr '/' '__')" &
 	fi
 }
