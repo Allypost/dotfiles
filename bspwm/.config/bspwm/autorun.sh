@@ -101,10 +101,10 @@ xset r rate 350 50
 
 ######### RUN ONCE
 
-run slack --startup
-run blueman-applet
-run nm-applet
-run /usr/lib/xfce4/notifyd/xfce4-notifyd
+# run slack --startup
+# run blueman-applet
+# run nm-applet
+# run /usr/lib/xfce4/notifyd/xfce4-notifyd
 
 # Run bar
 $HOME/.config/polybar/launch.sh
