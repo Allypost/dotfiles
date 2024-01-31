@@ -109,6 +109,12 @@ set --global XSECURELOCK_SHOW_DATETIME 1
 # set --global XSECURELOCK_SAVER saver_xscreensaver
 set --global SPACEMACSDIR "$XDG_CONFIG_HOME/spacemacs"
 
+# pnpm
+set -gx PNPM_HOME "$HOME/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
 
 # Rust stuff
 if command -v sccache &>/dev/null;
