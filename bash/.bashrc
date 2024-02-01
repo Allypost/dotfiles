@@ -103,7 +103,10 @@ export EDITOR="$VISUAL"
 
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
-if command -v rtx &>/dev/null; then
+if command -v mise &>/dev/null; then
+	eval "$(mise activate bash)"
+	alias rtx="mise "
+elif command -v rtx &>/dev/null; then
 	eval "$(rtx activate bash)"
 else
 	include_file="$HOME/.asdf/asdf.sh"

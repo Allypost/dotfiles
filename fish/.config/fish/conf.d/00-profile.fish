@@ -49,7 +49,16 @@ if [ -d /snap/bin ]
     set --export PATH "/snap/bin:$PATH"
 end
 
-if command -v rtx &>/dev/null
+if command -v mise &>/dev/null
+    if status is-interactive
+        mise activate fish | source
+    else
+        mise activate fish --shims | source
+    end
+
+    mise completion fish | source
+    alias rtx=mise
+else if command -v rtx &>/dev/null
     rtx activate fish | source
     set completions_file "$__fish_config_dir/completions/rtx.fish"
     if ! [ -f "$completions_file" ]

@@ -37,7 +37,10 @@ setopt EXTENDED_HISTORY
 HISTFILE=~/.zsh_history
 
 # Add completions
-if command -v rtx &>/dev/null; then
+if command -v mise &>/dev/null; then
+	eval "$(mise activate zsh)"
+        alias rtx="mise "
+elif command -v rtx &>/dev/null; then
     eval "$(rtx activate zsh)"
 
     completions_dir="$HOME/.config/rtx/completions/zsh"
