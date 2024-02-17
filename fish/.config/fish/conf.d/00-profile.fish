@@ -131,7 +131,7 @@ if command -v sccache &>/dev/null
 end
 
 if command -v zoxide &>/dev/null
-    zoxide init fish --cmd cd | source
+    zoxide init fish | source
 end
 
 if command -v atuin &>/dev/null

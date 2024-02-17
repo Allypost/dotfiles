@@ -141,7 +141,7 @@ if command -v starship &>/dev/null; then
 fi
 
 if command -v zoxide &>/dev/null; then
-	eval "$(zoxide init bash --cmd cd)"
+	eval "$(zoxide init bash)"
 fi
 
 export SPACEMACSDIR="$XDG_CONFIG_HOME/spacemacs"
