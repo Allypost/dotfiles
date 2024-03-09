@@ -4,8 +4,9 @@ alias lS='ll -S'
 alias la='ls -At'
 alias l='ls -Ct'
 
-if [ -f /usr/bin/exa ]
-    alias ls="exa"
+set _exa_cmd (command -v eza || command -v exa)
+if [ ! -z "$_exa_cmd" ]
+    alias ls="$_exa_cmd"
 
     alias ll='ls -laF --sort=newest'
     alias la='ls -at --sort=newest'
