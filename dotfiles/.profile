@@ -160,6 +160,11 @@ export XSECURELOCK_SHOW_DATETIME=1
 
 export SPACEMACSDIR="$XDG_CONFIG_HOME/spacemacs"
 
+# Colored man pages
+export MANPAGER="less -R --use-color -Dd+r -Du+b"
+export MANROFFOPT="-P -c"
+
+
 # Rust stuff
 if command -v sccache &>/dev/null; then
     export RUSTC_WRAPPER='sccache'
