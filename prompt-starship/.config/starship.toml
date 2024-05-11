@@ -23,11 +23,15 @@ $battery\
 $time\
 $status\
 [($username(@$hostname) )](180)\
+$python\
 $character\
 """
 right_format = """
 """
 add_newline = false
+
+[python]
+format = "[${symbol}${pyenv_prefix}(\\($virtualenv\\) )]($style)"
 
 [fill]
 symbol = ' '
