@@ -80,6 +80,15 @@ if [ -d "/snap/bin" ]; then
     PATH="/snap/bin:$PATH"
 fi
 
+if [ -d "$HOME/.local/surrealdb" ]; then
+    PATH="$PATH:$HOME/.local/surrealdb"
+fi
+
+export FLYCTL_INSTALL="$HOME/.local/fly"
+if [ -d "$FLYCTL_INSTALL/bin" ]; then
+    PATH="$PATH:$FLYCTL_INSTALL/bin"
+fi
+
 export LANGUAGE='en_US.UTF-8'
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'

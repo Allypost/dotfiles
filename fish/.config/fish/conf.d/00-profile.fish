@@ -101,8 +101,18 @@ if [ -d /opt/homebrew/bin ]
     set --export PATH $PATH /opt/homebrew/bin/
 end
 
+if [ -d "$HOME/.local/surrealdb" ]
+    set --export PATH $PATH "$HOME/.local/surrealdb"
+end
+
 if [ -d "$HOME/.local/share/JetBrains/Toolbox/scripts" ]
     set --export PATH $PATH "$HOME/.local/share/JetBrains/Toolbox/scripts"
+end
+
+set --export FLYCTL_INSTALL "$HOME/.local/fly"
+if [ -d "$FLYCTL_INSTALL/bin" ]
+    set --export PATH "$PATH" "$FLYCTL_INSTALL/bin"
+    flyctl completion fish | source
 end
 
 
