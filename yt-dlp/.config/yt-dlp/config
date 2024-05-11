@@ -7,8 +7,8 @@
 --concurrent-fragments 8
 --console-title
 --prefer-ffmpeg
---netrc
+#--netrc
 
---cookies-from-browser chrome
+#--cookies-from-browser chrome
 
 --output '%(title)s.%(ext)s'
