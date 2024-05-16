@@ -111,10 +111,10 @@ super + {Left,Down,Up,Right}
 #############
 # decrease brigtness
 XF86MonBrightnessDown
-	sudo light -U 10
+	light -U 5
 # increase brigtness
 XF86MonBrightnessUp
-	sudo light -A 10
+	light -A 5
 
 
 ##########
@@ -130,7 +130,7 @@ XF86AudioLowerVolume
 	#amixer set Master 5%-
 # Mute
 XF86AudioMute
-	amixer set Master toggle
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 
 ###########
