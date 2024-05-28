@@ -115,6 +115,9 @@ if [ -d "$FLYCTL_INSTALL/bin" ]
     flyctl completion fish | source
 end
 
+if [ -d /opt/nvim-linux64/bin ]
+    set --export PATH /opt/nvim-linux64/bin "$PATH"
+end
 
 set --global Z_DATA "$HOME/.local/bash/z.db"
 
