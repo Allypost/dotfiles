@@ -24,8 +24,17 @@ HISTCONTROL=ignoreboth
 # append to the history file, don't overwrite it
 setopt APPEND_HISTORY
 
+# share hstory between sessions
+setopt SHARE_HISTORY
+
 # ignore commands that start with a space (don't save to history)
 setopt HIST_IGNORE_SPACE
+
+# ignore all duplicates
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_IGNORE_DUPS
+setopt HIST_FIND_NO_DUPS
 
 # autocomplete aliases
 setopt completealiases
