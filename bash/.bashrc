@@ -150,3 +150,7 @@ if command -v atuin &>/dev/null; then
 	[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
 	eval "$(atuin init bash --disable-up-arrow)"
 fi
+
+if command -v tailscale &>/dev/null; then
+	source <(tailscale completion bash)
+fi
