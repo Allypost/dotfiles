@@ -1,6 +1,21 @@
 if [ -z "$XDG_CONFIG_HOME" ]
-    export XDG_CONFIG_HOME="$HOME/.config"
-    mkdir -p $XDG_CONFIG_HOME
+    set --export XDG_CONFIG_HOME "$HOME/.config"
+    mkdir -p "$XDG_CONFIG_HOME"
+end
+
+if [ -z "$XDG_CACHE_HOME" ]
+    set --export XDG_CACHE_HOME "$HOME/.cache"
+    mkdir -p "$XDG_CACHE_HOME"
+end
+
+if [ -z "$XDG_DATA_HOME" ]
+    set --export XDG_DATA_HOME "$HOME/.local/share"
+    mkdir -p "$XDG_DATA_HOME"
+end
+
+if [ -z "$XDG_STATE_HOME" ]
+    set --export XDG_STATE_HOME "$HOME/.local/state"
+    mkdir -p "$XDG_STATE_HOME"
 end
 
 # set PATH so it includes user's private bin if it exists
