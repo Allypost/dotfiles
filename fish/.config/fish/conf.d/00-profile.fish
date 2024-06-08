@@ -177,3 +177,10 @@ end
 if command -v tailscale &>/dev/null
     tailscale completion fish | source
 end
+
+if [ -z "$RIPGREP_CONFIG_PATH" ]
+    set --local RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/config"
+    if [ -f "$RIPGREP_CONFIG_PATH" ]
+        set --global RIPGREP_CONFIG_PATH "$RIPGREP_CONFIG_PATH"
+    end
+end

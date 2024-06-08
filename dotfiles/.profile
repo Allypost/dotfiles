@@ -202,3 +202,9 @@ if command -v sccache &>/dev/null; then
     export RUSTC_WRAPPER='sccache'
 fi
 
+if [ -z "$RIPGREP_CONFIG_PATH" ]; then
+    RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/config"
+    if [ -f "$RIPGREP_CONFIG_PATH" ]; then
+        export RIPGREP_CONFIG_PATH="$RIPGREP_CONFIG_PATH"
+    fi
+fi
