@@ -134,6 +134,10 @@ if [ -d /opt/nvim-linux64/bin ]
     set --export PATH /opt/nvim-linux64/bin "$PATH"
 end
 
+if [ -d "$XDG_DATA_HOME/gem/ruby/3.0.0/bin" ]
+    set --export PATH "$PATH" "$XDG_DATA_HOME/gem/ruby/3.0.0/bin"
+end
+
 set --global Z_DATA "$HOME/.local/bash/z.db"
 
 set --global TERM xterm-256color
