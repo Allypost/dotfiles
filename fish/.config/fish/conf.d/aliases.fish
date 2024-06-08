@@ -175,11 +175,14 @@ alias gst='git status'
 
 if command -v apt-get >/dev/null 2>&1
     function apt-update
+        set --local debian_frontend_old "$DEBIAN_FRONTEND"
+        set --global DEBIAN_FRONTEND noninteractive
         sudo apt update
         sudo apt upgrade -y
         sudo apt dist-upgrade -y
         sudo apt autoremove -y
         sudo apt autoclean -y
+        set --global DEBIAN_FRONTEND "$debian_frontend_old"
     end
 
     alias au="apt-update"

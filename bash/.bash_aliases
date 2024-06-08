@@ -278,11 +278,14 @@ alias wttr='weather'
 
 if command -v apt-get >/dev/null 2>&1; then
     function apt-update() {
+        local debian_frontend_old="$DEBIAN_FRONTEND"
+        export DEBIAN_FRONTEND=noninteractive
         sudo apt-get update
         sudo apt-get upgrade -y
         sudo apt-get dist-upgrade -y
         sudo apt-get autoremove -y
         sudo apt-get autoclean -y
+        export DEBIAN_FRONTEND="$debian_frontend_old"
     }
 
     alias au="apt-update"
