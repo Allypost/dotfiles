@@ -214,6 +214,7 @@ export SPACEMACSDIR="$XDG_CONFIG_HOME/spacemacs"
 
 if command -v atuin &>/dev/null; then
   eval "$(atuin init zsh --disable-up-arrow)"
+  eval "$(atuin gen-completions --shell zsh)"
 fi
 
 if command -v tailscale &>/dev/null; then

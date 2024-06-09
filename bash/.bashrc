@@ -149,6 +149,7 @@ export SPACEMACSDIR="$XDG_CONFIG_HOME/spacemacs"
 if command -v atuin &>/dev/null; then
 	[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
 	eval "$(atuin init bash --disable-up-arrow)"
+	eval "$(atuin gen-completions --shell bash)"
 fi
 
 if command -v tailscale &>/dev/null; then

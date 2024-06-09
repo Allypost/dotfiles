@@ -172,6 +172,7 @@ end
 
 if command -v atuin &>/dev/null
     atuin init fish --disable-up-arrow | source
+    atuin gen-completions --shell fish | source
 end
 
 if command -v tailscale &>/dev/null
