@@ -1,6 +1,8 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
+[ -f "$HOME/.profile" ] && source "$HOME/.profile"
+
 export TERM=xterm-256color
 # If not running interactively, don't do anything
 case $- in
@@ -71,8 +73,6 @@ unset color_prompt force_color_prompt
 # 	;;
 # *) ;;
 # esac
-
-#[ -f ~/.profile ] && source .profile
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
