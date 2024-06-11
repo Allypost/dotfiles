@@ -9,7 +9,7 @@
 #umask 022
 
 # if running bash
-if [ -n "$BASH_VERSION" ] && [ -n "${ALLYPOST_SCRIPT_BASH_INCLUDED-0}" ]; then
+if [ -n "$BASH_VERSION" ] && [ -z "${ALLYPOST_SCRIPT_BASH_INCLUDED:-}" ]; then
     export ALLYPOST_SCRIPT_BASH_INCLUDED=true
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
