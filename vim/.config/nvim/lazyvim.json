@@ -1,10 +1,5 @@
 {
-  "extras": [
-    "lazyvim.plugins.extras.coding.codeium",
-    "lazyvim.plugins.extras.lang.json",
-    "lazyvim.plugins.extras.lang.typescript",
-    "lazyvim.plugins.extras.util.dot"
-  ],
+  "extras": [],
   "news": {
     "NEWS.md": "6077"
   },
