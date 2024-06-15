@@ -28,7 +28,6 @@ if [ -d "$HOME/.local/bin" ]
     set --export PATH "$HOME/.local/bin:$PATH"
 end
 
-
 # Set NPM bin path
 set --export NPM_BIN_PATH ''
 if [ -d "$HOME/.npm/bin" ]
@@ -62,26 +61,6 @@ end
 
 if [ -d /snap/bin ]
     set --export PATH "/snap/bin:$PATH"
-end
-
-if command -v mise &>/dev/null
-    if status is-interactive
-        mise activate fish | source
-    else
-        mise activate fish --shims | source
-    end
-
-    mise completion fish | source
-    alias rtx=mise
-else if command -v rtx &>/dev/null
-    rtx activate fish | source
-    set completions_file "$__fish_config_dir/completions/rtx.fish"
-    if ! [ -f "$completions_file" ]
-        rtx complete -s fish >"$completions_file"
-        fish_update_completions
-    end
-else if [ -f "$HOME/.asdf/asdf.fish" ]
-    source ~/.asdf/asdf.fish
 end
 
 if [ -d /usr/local/MATLAB/R2021a ]
@@ -138,6 +117,18 @@ if [ -d "$XDG_DATA_HOME/gem/ruby/3.0.0/bin" ]
     set --export PATH "$PATH" "$XDG_DATA_HOME/gem/ruby/3.0.0/bin"
 end
 
+if [ -z "$RIPGREP_CONFIG_PATH" ]
+    set --local RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/config"
+    if [ -f "$RIPGREP_CONFIG_PATH" ]
+        set --global RIPGREP_CONFIG_PATH "$RIPGREP_CONFIG_PATH"
+    end
+end
+
+set -gx PNPM_HOME "$HOME/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
+end
+
 set --global Z_DATA "$HOME/.local/bash/z.db"
 
 set --global TERM xterm-256color
@@ -154,12 +145,25 @@ set --global XSECURELOCK_SHOW_DATETIME 1
 # set --global XSECURELOCK_SAVER saver_xscreensaver
 set --global SPACEMACSDIR "$XDG_CONFIG_HOME/spacemacs"
 
-# pnpm
-set -gx PNPM_HOME "$HOME/.local/share/pnpm"
-if not string match -q -- $PNPM_HOME $PATH
-    set -gx PATH "$PNPM_HOME" $PATH
+if command -v mise &>/dev/null
+    if status is-interactive
+        mise activate fish | source
+    else
+        mise activate fish --shims | source
+    end
+
+    mise completion fish | source
+    alias rtx=mise
+else if command -v rtx &>/dev/null
+    rtx activate fish | source
+    set completions_file "$__fish_config_dir/completions/rtx.fish"
+    if ! [ -f "$completions_file" ]
+        rtx complete -s fish >"$completions_file"
+        fish_update_completions
+    end
+else if [ -f "$HOME/.asdf/asdf.fish" ]
+    source ~/.asdf/asdf.fish
 end
-# pnpm end
 
 # Rust stuff
 if command -v sccache &>/dev/null
@@ -177,11 +181,4 @@ end
 
 if command -v tailscale &>/dev/null
     tailscale completion fish | source
-end
-
-if [ -z "$RIPGREP_CONFIG_PATH" ]
-    set --local RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/config"
-    if [ -f "$RIPGREP_CONFIG_PATH" ]
-        set --global RIPGREP_CONFIG_PATH "$RIPGREP_CONFIG_PATH"
-    end
 end
