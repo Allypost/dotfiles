@@ -18,17 +18,14 @@ if [ -z "$XDG_STATE_HOME" ]
     mkdir -p "$XDG_STATE_HOME"
 end
 
-# set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ]
     set --export PATH "$HOME/bin:$PATH"
 end
 
-# set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ]
     set --export PATH "$HOME/.local/bin:$PATH"
 end
 
-# Set NPM bin path
 set --export NPM_BIN_PATH ''
 if [ -d "$HOME/.npm/bin" ]
     set --export NPM_BIN_PATH "$HOME/.npm/bin"
@@ -45,12 +42,10 @@ if [ ! -z "$NPM_BIN_PATH" ]
     command -v npm &>/dev/null && npm config set prefix "$npm_prefix"
 end
 
-# set PATH so it includes the user's platform tools (ADB) if it exists
 if [ -d "$HOME/.local/platform-tools" ]
     set --export PATH "$HOME/.local/platform-tools:$PATH"
 end
 
-# set PATH so it includes user's private scripts if it exists
 if [ -d "$HOME/.scripts" ]
     set --export PATH "$HOME/.scripts:$PATH"
 end
@@ -124,61 +119,7 @@ if [ -z "$RIPGREP_CONFIG_PATH" ]
     end
 end
 
-set -gx PNPM_HOME "$HOME/.local/share/pnpm"
-if not string match -q -- $PNPM_HOME $PATH
-    set -gx PATH "$PNPM_HOME" $PATH
-end
-
-set --global Z_DATA "$HOME/.local/bash/z.db"
-
-set --global TERM xterm-256color
-
-#set --global DOCKER_BUILDKIT 1
-#set --global COMPOSE_DOCKER_CLI_BUILD 1
-
-# Colored man pages
-set -xU MANPAGER 'less -R --use-color -Dd+r -Du+b'
-set -xU MANROFFOPT '-P -c'
-
-# Screen locker config
-set --global XSECURELOCK_SHOW_DATETIME 1
-# set --global XSECURELOCK_SAVER saver_xscreensaver
-set --global SPACEMACSDIR "$XDG_CONFIG_HOME/spacemacs"
-
-if command -v mise &>/dev/null
-    if status is-interactive
-        mise activate fish | source
-    else
-        mise activate fish --shims | source
-    end
-
-    mise completion fish | source
-    alias rtx=mise
-else if command -v rtx &>/dev/null
-    rtx activate fish | source
-    set completions_file "$__fish_config_dir/completions/rtx.fish"
-    if ! [ -f "$completions_file" ]
-        rtx complete -s fish >"$completions_file"
-        fish_update_completions
-    end
-else if [ -f "$HOME/.asdf/asdf.fish" ]
-    source ~/.asdf/asdf.fish
-end
-
-# Rust stuff
-if command -v sccache &>/dev/null
-    set --global RUSTC_WRAPPER sccache
-end
-
-if command -v zoxide &>/dev/null
-    zoxide init fish | source
-end
-
-if command -v atuin &>/dev/null
-    atuin init fish --disable-up-arrow | source
-    atuin gen-completions --shell fish | source
-end
-
-if command -v tailscale &>/dev/null
-    tailscale completion fish | source
+if [ -d "$HOME/.local/share/pnpm" ]
+    set --export PNPM_HOME "$HOME/.local/share/pnpm"
+    set --export PATH "$PNPM_HOME" "$PATH"
 end
