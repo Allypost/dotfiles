@@ -123,3 +123,7 @@ if [ -d "$HOME/.local/share/pnpm" ]
     set --export PNPM_HOME "$HOME/.local/share/pnpm"
     set --export PATH "$PNPM_HOME" "$PATH"
 end
+
+if [ -d "$HOME/.turso" ]
+    set --export PATH "$HOME/.turso" "$PATH"
+end
