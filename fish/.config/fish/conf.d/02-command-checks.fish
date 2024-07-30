@@ -34,3 +34,7 @@ end
 if command -v tailscale &>/dev/null
     tailscale completion fish | source
 end
+
+if command -v kind &>/dev/null
+    kind completion fish | source
+end

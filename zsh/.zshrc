@@ -220,3 +220,7 @@ fi
 if command -v tailscale &>/dev/null; then
   eval "$(tailscale completion zsh)"
 fi
+
+if command -v kind &>/dev/null; then
+  eval "$(kind completion zsh)"
+fi
