@@ -56,7 +56,9 @@ theme = PaulMillr
 ## CURSOR ##
 ############
 cursor-style = bar
-cursor-style-blink = false
+cursor-style-blink = true
+adjust-cursor-thickness = 1
+cursor-invert-fg-bg = true
 
 
 
