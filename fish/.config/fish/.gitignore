@@ -1,2 +1,4 @@
 /fish_variables
 fishd.tmp.*
+
+/conf.d/zzz_local.fish
