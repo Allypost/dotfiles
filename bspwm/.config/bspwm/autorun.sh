@@ -7,7 +7,7 @@ function run() {
 }
 
 function set_minimum_backlight_brigtness() {
-	command -v light >/dev/null && sudo light -N 0.01
+	command -v light >/dev/null && light -N 0.01
 }
 
 function set_auto_lock_handler() {
