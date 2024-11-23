@@ -199,7 +199,7 @@ plugins {
 //   - detach (Default)
 //   - quit
 //
-on_force_close "quit"
+// on_force_close "quit"
 
 //  Send a request for a simplified ui (without arrow fonts) to plugins
 //  Options:
@@ -236,7 +236,7 @@ auto_layout false
 //   - true (default)
 //   - false
 //
-// session_serialization false
+session_serialization false
 
 // Whether pane viewports are serialized along with the session, default is false
 // Options:
@@ -319,12 +319,12 @@ scroll_buffer_size 99999999
 //   - system (default)
 //   - primary
 //
-// copy_clipboard "primary"
+copy_clipboard "primary"
 
 // Enable or disable automatic copy (and clear) of selection when releasing mouse
 // Default: true
 //
-copy_on_select false
+// copy_on_select false
 
 // Path to the default editor to use to edit pane scrollbuffer
 // Default: $EDITOR or $VISUAL
