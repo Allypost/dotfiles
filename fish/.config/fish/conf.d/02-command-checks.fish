@@ -38,3 +38,7 @@ end
 if command -v kind &>/dev/null
     kind completion fish | source
 end
+
+if command -v uv &>/dev/null
+    uv generate-shell-completion fish | source
+end

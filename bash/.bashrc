@@ -159,3 +159,7 @@ fi
 if command -v kind &>/dev/null; then
 	eval "$(kind completion bash)"
 fi
+
+if command -v uv &>/dev/null; then
+	eval "$(uv generate-shell-completion bash)"
+fi

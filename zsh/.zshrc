@@ -224,3 +224,7 @@ fi
 if command -v kind &>/dev/null; then
   eval "$(kind completion zsh)"
 fi
+
+if command -v uv &>/dev/null; then
+  eval "$(uv generate-shell-completion zsh)"
+fi
