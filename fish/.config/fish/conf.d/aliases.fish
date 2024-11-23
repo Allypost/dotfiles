@@ -29,7 +29,7 @@ function rand-string -d "Generate random string"
 end
 
 function weather
-    curl "https://wttr.in/(1-~Maksimir?FAQ)"
+    curl "https://wttr.in/Maksimir?FAQ"
 end
 alias wttr='weather'
 
