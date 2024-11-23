@@ -10,11 +10,11 @@
 
 # if running bash
 if [ -n "$BASH_VERSION" ] && [ -z "${ALLYPOST_SCRIPT_BASH_INCLUDED:-}" ]; then
-    export ALLYPOST_SCRIPT_BASH_INCLUDED=true
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-        . "$HOME/.bashrc"
-    fi
+	export ALLYPOST_SCRIPT_BASH_INCLUDED=true
+	# include .bashrc if it exists
+	if [ -f "$HOME/.bashrc" ]; then
+		. "$HOME/.bashrc"
+	fi
 fi
 
 if [ -z "$XDG_CONFIG_HOME" ]; then
@@ -41,75 +41,79 @@ test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ]; then
-    PATH="$HOME/bin:$PATH"
+	PATH="$HOME/bin:$PATH"
+fi
+
+if [ -d "/opt/cuda/bin/" ]; then
+	export PATH="$PATH:/opt/cuda/bin/"
 fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ]; then
-    PATH="$HOME/.local/bin:$PATH"
+	PATH="$HOME/.local/bin:$PATH"
 fi
 
 # Add homebrew to path if it exists
 if [ -d '/opt/homebrew/bin' ]; then
-  export PATH="$PATH:/opt/homebrew/bin";
+	export PATH="$PATH:/opt/homebrew/bin"
 fi
 
 # Add texlive studio thingy if it exists
 if [ -d "/opt/texlive/2022/bin/x86_64-linux" ]; then
-    PATH="/opt/texlive/2022/bin/x86_64-linux:$PATH"
-    MANPATH="/opt/texlive/2022/texmf-dist/doc/man:$MANPATH"
-    INFOPATH="/opt/texlive/2022/texmf-dist/doc/info:$INFOPATH"
+	PATH="/opt/texlive/2022/bin/x86_64-linux:$PATH"
+	MANPATH="/opt/texlive/2022/texmf-dist/doc/man:$MANPATH"
+	INFOPATH="/opt/texlive/2022/texmf-dist/doc/info:$INFOPATH"
 fi
 
 # Set NPM bin path
 NPM_BIN_PATH=''
 if [ -d "$HOME/.npm/bin" ]; then
-    NPM_BIN_PATH="$HOME/.npm/bin"
-    PATH="$PATH:$NPM_BIN_PATH"
+	NPM_BIN_PATH="$HOME/.npm/bin"
+	PATH="$PATH:$NPM_BIN_PATH"
 fi
 
 if [ -d "$HOME/.local/npm/bin" ]; then
-    NPM_BIN_PATH="$HOME/.local/npm/bin"
-    PATH="$PATH:$NPM_BIN_PATH"
+	NPM_BIN_PATH="$HOME/.local/npm/bin"
+	PATH="$PATH:$NPM_BIN_PATH"
 fi
 
 if [ ! -z "$NPM_BIN_PATH" ]; then
-    command -v npm &> /dev/null && npm config set prefix "$(dirname $NPM_BIN_PATH)"
+	command -v npm &>/dev/null && npm config set prefix "$(dirname $NPM_BIN_PATH)"
 fi
 
 # set PATH so it includes the user's platform tools (ADB) if it exists
 if [ -d "$HOME/.local/platform-tools" ]; then
-    PATH="$HOME/.local/platform-tools:$PATH"
+	PATH="$HOME/.local/platform-tools:$PATH"
 fi
 
 # set PATH so it includes user's private scripts if it exists
 if [ -d "$HOME/.scripts" ]; then
-    PATH="$HOME/.scripts:$PATH"
+	PATH="$HOME/.scripts:$PATH"
 fi
 
 if [ -d "$HOME/.config/composer/vendor/bin" ]; then
-    PATH="$PATH:$HOME/.config/composer/vendor/bin"
+	PATH="$PATH:$HOME/.config/composer/vendor/bin"
 fi
 
 if [ -d "/snap/bin" ]; then
-    PATH="/snap/bin:$PATH"
+	PATH="/snap/bin:$PATH"
 fi
 
 if [ -d "$HOME/.local/surrealdb" ]; then
-    PATH="$PATH:$HOME/.local/surrealdb"
+	PATH="$PATH:$HOME/.local/surrealdb"
 fi
 
 export FLYCTL_INSTALL="$HOME/.local/fly"
 if [ -d "$FLYCTL_INSTALL/bin" ]; then
-    PATH="$PATH:$FLYCTL_INSTALL/bin"
+	PATH="$PATH:$FLYCTL_INSTALL/bin"
 fi
 
 if [ -d '/opt/nvim-linux64/bin' ]; then
-    PATH="/opt/nvim-linux64/bin:$PATH"
+	PATH="/opt/nvim-linux64/bin:$PATH"
 fi
 
 if [ -d "$XDG_DATA_HOME/gem/ruby/3.0.0/bin" ]; then
-    PATH="$PATH:$XDG_DATA_HOME/gem/ruby/3.0.0/bin"
+	PATH="$PATH:$XDG_DATA_HOME/gem/ruby/3.0.0/bin"
 fi
 
 export LANGUAGE='en_US.UTF-8'
@@ -128,44 +132,44 @@ export WORKON_HOME="$HOME/.virtualenvs"
 
 export NVM_DIR="$HOME/.nvm"
 if [ -d "$NVM_DIR" ]; then
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-    NVM_NODE_DIR="$NVM_DIR/versions/node"
-    if [ -d "$NVM_NODE_DIR" ]; then
-      declare -a NODE_GLOBALS=($(find "$NVM_NODE_DIR" -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq))
+	NVM_NODE_DIR="$NVM_DIR/versions/node"
+	if [ -d "$NVM_NODE_DIR" ]; then
+		declare -a NODE_GLOBALS=($(find "$NVM_NODE_DIR" -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq))
 
-      NODE_GLOBALS+=("node")
-      NODE_GLOBALS+=("nvm")
-      NODE_GLOBALS+=("yarn")
+		NODE_GLOBALS+=("node")
+		NODE_GLOBALS+=("nvm")
+		NODE_GLOBALS+=("yarn")
 
-      load_nvm() {
-          export NVM_DIR=~/.nvm
-          [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"                    # This loads nvm
-          [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-      }
+		load_nvm() {
+			export NVM_DIR=~/.nvm
+			[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"                    # This loads nvm
+			[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+		}
 
-      for cmd in "${NODE_GLOBALS[@]}"; do
-          eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
-      done
-    fi
+		for cmd in "${NODE_GLOBALS[@]}"; do
+			eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
+		done
+	fi
 fi
 
 if [ -d "/usr/local/go/bin" ]; then
-    export PATH="$PATH:/usr/local/go/bin"
-    export GOPATH="$HOME/.local/etc/go"
-    mkdir -p "$GOPATH"
+	export PATH="$PATH:/usr/local/go/bin"
+	export GOPATH="$HOME/.local/etc/go"
+	mkdir -p "$GOPATH"
 fi
 
 if [ -d "$HOME/.emacs.d/bin" ]; then
-    export PATH="$PATH:$HOME/.emacs.d/bin"
+	export PATH="$PATH:$HOME/.emacs.d/bin"
 fi
 
 export GOPATH="$HOME/.local/go"
 export PATH="$PATH:$HOME/.local/go/bin"
 
 if [ -d "$HOME/.dotnet" ]; then
-    export DOTNET_ROOT="$HOME/.dotnet"
-    export PATH="$PATH:$DOTNET_ROOT"
+	export DOTNET_ROOT="$HOME/.dotnet"
+	export PATH="$PATH:$DOTNET_ROOT"
 fi
 
 export QT_STYLE_OVERRIDE=kvantum-dark
@@ -175,15 +179,15 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 # export COMPOSE_DOCKER_CLI_BUILD=1
 
 if [ -f "$HOME/.cargo/env" ]; then
-    . "$HOME/.cargo/env"
+	. "$HOME/.cargo/env"
 fi
 
 if [ -f "$HOME/.local/share/JetBrains/Toolbox/scripts" ]; then
-    export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
+	export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
 fi
 
 if [ -f "$HOME/.cargo/bin" ]; then
-    export PATH="$PATH:$HOME/.cargo/bin"
+	export PATH="$PATH:$HOME/.cargo/bin"
 fi
 
 # Screen locker config
@@ -196,15 +200,14 @@ export SPACEMACSDIR="$XDG_CONFIG_HOME/spacemacs"
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export MANROFFOPT="-P -c"
 
-
 # Rust stuff
 if command -v sccache &>/dev/null; then
-    export RUSTC_WRAPPER='sccache'
+	export RUSTC_WRAPPER='sccache'
 fi
 
 if [ -z "$RIPGREP_CONFIG_PATH" ]; then
-    RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/config"
-    if [ -f "$RIPGREP_CONFIG_PATH" ]; then
-        export RIPGREP_CONFIG_PATH="$RIPGREP_CONFIG_PATH"
-    fi
+	RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/config"
+	if [ -f "$RIPGREP_CONFIG_PATH" ]; then
+		export RIPGREP_CONFIG_PATH="$RIPGREP_CONFIG_PATH"
+	fi
 fi
