@@ -70,12 +70,8 @@ if [ -d "$HOME/.local/share/flatpak/exports/share" ]
     set --export PATH $PATH "$HOME/.local/share/flatpak/exports/share"
 end
 
-if [ -f "$HOME/.cargo/env" ]
-    set --export PATH "$HOME/.cargo/bin" $PATH
-end
-
-if [ -d "$HOME/.cargo/bin" ]
-    set --export PATH "$HOME/.cargo/bin" $PATH
+if [ -f "$HOME/.cargo/env.fish" ]
+    source "$HOME/.cargo/env.fish"
 end
 
 if [ -d "$HOME/.local/share/JetBrains/Toolbox/scripts" ]
