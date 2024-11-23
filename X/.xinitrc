@@ -71,4 +71,5 @@ export AWT_TOOLKIT=MToolkit
 #wmname compiz &
 export QT_QPA_PLATFORMTHEME=qt5ct
 export _JAVA_AWT_WM_NONREPARENTING=1
+export XDG_MENU_PREFIX=arch-
 exec $(get_session "${1:-$DEFAULT_SESSION}")
