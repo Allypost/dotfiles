@@ -9,6 +9,7 @@ $git_commit\
 $git_state\
 $git_metrics\
 $git_status\
+$direnv\
 $memory_usage\
 $cmd_duration\
 $command_timeout\
@@ -29,6 +30,7 @@ $character\
 right_format = """
 """
 add_newline = false
+scan_timeout = 10
 
 [python]
 format = "[${symbol}${pyenv_prefix}(\\($virtualenv\\) )]($style)"
@@ -103,3 +105,6 @@ style = '66'
 use_stdin = false
 os = "windows"
 when = true
+
+[direnv]
+disabled = false

@@ -42,3 +42,7 @@ end
 if command -v uv &>/dev/null
     uv generate-shell-completion fish | source
 end
+
+if command -v direnv &>/dev/null
+    direnv hook fish | source
+end

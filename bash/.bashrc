@@ -163,3 +163,7 @@ fi
 if command -v uv &>/dev/null; then
 	eval "$(uv generate-shell-completion bash)"
 fi
+
+if command -v direnv &>/dev/null; then
+	eval "$(direnv hook bash)"
+fi
