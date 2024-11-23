@@ -211,3 +211,7 @@ if [ -z "$RIPGREP_CONFIG_PATH" ]; then
 		export RIPGREP_CONFIG_PATH="$RIPGREP_CONFIG_PATH"
 	fi
 fi
+
+if [ -d "$HOME/.rd/bin" ]; then
+	export PATH="$PATH:$HOME/.rd/bin"
+fi

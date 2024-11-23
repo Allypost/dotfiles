@@ -120,6 +120,10 @@ if [ -d "$HOME/.local/share/pnpm" ]
     set --export PATH "$PNPM_HOME" "$PATH"
 end
 
+if [ -d "$HOME/.rd/bin" ]
+    set --export PATH "$PATH" "$HOME/.rd/bin"
+end
+
 if [ -d "$HOME/.turso" ]
     set --export PATH "$HOME/.turso" "$PATH"
 end
