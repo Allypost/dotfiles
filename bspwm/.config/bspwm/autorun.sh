@@ -18,9 +18,9 @@ function apply_xrandr_screen_settings() {
 	SCRIPT_DIR="$HOME/.screenlayout"
 	SCRIPT="ltr.sh"
 
-	N_MONITORS="$(xrandr | grep ' connected' | grep '^DP-' | wc -l)"
+	N_MONITORS="$(xrandr | grep ' connected' | grep -c '^DP-')"
 
-	if [ "$N_MOINTORS" -gt 2 ]; then
+	if [ "$N_MONITORS" -gt 2 ]; then
 		SCRIPT="ltr-no-laptop.sh"
 	fi
 
@@ -44,7 +44,7 @@ function run_auth_agents() {
 	fi
 
 	/usr/lib/polkit-kde-authentication-agent-1 &
-	eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)
+	eval "$(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)"
 }
 
 function set_desktop_wallpaper() {
@@ -52,9 +52,8 @@ function set_desktop_wallpaper() {
 		return 1
 	fi
 
-	nitrogen --restore
-	until [ $? -eq 0 ]; do
-		nitrogen --restore
+	until nitrogen --restore; do
+		continue
 	done
 }
 
