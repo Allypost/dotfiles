@@ -81,7 +81,6 @@ keybind = ctrl+shift+right=next_tab
 keybind = ctrl+shift+t=new_tab
 keybind = ctrl+shift+tab=previous_tab
 keybind = ctrl+shift+plus=increase_font_size:2
-window-inherit-working-directory = false
 window-inherit-font-size = false
 window-decoration = false
 window-theme = ghostty
