@@ -1,3 +1,7 @@
+if [ -d /opt/cuda/bin/ ]
+    set --export PATH "$PATH" /opt/cuda/bin
+end
+
 if [ -z "$XDG_CONFIG_HOME" ]
     set --export XDG_CONFIG_HOME "$HOME/.config"
     mkdir -p "$XDG_CONFIG_HOME"
