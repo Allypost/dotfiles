@@ -3,8 +3,10 @@ alt + {_,shift + }Tab
 	bspc node --focus {next,prev}.local.!hidden.window
 
 # terminal emulator
-super + alt + c
+super + ctrl + alt + c
 	kitty
+super + alt + c
+	ghostty
 
 # program launcher
 super + r
