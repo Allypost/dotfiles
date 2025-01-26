@@ -136,6 +136,10 @@ if [ -f "$HOME/.local/bash/z/z.sh" ]; then
 	. "$HOME/.local/bash/z/z.sh"
 fi
 
+if [ -f "$HOME/.local/shared-bin/env/env.bash" ]; then
+	source "$HOME/.local/shared-bin/env/env.bash"
+fi
+
 if command -v starship &>/dev/null; then
 	eval "$(starship init bash)"
 fi

@@ -131,3 +131,7 @@ end
 if [ -d "$HOME/.turso" ]
     set --export PATH "$HOME/.turso" "$PATH"
 end
+
+if [ -f "$HOME/.local/shared-bin/env/env.fish" ]
+    source "$HOME/.local/shared-bin/env/env.fish"
+end

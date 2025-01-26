@@ -210,6 +210,10 @@ if [ -d "$HOME/.zfunctions" ]; then
   fpath=($fpath "$HOME/.zfunctions")
 fi
 
+if [ -f "$HOME/.local/shared-bin/env/env.zsh" ]; then
+  source "$HOME/.local/shared-bin/env/env.zsh"
+fi
+
 export SPACEMACSDIR="$XDG_CONFIG_HOME/spacemacs"
 
 if command -v atuin &>/dev/null; then
