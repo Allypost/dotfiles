@@ -237,11 +237,11 @@ function extract() {
     fi
 }
 
-function rand-string {
-    local DEFAULT_LENGTH=32
-    local LENGTH=${1:-$DEFAULT_LENGTH}
-    LC_ALL=C tr -dc 'A-Za-z0-9' </dev/urandom | head -c "$LENGTH"
-}
+# function rand-string {
+#     local DEFAULT_LENGTH=32
+#     local LENGTH=${1:-$DEFAULT_LENGTH}
+#     LC_ALL=C tr -dc 'A-Za-z0-9' </dev/urandom | head -c "$LENGTH"
+# }
 
 # function php-run() {
 #     PROG_ARGS=()

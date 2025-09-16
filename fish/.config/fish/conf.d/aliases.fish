@@ -20,13 +20,13 @@ alias md='mkdir -p'
 # Allow aliases to trickle thru to sudo
 # alias sudo='sudo '
 
-function rand-string -d "Generate random string"
-    set --function DEFAULT_LENGTH 32
-    set --function LENGTH $DEFAULT_LENGTH
-    set -q argv[1]; and set --function LENGTH $argv[1]
-
-    LC_ALL=C tr -dc A-Za-z0-9 </dev/urandom | head -c "$LENGTH"
-end
+# function rand-string -d "Generate random string"
+#     set --function DEFAULT_LENGTH 32
+#     set --function LENGTH $DEFAULT_LENGTH
+#     set -q argv[1]; and set --function LENGTH $argv[1]
+#
+#     LC_ALL=C tr -dc A-Za-z0-9 </dev/urandom | head -c "$LENGTH"
+# end
 
 function weather
     curl "https://wttr.in/Maksimir?FAQ"
@@ -171,7 +171,6 @@ alias gst='git status'
 # alias gupav='git pull --rebase --autostash -v'
 # alias gupv='git pull --rebase -v'
 # alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
-
 
 if command -v apt-get >/dev/null 2>&1
     function apt-update
