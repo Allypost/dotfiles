@@ -3,12 +3,13 @@
 --embed-thumbnail
 --embed-metadata
 --ignore-errors
+--abort-on-unavailable-fragments
+--retries infinite
+--fragment-retries infinite
 
 --concurrent-fragments 8
 --console-title
---prefer-ffmpeg
-#--netrc
 
-#--cookies-from-browser chrome
+#--cookies-from-browser firefox
 
 --output '%(title)s.%(ext)s'
