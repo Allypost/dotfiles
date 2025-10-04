@@ -43,8 +43,9 @@ function run_auth_agents() {
 		return 1
 	fi
 
+	dbus-update-activation-environment --all
 	/usr/lib/polkit-kde-authentication-agent-1 &
-	eval "$(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)"
+	# eval "$(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)"
 }
 
 function set_desktop_wallpaper() {
