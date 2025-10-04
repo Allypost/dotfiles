@@ -2,7 +2,7 @@
 
 function run() {
 	if ! pgrep -f "$1"; then
-		$@ >"/tmp/bspwm.autorun.$(echo $@ | tr '/' '__')" &
+		"$@" &>"/tmp/bspwm.autorun.$(echo "$1" | tr '/' '__')" &
 	fi
 }
 
