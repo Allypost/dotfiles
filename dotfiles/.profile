@@ -116,6 +116,10 @@ if [ -d "$XDG_DATA_HOME/gem/ruby/3.0.0/bin" ]; then
 	PATH="$PATH:$XDG_DATA_HOME/gem/ruby/3.0.0/bin"
 fi
 
+if [ -d "$HOME/.local/shared-bin" ]; then
+	PATH="$PATH:$HOME/.local/shared-bin"
+fi
+
 export LANGUAGE='en_US.UTF-8'
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
