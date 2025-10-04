@@ -22,6 +22,10 @@ if [ -z "$XDG_STATE_HOME" ]
     mkdir -p "$XDG_STATE_HOME"
 end
 
+if [ -d /usr/bin/vendor_perl ]
+    set --export PATH "/usr/bin/vendor_perl:$PATH"
+end
+
 if [ -d "$HOME/bin" ]
     set --export PATH "$HOME/bin:$PATH"
 end
