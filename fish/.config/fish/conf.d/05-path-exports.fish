@@ -23,26 +23,26 @@ if [ -z "$XDG_STATE_HOME" ]
 end
 
 if [ -d /usr/bin/vendor_perl ]
-    set --export PATH "/usr/bin/vendor_perl:$PATH"
+    fish_add_path --append /usr/bin/vendor_perl
 end
 
 if [ -d "$HOME/bin" ]
-    set --export PATH "$HOME/bin:$PATH"
+    fish_add_path --append "$HOME/bin"
 end
 
 if [ -d "$HOME/.local/bin" ]
-    set --export PATH "$HOME/.local/bin:$PATH"
+    fish_add_path --prepend "$HOME/.local/bin"
 end
 
 set --export NPM_BIN_PATH ''
 if [ -d "$HOME/.npm/bin" ]
     set --export NPM_BIN_PATH "$HOME/.npm/bin"
-    set --export PATH $PATH "$NPM_BIN_PATH"
+    fish_add_path --prepend "$NPM_BIN_PATH"
 end
 
 if [ -d "$HOME/.local/npm/bin" ]
     set --export NPM_BIN_PATH "$HOME/.local/npm/bin"
-    set --export PATH $PATH "$NPM_BIN_PATH"
+    fish_add_path --prepend "$NPM_BIN_PATH"
 end
 
 if [ ! -z "$NPM_BIN_PATH" ]
@@ -51,69 +51,66 @@ if [ ! -z "$NPM_BIN_PATH" ]
 end
 
 if [ -d "$HOME/.local/platform-tools" ]
-    set --export PATH "$HOME/.local/platform-tools:$PATH"
+    fish_add_path --prepend "$HOME/.local/platform-tools"
 end
 
 if [ -d "$HOME/.scripts" ]
-    set --export PATH "$HOME/.scripts:$PATH"
+    fish_add_path --prepend "$HOME/.scripts"
 end
 
 if [ -d "$HOME/.config/composer/vendor/bin" ]
-    set --export PATH $PATH "$HOME/.config/composer/vendor/bin"
+    fish_add_path --prepend "$HOME/.config/composer/vendor/bin"
 end
 
 if [ -d /snap/bin ]
-    set --export PATH "/snap/bin:$PATH"
+    fish_add_path --prepend /snap/bin
 end
 
 if [ -d /usr/local/MATLAB/R2021a ]
-    set --export PATH $PATH /usr/local/MATLAB/R2021a/bin/
+    fish_add_path --append /usr/local/MATLAB/R2021a/bin/
 end
 
 if [ -d /var/lib/flatpak/exports/share ]
-    set --export PATH $PATH /var/lib/flatpak/exports/share
+    fish_add_path --prepend /var/lib/flatpak/exports/share
 end
 
 if [ -d "$HOME/.local/share/flatpak/exports/share" ]
-    set --export PATH $PATH "$HOME/.local/share/flatpak/exports/share"
+    fish_add_path --prepend "$HOME/.local/share/flatpak/exports/share"
 end
 
 if [ -f "$HOME/.cargo/env.fish" ]
     source "$HOME/.cargo/env.fish"
 end
 
-if [ -d "$HOME/.local/share/JetBrains/Toolbox/scripts" ]
-    set --export PATH "$HOME/.local/share/JetBrains/Toolbox/scripts" $PATH
-end
-
 if [ -d "$HOME/.local/go/bin" ]
-    set --export PATH "$HOME/.local/go/bin" $PATH
+    fish_add_path --prepend "$HOME/.local/go/bin"
 end
 
 if [ -d /opt/homebrew/bin ]
-    set --export PATH $PATH /opt/homebrew/bin/
+    fish_add_path --prepend /opt/homebrew/bin/
 end
 
 if [ -d "$HOME/.local/surrealdb" ]
-    set --export PATH $PATH "$HOME/.local/surrealdb"
+    fish_add_path --prepend "$HOME/.local/surrealdb"
 end
 
 if [ -d "$HOME/.local/share/JetBrains/Toolbox/scripts" ]
-    set --export PATH $PATH "$HOME/.local/share/JetBrains/Toolbox/scripts"
+    fish_add_path --append "$HOME/.local/share/JetBrains/Toolbox/scripts"
 end
 
 set --export FLYCTL_INSTALL "$HOME/.local/fly"
 if [ -d "$FLYCTL_INSTALL/bin" ]
-    set --export PATH "$PATH" "$FLYCTL_INSTALL/bin"
+    fish_add_path --prepend "$FLYCTL_INSTALL/bin"
     flyctl completion fish | source
 end
 
 if [ -d /opt/nvim-linux64/bin ]
-    set --export PATH /opt/nvim-linux64/bin "$PATH"
+    fish_add_path --prepend /opt/nvim-linux64/bin
 end
 
 if [ -d "$XDG_DATA_HOME/gem/ruby/3.0.0/bin" ]
     set --export PATH "$PATH" "$XDG_DATA_HOME/gem/ruby/3.0.0/bin"
+    fish_add_path --append "$XDG_DATA_HOME/gem/ruby/3.0.0/bin"
 end
 
 if [ -z "$RIPGREP_CONFIG_PATH" ]
@@ -125,17 +122,21 @@ end
 
 if [ -d "$HOME/.local/share/pnpm" ]
     set --export PNPM_HOME "$HOME/.local/share/pnpm"
-    set --export PATH "$PNPM_HOME" "$PATH"
+    fish_add_path --prepend "$PNPM_HOME"
 end
 
 if [ -d "$HOME/.rd/bin" ]
-    set --export PATH "$PATH" "$HOME/.rd/bin"
+    fish_add_path --prepend "$HOME/.rd/bin"
 end
 
 if [ -d "$HOME/.turso" ]
-    set --export PATH "$HOME/.turso" "$PATH"
+    fish_add_path --prepend "$HOME/.turso"
 end
 
 if [ -f "$HOME/.local/shared-bin/env/env.fish" ]
     source "$HOME/.local/shared-bin/env/env.fish"
+end
+
+if [ -d "$HOME/.opencode/bin" ]
+    fish_add_path --prepend "$HOME/.opencode/bin"
 end

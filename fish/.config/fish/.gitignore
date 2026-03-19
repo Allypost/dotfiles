@@ -2,3 +2,4 @@
 fishd.tmp.*
 
 /conf.d/zzz_local.fish
+/conf.d/*.local.fish

@@ -5,6 +5,8 @@ set --global TERM xterm-256color
 #set --global DOCKER_BUILDKIT 1
 #set --global COMPOSE_DOCKER_CLI_BUILD 1
 
+# set --global WLR_NO_HARDWARE_CURSORS 1
+
 # Colored man pages
 set -xU MANPAGER 'less -R --use-color -Dd+r -Du+b'
 set -xU MANROFFOPT '-P -c'
