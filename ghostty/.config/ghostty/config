@@ -12,42 +12,43 @@
 # You can generate the list of valid values using the CLI:
 #   ghostty +list-fonts
 font-family = ""
-font-family = IosevkAlly Nerd Font
+font-family = IosevkAlly
 font-family = mononoki
-font-family = MonacoB Nerd Font
+font-family = MonacoB
 font-family = Monaco
 font-family = Fira Code
 font-size = 14
-# Seti-UI + Custom
-font-codepoint-map = U+E5FA-U+E62B=Symbols Nerd Font
-# Devicons
-font-codepoint-map = U+E700-U+E7C5=Symbols Nerd Font
-# Font Awesome
-font-codepoint-map = U+F000-U+F2E0=Symbols Nerd Font
-# Font Awesome Extension
-font-codepoint-map = U+E200-U+E2A9=Symbols Nerd Font
-# Material Design Icons
-font-codepoint-map = U+F500-U+FD46=Symbols Nerd Font
-# Weather
-font-codepoint-map = U+E300-U+E3EB=Symbols Nerd Font
-# Octicons
-font-codepoint-map = U+F400-U+F4A8,U+2665,U+26A1,U+F27C=Symbols Nerd Font
-# Powerline Extra Symbols
-font-codepoint-map = U+E0A3,U+E0B4-U+E0C8,U+E0CC-U+E0D2,U+E0D4=Symbols Nerd Font
-# IEC Power Symbols
-font-codepoint-map = U+23FB-U+23FE,U+2b58=Symbols Nerd Font
-# Font Logos
-font-codepoint-map = U+F300-U+F313=Symbols Nerd Font
-# Pomicons
-font-codepoint-map = U+E000-U+E00D=Symbols Nerd Font
-font-thicken = true
+font-feature = calt dlig liga
+# # Seti-UI + Custom
+# font-codepoint-map = U+E5FA-U+E62B=Symbols Nerd Font
+# # Devicons
+# font-codepoint-map = U+E700-U+E7C5=Symbols Nerd Font
+# # Font Awesome
+# font-codepoint-map = U+F000-U+F2E0=Symbols Nerd Font
+# # Font Awesome Extension
+# font-codepoint-map = U+E200-U+E2A9=Symbols Nerd Font
+# # Material Design Icons
+# font-codepoint-map = U+F500-U+FD46=Symbols Nerd Font
+# # Weather
+# font-codepoint-map = U+E300-U+E3EB=Symbols Nerd Font
+# # Octicons
+# font-codepoint-map = U+F400-U+F4A8,U+2665,U+26A1,U+F27C=Symbols Nerd Font
+# # Powerline Extra Symbols
+# font-codepoint-map = U+E0A3,U+E0B4-U+E0C8,U+E0CC-U+E0D2,U+E0D4=Symbols Nerd Font
+# # IEC Power Symbols
+# font-codepoint-map = U+23FB-U+23FE,U+2b58=Symbols Nerd Font
+# # Font Logos
+# font-codepoint-map = U+F300-U+F313=Symbols Nerd Font
+# # Pomicons
+# font-codepoint-map = U+E000-U+E00D=Symbols Nerd Font
+# font-thicken = true
 
 
 
 ####################
 ## THEME / COLORS ##
 ####################
-theme = PaulMillr
+theme = Paul Millr
 # theme = Alabaster
 
 
@@ -86,6 +87,11 @@ window-decoration = false
 window-theme = ghostty
 abnormal-command-exit-runtime = 1
 
+
+working-directory = home
+window-inherit-working-directory = true
+window-inherit-font-size = true
+gtk-single-instance = false
 
 
 ##############
