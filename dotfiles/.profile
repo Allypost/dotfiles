@@ -129,6 +129,7 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 
 export ERL_AFLAGS="-kernel shell_history enabled"
+# export WLR_NO_HARDWARE_CURSORS=1
 
 export WORKON_HOME="$HOME/.virtualenvs"
 
@@ -176,8 +177,8 @@ if [ -d "$HOME/.dotnet" ]; then
 	export PATH="$PATH:$DOTNET_ROOT"
 fi
 
-export QT_STYLE_OVERRIDE=kvantum-dark
-export QT_QPA_PLATFORMTHEME=qt5ct
+# export QT_STYLE_OVERRIDE=kvantum-dark
+export QT_QPA_PLATFORMTHEME=qt6ct
 
 # export DOCKER_BUILDKIT=1
 # export COMPOSE_DOCKER_CLI_BUILD=1
