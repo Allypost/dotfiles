@@ -1,0 +1,14 @@
+{
+  "defaultScope": "full",
+  "durations": [
+    30,
+    60,
+    120,
+    240,
+    480
+  ],
+  "includeUnlimited": true,
+  "showRemainingText": true,
+  "activateOnLeftClick": true,
+  "quickExtendMinutes": 30
+}

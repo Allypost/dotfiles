@@ -1,3 +1,4 @@
 *.local.conf
+*_local.lua
 /monitors.conf
 /workspaces.conf

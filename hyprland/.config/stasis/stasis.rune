@@ -1,13 +1,14 @@
 # global variable
-default_timeout 300
+screen_off_after  900
 
 #
 # Stasis configuration
 #
-stasis:
+default:
   # pre_suspend_command "hyprlock"
   monitor_media true
-  ignore_remote_media true
+  ignore_remote_media true # ignore remote players (spotify/kdeconnect/etc.)
+  enable_dbus_inhibit true
   # Stasis allows you to define a list of media
   # players that you want to be ignored when inhibiting
   # media playback
@@ -20,8 +21,8 @@ stasis:
 
   inhibit_apps [
     "vlc"
-    "Spotify"
-    "mpv"
+    # "Spotify"
+    # "mpv"
     r".*\.exe"
     r"steam_app_.*"
     # r"firefox.*"
@@ -34,8 +35,13 @@ stasis:
   #   resume-command "notify-send 'Welcome Back $env.USER!'"
   # end
 
+  startup:
+    timeout 0
+    command "notify-send -a Stasis -u low -e -t 3000 'Stasis started!'"
+  end
+
   dpms:
-    timeout 300
+    timeout screen_off_after
     command "hyprctl dispatch dpms off"
     resume-command "hyprctl dispatch dpms on && brightnessctl -r"
     # command "niri msg action power-off-monitors"

@@ -9,7 +9,7 @@
     // "margin": "4px 8px 0px 8px",
     "margin": "0",
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces#workspaces", "custom/niri-windows"],
+    "modules-left": ["hyprland/workspaces#workspaces"],
     "reload_style_on_change": true,
     "modules-center": ["hyprland/window", "hyprland/workspaces#window"],
     "modules-right": [
@@ -264,8 +264,8 @@
       //   "empty": "", // persistent (created by this plugin)
       // },
       "all-outputs": false,
-      "on-scroll-up": "hyprctl dispatch split-workspace -1",
-      "on-scroll-down": "hyprctl dispatch split-workspace +1",
+      "on-scroll-up": "hyprctl dispatch workspace e-1",
+      "on-scroll-down": "hyprctl dispatch workspace e+1",
     },
     "hyprland/workspaces#window": {
       "format": "{windows}",
