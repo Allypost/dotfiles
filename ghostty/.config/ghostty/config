@@ -82,6 +82,7 @@ keybind = ctrl+shift+right=next_tab
 keybind = ctrl+shift+t=new_tab
 keybind = ctrl+shift+tab=previous_tab
 keybind = ctrl+shift+plus=increase_font_size:2
+keybind = shift+enter=text:\x1b\r
 window-inherit-font-size = false
 window-decoration = false
 window-theme = ghostty
@@ -92,6 +93,8 @@ working-directory = home
 window-inherit-working-directory = true
 window-inherit-font-size = true
 gtk-single-instance = false
+
+copy-on-select = true
 
 
 ##############
