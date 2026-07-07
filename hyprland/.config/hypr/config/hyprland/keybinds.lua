@@ -23,6 +23,8 @@ hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
 hl.bind("ALT + tab", hl.dsp.window.cycle_next())
 hl.bind("ALT + SHIFT + tab", hl.dsp.window.cycle_next({ prev = true }))
 
+hl.bind(mainMod .. " + ALT + L", hl.dsp.exec_cmd("hyprlock"))
+
 -- for i = 1, 10 do
 -- 	local key = i % 10
 -- 	hl.bind(mainMod .. " + " .. key, hl.dsp.exec_cmd("hyprctl dispatch split-workspace " .. i))
