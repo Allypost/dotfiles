@@ -9,7 +9,8 @@ hl.on("hyprland.start", function()
 	-- -- Load Bar and Notification Daemon
 	-- hl.exec_cmd("waybar")
 	-- hl.exec_cmd("swaync")
-	hl.exec_cmd("qs -c noctalia-shell") -- all in one bar + notif
+	-- hl.exec_cmd("qs -c noctalia-shell") -- all in one bar + notif
+	hl.exec_cmd("noctalia") -- all in one bar + notif
 
 	-- Load cliphist history
 	hl.exec_cmd("wl-paste --watch cliphist store")
