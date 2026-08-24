@@ -1,4 +1,8 @@
 # some more ls aliases
+set --global IS_WAYLAND_SESSION 0
+if [ "$XDG_SESSION_TYPE" = wayland ]
+    set IS_WAYLAND_SESSION 1
+end
 alias ll='ls -Alhtr'
 alias lS='ll -S'
 alias la='ls -At'
@@ -216,7 +220,14 @@ alias o="xdg-open"
 
 # alias gitp="git pull --rebase"
 
-alias clip="xclip -sel clip"
+# alias clip="xclip -sel clip"
+function clip
+    if [ "$IS_WAYLAND_SESSION" -eq 1 ]
+        wl-copy "$argv"
+    else
+        xclip -sel clip "$argv"
+    end
+end
 
 alias cls='printf "\033[2J\033[3J\033[1;1H"'
 
