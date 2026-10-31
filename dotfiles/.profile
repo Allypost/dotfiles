@@ -191,8 +191,11 @@ if [ -f "$HOME/.local/share/JetBrains/Toolbox/scripts" ]; then
 	export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
 fi
 
-if [ -f "$HOME/.cargo/bin" ]; then
-	export PATH="$PATH:$HOME/.cargo/bin"
+if [ -d "$HOME/.cargo/bin" ]; then
+	case ":$PATH:" in
+	*":$HOME/.cargo/bin:"*) ;;
+	*) export PATH="$HOME/.cargo/bin:$PATH" ;;
+	esac
 fi
 
 # Screen locker config
@@ -204,11 +207,6 @@ export SPACEMACSDIR="$XDG_CONFIG_HOME/spacemacs"
 # Colored man pages
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export MANROFFOPT="-P -c"
-
-# Rust stuff
-if command -v sccache &>/dev/null; then
-	export RUSTC_WRAPPER='sccache'
-fi
 
 if [ -z "$RIPGREP_CONFIG_PATH" ]; then
 	RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/config"
