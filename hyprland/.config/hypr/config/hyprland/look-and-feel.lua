@@ -1,6 +1,3 @@
-local terminal = "ghostty"
-local fileManager = "dolphin"
-
 hl.config({
 	general = {
 		gaps_in = 2,

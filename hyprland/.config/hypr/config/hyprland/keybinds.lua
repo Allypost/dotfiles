@@ -1,5 +1,6 @@
 local terminal = "ghostty"
 local fileManager = "dolphin"
+-- local fileManager = "strata"
 local mainMod = "SUPER"
 
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.close())
