@@ -18,10 +18,6 @@ else if [ -f "$HOME/.asdf/asdf.fish" ]
     source ~/.asdf/asdf.fish
 end
 
-if command -v sccache &>/dev/null
-    set --global RUSTC_WRAPPER sccache
-end
-
 if command -v zoxide &>/dev/null
     zoxide init fish | source
 end
@@ -45,4 +41,8 @@ end
 
 if command -v direnv &>/dev/null
     direnv hook fish | source
+end
+
+if command -v unifi &>/dev/null
+    unifi completions fish | source
 end
