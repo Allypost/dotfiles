@@ -24,3 +24,19 @@ end
 hl.bind(mainMod .. " + tab", smw.cycle_workspaces("+1"))
 hl.bind(mainMod .. " + SHIFT + tab", smw.cycle_workspaces("-1"))
 hl.bind(mainMod .. " + ALT + G", smw.grab_rogue_windows())
+
+-- For Noctalia Color templates
+local noctalia_ok, noctalia = pcall(require, "noctalia")
+if noctalia_ok then
+	noctalia.apply_theme()
+end
+
+-- Added by hyprmoncfg: its generated monitor rules load last, so nothing before this can override the applied layout.
+do
+	local path = os.getenv("HOME") .. "/.config/hypr/hyprmoncfg-monitors.lua"
+	local file = io.open(path, "r")
+	if file then
+		file:close()
+		dofile(path)
+	end
+end

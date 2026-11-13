@@ -2,3 +2,5 @@
 *_local.lua
 /monitors.conf
 /workspaces.conf
+/hyprmoncfg-monitors.lua
+/noctalia.lua
