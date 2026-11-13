@@ -223,9 +223,9 @@ alias o="xdg-open"
 # alias clip="xclip -sel clip"
 function clip
     if [ "$IS_WAYLAND_SESSION" -eq 1 ]
-        wl-copy "$argv"
+        wl-copy
     else
-        xclip -sel clip "$argv"
+        xclip -sel clip
     end
 end
 
