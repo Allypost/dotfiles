@@ -25,6 +25,12 @@ hl.bind("ALT + SHIFT + tab", hl.dsp.window.cycle_next({ prev = true }))
 
 hl.bind(mainMod .. " + ALT + L", hl.dsp.exec_cmd("hyprlock"))
 
+hl.bind(mainMod .. " + ALT + PERIOD", function()
+	hl.timer(function()
+		hl.dispatch(hl.dsp.dpms({ action = "off" }))
+	end, { timeout = 500, type = "oneshot" })
+end)
+
 -- for i = 1, 10 do
 -- 	local key = i % 10
 -- 	hl.bind(mainMod .. " + " .. key, hl.dsp.exec_cmd("hyprctl dispatch split-workspace " .. i))
