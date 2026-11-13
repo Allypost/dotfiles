@@ -12,6 +12,9 @@ local float_persistent = {
 	"minecraft-launcher",
 	"flameshot",
 	"xdg-desktop-portal-gtk",
+	"org.freedesktop.impl.portal.desktop.kde",
+	-- Bitwarden extension popups
+	"brave-nngceckbapebfimnlniiiahkandclblb-Profile_.+",
 }
 
 for _, cls in ipairs(float_persistent) do
@@ -45,3 +48,12 @@ hl.config({
 		force_zero_scaling = true,
 	},
 })
+
+hl.on("window.title", function(w)
+	if w == nil or w.floating then
+		return
+	end
+	if w.class:match("^firefox") and w.title:match("^Extension: %(.+%).*") then
+		hl.dispatch(hl.dsp.window.float({ action = "set", window = w }))
+	end
+end)
