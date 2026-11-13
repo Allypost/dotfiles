@@ -25,6 +25,38 @@ hl.bind(mainMod .. " + tab", smw.cycle_workspaces("+1"))
 hl.bind(mainMod .. " + SHIFT + tab", smw.cycle_workspaces("-1"))
 hl.bind(mainMod .. " + ALT + G", smw.grab_rogue_windows())
 
+local function do_relabel_workspaces()
+	local workspaces_per_monitor = smw.get_amount_of_workspaces()
+	local function mapped_monitor_count()
+		local count = 0
+		for _, m in ipairs(hl.get_monitors()) do
+			if m.enabled and not m.is_mirror then
+				count = count + 1
+			end
+		end
+		return count
+	end
+	local function relabel_workspaces()
+		-- Only the first workspaces_per_monitor ids per monitor are bound to keys;
+		-- higher ids (e.g. manually created workspaces) keep their default names.
+		local max_id = workspaces_per_monitor * mapped_monitor_count()
+		for _, ws in ipairs(hl.get_workspaces()) do
+			if ws.id and ws.id >= 1 and ws.id <= max_id then
+				local n = (ws.id - 1) % workspaces_per_monitor + 1
+				hl.dispatch(hl.dsp.workspace.rename({
+					workspace = tostring(ws.id),
+					name = n == 10 and "0" or tostring(n),
+				}))
+			end
+		end
+	end
+	relabel_workspaces()
+end
+
+do_relabel_workspaces()
+hl.on("workspace.created", do_relabel_workspaces)
+hl.on("monitor.added", do_relabel_workspaces)
+
 -- For Noctalia Color templates
 local noctalia_ok, noctalia = pcall(require, "noctalia")
 if noctalia_ok then
