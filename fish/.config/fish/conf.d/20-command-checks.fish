@@ -46,3 +46,11 @@ end
 if command -v unifi &>/dev/null
     unifi completions fish | source
 end
+
+if command -v anime-downloader &>/dev/null
+    anime-downloader dump-completions fish | source
+end
+
+if command -v downloader-cli &>/dev/null
+    downloader-cli --dump-completions fish | source
+end
